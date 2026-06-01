@@ -104,7 +104,9 @@ export async function analyzeWriting(
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
-    signal: AbortSignal.timeout(60_000),
+    // Qwen2.5:14b on home-server hardware can take 30-90s for a fresh
+    // request, especially on a cold model load. Give it room.
+    signal: AbortSignal.timeout(240_000),
   });
   if (!r.ok) {
     throw new Error(`Ollama returned ${r.status}: ${await r.text()}`);
