@@ -2,15 +2,21 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContentStore } from "@/store/content";
 import { useSessionStore } from "@/store/session";
-import { flattenUnit } from "@/components/runner/types";
 import { isItemAnswered, scoreItem } from "@/lib/scoring";
 import { api, type ProfileId, type CompletedResult } from "@/api/client";
+import { enumerateQuizzes } from "@/lib/quizzes";
+
+const FORM_FOR: Record<ProfileId, string> = {
+  olive: "g6-form-a",
+  fox: "g4-form-a",
+};
 
 export default function Review() {
-  const { profile, unitId } = useParams();
+  const { profile, quizId } = useParams();
   const p = profile as ProfileId;
   const nav = useNavigate();
-  const { content, status, load, formsById, itemsById } = useContentStore();
+  const { content, status, load, formsById, passagesById, itemsById } =
+    useContentStore();
   const session = useSessionStore();
   const [submitting, setSubmitting] = useState(false);
 
@@ -22,41 +28,58 @@ export default function Review() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [p]);
 
-  const formId = p === "olive" ? "g6-form-a" : "g4-form-a";
+  const formId = FORM_FOR[p];
   const form = content && formsById.get(formId);
-  const unit = form?.units.find((u) => u.id === unitId);
-  const flat = useMemo(() => (unit ? flattenUnit(unit) : []), [unit]);
+  const quiz = useMemo(
+    () =>
+      form
+        ? enumerateQuizzes(form, passagesById).find((q) => q.quizId === quizId)
+        : undefined,
+    [form, passagesById, quizId],
+  );
+  const items = useMemo(
+    () =>
+      quiz?.itemIds
+        .map((id) => itemsById.get(id))
+        .filter((x): x is NonNullable<typeof x> => !!x) ?? [],
+    [quiz, itemsById],
+  );
 
-  if (status !== "ready" || !content || !unit) return <div className="p-6">Loading…</div>;
-  if (!session.state || session.state.unitId !== unit.id) {
+  if (status !== "ready" || !content || !quiz)
+    return <div className="p-6 text-muted">Loading…</div>;
+
+  if (!session.state || session.state.quizId !== quiz.quizId) {
     return (
       <div className="p-6">
-        No active session. <Link to={`/profile/${p}/forms`} className="underline text-accent">Back to units</Link>.
+        No active session for this quiz.{" "}
+        <Link
+          to={`/profile/${p}/quizzes`}
+          className="underline text-accent"
+        >
+          Back to quizzes
+        </Link>
+        .
       </div>
     );
   }
 
   const responses = session.state.responses;
   const flags = session.state.flags;
-  const answered = flat.filter((f) => {
-    const it = itemsById.get(f.itemId);
-    return it && isItemAnswered(it, responses[f.itemId]);
-  }).length;
-  const flagged = flat.filter((f) => !!flags[f.itemId]).length;
+  const answered = items.filter((it) =>
+    isItemAnswered(it, responses[it.id]),
+  ).length;
+  const flagged = items.filter((it) => !!flags[it.id]).length;
 
   async function submit() {
-    if (!session.state || !unit) return;
+    if (!session.state || !quiz) return;
     setSubmitting(true);
     try {
       const byItem: CompletedResult["auto"]["byItem"] = {};
       let earned = 0;
       let possible = 0;
-      const parentScores: Record<string, number> = {};
-      for (const f of flat) {
-        const it = itemsById.get(f.itemId);
-        if (!it) continue;
-        const sc = scoreItem(it, responses[f.itemId]);
-        byItem[f.itemId] = {
+      for (const it of items) {
+        const sc = scoreItem(it, responses[it.id]);
+        byItem[it.id] = {
           earned: sc.earned,
           possible: sc.possible,
           correct: sc.correct,
@@ -69,20 +92,22 @@ export default function Review() {
       const payload: Omit<CompletedResult, "id"> = {
         profile: p,
         formId,
-        unitId: unit.id,
+        quizId: quiz.quizId,
+        unitId: quiz.unitId,
+        sectionIdx: quiz.sectionIdx,
+        passageTitle: quiz.passage.title,
         submittedAt: Date.now(),
         responses,
         flags,
         auto: { earned, possible, byItem },
-        parentScores,
+        parentScores: {},
         meta: {
           highlights: session.state.highlights,
           notes: session.state.notes,
         },
       };
       const saved = await api.postResult(p, payload);
-      await api.clearState(p);
-      useSessionStore.setState({ state: null });
+      // Keep in-progress state — student may want to edit & re-submit.
       nav(`/profile/${p}/results/${saved.id}`);
     } finally {
       setSubmitting(false);
@@ -90,42 +115,47 @@ export default function Review() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-3xl mx-auto p-6">
       <header className="mb-4">
-        <Link to={`/profile/${p}/run/${unit.id}`} className="text-sm text-accent underline">
-          ← Back to the test
+        <Link
+          to={`/profile/${p}/quiz/${quiz.quizId}`}
+          className="text-sm text-accent underline"
+        >
+          ← Back to the quiz
         </Link>
         <h1 className="font-ui text-2xl font-semibold mt-2">
-          Review — {unit.title}
+          Review — Quiz {quiz.quizN}: {quiz.passage.title}
         </h1>
         <p className="text-muted text-sm">
-          {answered} answered · {flat.length - answered} unanswered · {flagged} flagged
+          {answered} of {items.length} answered · {items.length - answered} unanswered ·{" "}
+          {flagged} flagged
         </p>
       </header>
 
       <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 mb-6">
-        {flat.map((f, i) => {
-          const it = itemsById.get(f.itemId);
-          const ans = it ? isItemAnswered(it, responses[f.itemId]) : false;
-          const flag = !!flags[f.itemId];
+        {items.map((it, i) => {
+          const ans = isItemAnswered(it, responses[it.id]);
+          const flag = !!flags[it.id];
           return (
             <button
-              key={f.itemId}
+              key={it.id}
               onClick={() => {
                 session.setCurrentIndex(i);
-                nav(`/profile/${p}/run/${unit.id}`);
+                nav(`/profile/${p}/quiz/${quiz.quizId}`);
               }}
               className="card text-left hover:bg-accentSoft flex items-center justify-between"
               aria-label={`Go to item ${i + 1}`}
             >
               <span>
                 Item {i + 1}
-                <span className="ml-2 text-xs text-muted">{it?.type}</span>
+                <span className="ml-2 text-xs text-muted">{it.type}</span>
               </span>
               <span className="text-sm">
                 {flag && <span className="text-accent mr-2">⚑</span>}
                 <span
-                  className={ans ? "text-accent font-semibold" : "text-muted"}
+                  className={
+                    ans ? "text-accent font-semibold" : "text-muted"
+                  }
                 >
                   {ans ? "Answered" : "Not answered"}
                 </span>
@@ -136,7 +166,10 @@ export default function Review() {
       </div>
 
       <div className="flex flex-wrap gap-2 items-center justify-end border-t border-border pt-4">
-        <Link to={`/profile/${p}/run/${unit.id}`} className="btn">
+        <Link
+          to={`/profile/${p}/quiz/${quiz.quizId}`}
+          className="btn"
+        >
           Keep working
         </Link>
         <button
@@ -145,7 +178,7 @@ export default function Review() {
           onClick={() => {
             if (
               confirm(
-                "Submit your answers? You'll see the results and can't change your responses after this.",
+                "Submit your answers? You'll see your score and a summary, and you can come back to fix things and submit again.",
               )
             ) {
               void submit();

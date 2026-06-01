@@ -52,29 +52,60 @@ export default function ResultDetail() {
       </div>
     );
 
+  const quizLabel = result.quizId
+    ? `Quiz ${result.quizId}${result.passageTitle ? `: ${result.passageTitle}` : ""}`
+    : result.unitId;
+
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       <header>
-        <Link to={`/profile/${p}/results`} className="text-sm text-accent underline">
-          ← All results
+        <Link
+          to={`/profile/${p}/quizzes`}
+          className="text-sm text-accent underline"
+        >
+          ← Back to quizzes
         </Link>
         <h1 className="font-ui text-2xl font-semibold mt-2">
-          Results — {new Date(result.submittedAt).toLocaleString()}
+          {quizLabel}
         </h1>
         <p className="text-muted text-sm">
-          {result.formId} · {result.unitId} · {p === "olive" ? "Olive" : "Fox"}
+          Submitted {new Date(result.submittedAt).toLocaleString()} ·{" "}
+          {p === "olive" ? "Olive" : "Fox"}
         </p>
       </header>
 
-      <section className="card">
+      <section
+        className="card"
+        style={{
+          background: "rgba(34,197,94,0.10)",
+          borderColor: "#16a34a",
+        }}
+      >
         <h2 className="font-ui font-semibold mb-2">Auto-scored total</h2>
         <div className="text-3xl">
           {Math.round(result.auto.earned * 10) / 10} / {result.auto.possible}
         </div>
         <p className="text-sm text-muted mt-1">
-          Written responses are not auto-scored — see below to enter parent
-          scores from the rubric.
+          Written responses are not auto-scored — read those together below
+          and use the rubric buttons to record a score.
         </p>
+        {result.quizId && (
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Link
+              to={`/profile/${p}/quiz/${result.quizId}`}
+              className="btn"
+              title="Re-open this quiz with your answers as they were; you can change them and submit again."
+            >
+              ← Go back and fix answers
+            </Link>
+            <Link
+              to={`/profile/${p}/quiz/${result.quizId}/review`}
+              className="btn btn-primary"
+            >
+              Re-submit from review
+            </Link>
+          </div>
+        )}
       </section>
 
       {bySkill.length > 0 && (

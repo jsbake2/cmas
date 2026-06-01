@@ -111,18 +111,61 @@ app.post("/api/results/:profile", (req, res) => {
   if (!req.body || typeof req.body !== "object") {
     return res.status(400).json({ error: "Body required" });
   }
-  const incomingProfile = (req.body as { profile?: string }).profile;
-  if (incomingProfile && incomingProfile !== p) {
+  const body = req.body as {
+    profile?: string;
+    quizId?: string;
+    unitId?: string;
+    submittedAt?: number;
+    parentScores?: Record<string, number>;
+  };
+  if (body.profile && body.profile !== p) {
     return res
       .status(400)
       .json({ error: "Profile in body does not match URL" });
   }
-  const id = randomUUID();
-  const submittedAt =
-    Number((req.body as { submittedAt?: number }).submittedAt) || Date.now();
-  const stored = { ...req.body, id, profile: p, submittedAt };
-  stmts.insertResult.run(id, p, submittedAt, JSON.stringify(stored));
-  res.status(201).json(stored);
+  const quizId = body.quizId ?? body.unitId;
+  if (!quizId) {
+    return res.status(400).json({ error: "quizId required" });
+  }
+
+  // If a result for this (profile, quiz) already exists, preserve its id and
+  // any parent scores already entered so a re-submit doesn't wipe them.
+  const existing = stmts.getResultByQuiz.get(p, quizId) as
+    | { id: string; json: string }
+    | undefined;
+  const id = existing?.id ?? randomUUID();
+  let priorParent: Record<string, number> | undefined;
+  if (existing) {
+    try {
+      priorParent = (JSON.parse(existing.json) as { parentScores?: Record<string, number> })
+        .parentScores;
+    } catch {
+      priorParent = undefined;
+    }
+  }
+  const submittedAt = Number(body.submittedAt) || Date.now();
+  const stored = {
+    ...body,
+    id,
+    profile: p,
+    quizId,
+    submittedAt,
+    parentScores: { ...(priorParent ?? {}), ...(body.parentScores ?? {}) },
+  };
+  stmts.upsertResult.run(id, p, quizId, submittedAt, JSON.stringify(stored));
+  res.status(existing ? 200 : 201).json(stored);
+});
+
+/**
+ * Wipe everything for a profile: in-progress session + all completed results.
+ * The "reset progress" button in the UI calls this.
+ */
+app.delete("/api/profile/:profile/all-data", (req, res) => {
+  const p = requireProfile(req, res);
+  if (!p) return;
+  stmts.deleteState.run(p);
+  const r = stmts.deleteResultsForProfile.run(p);
+  res.json({ ok: true, removedResults: r.changes });
 });
 
 app.get("/api/results", (_req, res) => {

@@ -59,9 +59,11 @@ function ChildColumn({
               >
                 <div>
                   <div className="text-sm font-semibold">
+                    Quiz {r.quizId}: {r.passageTitle ?? r.unitId}
+                  </div>
+                  <div className="text-xs text-muted">
                     {new Date(r.submittedAt).toLocaleString()}
                   </div>
-                  <div className="text-xs text-muted">{r.unitId}</div>
                 </div>
                 <div className="text-sm font-semibold">
                   {Math.round(r.auto.earned * 10) / 10} / {r.auto.possible}

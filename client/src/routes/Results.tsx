@@ -14,17 +14,20 @@ export default function Results() {
   return (
     <div className="max-w-3xl mx-auto p-6">
       <header className="mb-4">
-        <Link to={`/profile/${p}/forms`} className="text-sm text-accent underline">
+        <Link
+          to={`/profile/${p}/quizzes`}
+          className="text-sm text-accent underline"
+        >
           ← Back
         </Link>
         <h1 className="font-ui text-2xl font-semibold mt-2">
-          {p === "olive" ? "Olive" : "Fox"} — past results
+          {p === "olive" ? "Olive" : "Fox"} — completed quizzes
         </h1>
       </header>
 
       {list === null && <div className="text-muted">Loading…</div>}
       {list && list.length === 0 && (
-        <div className="card">No completed sessions yet.</div>
+        <div className="card">No completed quizzes yet.</div>
       )}
       <ul className="space-y-2">
         {list?.map((r) => (
@@ -35,10 +38,10 @@ export default function Results() {
             >
               <div>
                 <div className="font-semibold">
-                  {new Date(r.submittedAt).toLocaleString()}
+                  Quiz {r.quizId}: {r.passageTitle ?? r.unitId}
                 </div>
                 <div className="text-sm text-muted">
-                  {r.formId} · {r.unitId}
+                  Submitted {new Date(r.submittedAt).toLocaleString()}
                 </div>
               </div>
               <div className="text-right">

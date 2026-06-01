@@ -42,7 +42,7 @@ export default function Home() {
           <button
             key={p.id}
             disabled={status !== "ready"}
-            onClick={() => nav(`/profile/${p.id}/forms`)}
+            onClick={() => nav(`/profile/${p.id}/quizzes`)}
             className="card text-left p-6 sm:p-8 hover:bg-accentSoft transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             aria-label={`Start as ${p.name}, grade ${p.grade}`}
           >

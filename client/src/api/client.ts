@@ -22,7 +22,12 @@ export interface CompletedResult {
   id: string;
   profile: ProfileId;
   formId: string;
+  /** Display ordinal as string ("1".."N"); upsert key with profile. */
+  quizId: string;
+  /** Underlying unit (kept for traceability; not user-facing). */
   unitId: string;
+  sectionIdx: number;
+  passageTitle: string;
   submittedAt: number;
   responses: Record<string, unknown>;
   flags: Record<string, boolean>;
@@ -41,7 +46,9 @@ export interface CompletedResult {
 export interface SessionState {
   profile: ProfileId;
   formId: string;
+  quizId: string;
   unitId: string;
+  sectionIdx: number;
   startedAt: number;
   currentIndex: number;
   responses: Record<string, unknown>;
@@ -92,4 +99,11 @@ export const api = {
       headers: json,
       body: JSON.stringify({ itemId, score }),
     }),
+
+  /** Wipe in-progress session + all completed results for this profile. */
+  resetProfile: (p: ProfileId) =>
+    req<{ ok: true; removedResults: number }>(
+      `/api/profile/${p}/all-data`,
+      { method: "DELETE" },
+    ),
 };

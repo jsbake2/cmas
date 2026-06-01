@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "@/routes/Home";
 import Settings from "@/routes/Settings";
-import FormSelect from "@/routes/FormSelect";
+import QuizSelect from "@/routes/QuizSelect";
 import Runner from "@/routes/Runner";
 import Review from "@/routes/Review";
 import Results from "@/routes/Results";
@@ -33,13 +33,13 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile/:profile/settings" element={<Settings />} />
-          <Route path="/profile/:profile/forms" element={<FormSelect />} />
+          <Route path="/profile/:profile/quizzes" element={<QuizSelect />} />
           <Route
-            path="/profile/:profile/run/:unitId"
+            path="/profile/:profile/quiz/:quizId"
             element={<Runner />}
           />
           <Route
-            path="/profile/:profile/review/:unitId"
+            path="/profile/:profile/quiz/:quizId/review"
             element={<Review />}
           />
           <Route
@@ -48,6 +48,11 @@ export default function App() {
           />
           <Route path="/profile/:profile/results" element={<Results />} />
           <Route path="/review" element={<ParentReview />} />
+          {/* Legacy / redirect old links */}
+          <Route
+            path="/profile/:profile/forms"
+            element={<Navigate to="../quizzes" replace />}
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

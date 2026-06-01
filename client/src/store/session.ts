@@ -16,11 +16,15 @@ interface SessionStoreState {
   saveError: string | null;
 
   loadFor: (p: ProfileId) => Promise<void>;
-  startSession: (
-    p: ProfileId,
-    formId: string,
-    unitId: string,
-  ) => void;
+  startQuiz: (params: {
+    profile: ProfileId;
+    formId: string;
+    quizId: string;
+    unitId: string;
+    sectionIdx: number;
+    seedResponses?: Record<string, unknown>;
+    seedFlags?: Record<string, boolean>;
+  }) => void;
   setCurrentIndex: (i: number) => void;
   setResponse: (itemId: string, value: unknown) => void;
   toggleFlag: (itemId: string) => void;
@@ -28,7 +32,11 @@ interface SessionStoreState {
   setMasked: (itemId: string, masked: boolean) => void;
   setHighlights: (passageId: string, hl: Highlight[]) => void;
   addHighlight: (passageId: string, h: Highlight) => void;
-  clearHighlightsAt: (passageId: string, paraIdx: number, charIdx: number) => void;
+  clearHighlightsAt: (
+    passageId: string,
+    paraIdx: number,
+    charIdx: number,
+  ) => void;
   setNote: (passageId: string, note: string) => void;
   setTimerState: (t: SessionState["timer"]) => void;
   saveNow: () => Promise<void>;
@@ -68,21 +76,31 @@ export const useSessionStore = create<SessionStoreState>((set, get) => ({
     }
   },
 
-  startSession: (p, formId, unitId) => {
+  startQuiz: ({
+    profile,
+    formId,
+    quizId,
+    unitId,
+    sectionIdx,
+    seedResponses,
+    seedFlags,
+  }) => {
     const fresh: SessionState = {
-      profile: p,
+      profile,
       formId,
+      quizId,
       unitId,
+      sectionIdx,
       startedAt: Date.now(),
       currentIndex: 0,
-      responses: {},
-      flags: {},
+      responses: seedResponses ?? {},
+      flags: seedFlags ?? {},
       eliminated: {},
       masked: {},
       highlights: {},
       notes: {},
     };
-    set({ profile: p, state: fresh, loaded: true });
+    set({ profile, state: fresh, loaded: true });
     scheduleSave(get);
   },
 

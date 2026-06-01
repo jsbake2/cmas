@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContentStore } from "@/store/content";
 import { useSessionStore } from "@/store/session";
-import { flattenUnit } from "@/components/runner/types";
 import Toolbar from "@/components/runner/Toolbar";
 import PassagePanel from "@/components/runner/PassagePanel";
 import ItemPanel from "@/components/items/ItemPanel";
@@ -11,10 +10,16 @@ import Notepad from "@/components/runner/Notepad";
 import LineReader from "@/components/runner/LineReader";
 import Tutorial from "@/components/runner/Tutorial";
 import Timer from "@/components/runner/Timer";
-import type { ProfileId } from "@/api/client";
+import { api, type CompletedResult, type ProfileId } from "@/api/client";
+import { enumerateQuizzes } from "@/lib/quizzes";
+
+const FORM_FOR: Record<ProfileId, string> = {
+  olive: "g6-form-a",
+  fox: "g4-form-a",
+};
 
 export default function Runner() {
-  const { profile, unitId } = useParams();
+  const { profile, quizId } = useParams();
   const p = profile as ProfileId;
   const nav = useNavigate();
   const { content, status, load, formsById, passagesById, itemsById } =
@@ -54,48 +59,108 @@ export default function Runner() {
     };
   }, []);
 
-  const formId = p === "olive" ? "g6-form-a" : "g4-form-a";
+  const formId = FORM_FOR[p];
   const form = content && formsById.get(formId);
-  const unit = useMemo(
-    () => form?.units.find((u) => u.id === unitId),
-    [form, unitId],
+  const quiz = useMemo(
+    () => (form ? enumerateQuizzes(form, passagesById).find((q) => q.quizId === quizId) : undefined),
+    [form, passagesById, quizId],
   );
 
-  const flat = useMemo(() => (unit ? flattenUnit(unit) : []), [unit]);
+  // If this quiz has already been submitted, fetch the saved result so we can
+  // offer to re-seed the session from it ("go back and fix answers" flow).
+  const [savedResult, setSavedResult] = useState<CompletedResult | null>(null);
+  useEffect(() => {
+    if (!quiz) return;
+    let cancelled = false;
+    api.results(p).then((list) => {
+      if (cancelled) return;
+      setSavedResult(list.find((r) => r.quizId === quiz.quizId) ?? null);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [p, quiz?.quizId]);
+
+  const items = useMemo(
+    () =>
+      quiz?.itemIds
+        .map((id) => itemsById.get(id))
+        .filter((x): x is NonNullable<typeof x> => !!x) ?? [],
+    [quiz, itemsById],
+  );
 
   const currentIdx = Math.min(
     Math.max(0, session.state?.currentIndex ?? 0),
-    Math.max(0, flat.length - 1),
+    Math.max(0, items.length - 1),
   );
 
-  if (status !== "ready" || !content || !unit) {
+  if (status !== "ready" || !content || !quiz) {
     return <div className="p-6 text-muted">Loading…</div>;
   }
 
-  if (!session.state || session.state.unitId !== unit.id) {
+  // If the current session is for a different quiz (or no session), start it.
+  const sessionMatchesQuiz =
+    session.state &&
+    session.state.formId === formId &&
+    session.state.quizId === quiz.quizId;
+
+  if (!sessionMatchesQuiz) {
+    const hasSaved = !!savedResult;
     return (
       <div className="p-6 max-w-md mx-auto text-center">
-        <p className="mb-4">Starting unit “{unit.title}”…</p>
-        <button
-          className="btn btn-primary"
-          onClick={() =>
-            useSessionStore.getState().startSession(p, formId, unit.id)
-          }
-        >
-          Begin
-        </button>
+        <p className="font-ui text-lg mb-1">
+          Quiz {quiz.quizN}: {quiz.passage.title}
+        </p>
+        <p className="text-muted mb-4 text-sm">
+          {items.length} question{items.length === 1 ? "" : "s"}
+          {hasSaved && " · you've submitted this one before"}
+        </p>
+        <div className="flex flex-col gap-2">
+          {hasSaved && (
+            <button
+              className="btn btn-primary"
+              onClick={() =>
+                useSessionStore.getState().startQuiz({
+                  profile: p,
+                  formId,
+                  quizId: quiz.quizId,
+                  unitId: quiz.unitId,
+                  sectionIdx: quiz.sectionIdx,
+                  seedResponses: savedResult!.responses,
+                  seedFlags: savedResult!.flags,
+                })
+              }
+            >
+              Continue with your previous answers
+            </button>
+          )}
+          <button
+            className={hasSaved ? "btn" : "btn btn-primary"}
+            onClick={() =>
+              useSessionStore.getState().startQuiz({
+                profile: p,
+                formId,
+                quizId: quiz.quizId,
+                unitId: quiz.unitId,
+                sectionIdx: quiz.sectionIdx,
+              })
+            }
+          >
+            {hasSaved ? "Start over from scratch" : "Begin"}
+          </button>
+        </div>
+        <div className="mt-4">
+          <Link className="text-accent underline text-sm" to={`/profile/${p}/quizzes`}>
+            ← Back to quizzes
+          </Link>
+        </div>
       </div>
     );
   }
 
-  const cur = flat[currentIdx];
-  const item = itemsById.get(cur.itemId);
+  const item = items[currentIdx];
   if (!item) return <div className="p-6">Item not found.</div>;
-
-  const section = unit.sections[cur.sectionIdx];
-  const passages = section.passageIds
-    .map((id) => passagesById.get(id))
-    .filter((x): x is NonNullable<typeof x> => !!x);
+  const passage = quiz.passage;
 
   function go(i: number) {
     session.setCurrentIndex(i);
@@ -104,11 +169,11 @@ export default function Runner() {
   return (
     <div className="flex flex-col h-screen">
       <header className="border-b border-border px-4 py-2 flex items-center gap-3 bg-paper">
-        <Link to={`/profile/${p}/forms`} className="text-sm text-accent underline">
+        <Link to={`/profile/${p}/quizzes`} className="text-sm text-accent underline">
           ← Exit
         </Link>
         <div className="font-ui font-semibold flex-1 truncate">
-          {unit.title}
+          Quiz {quiz.quizN}: {passage.title}
         </div>
         <div className="text-sm text-muted">
           {p === "olive" ? "Olive" : "Fox"}
@@ -120,7 +185,7 @@ export default function Runner() {
 
       <div className="flex-1 flex min-h-0 relative" style={{ overflow: "hidden" }}>
         <div style={{ width: `${leftPct}%` }} className="border-r border-border min-w-0">
-          <PassagePanel passages={passages} currentItem={item} />
+          <PassagePanel passages={[passage]} currentItem={item} />
         </div>
         <div
           onMouseDown={() => {
@@ -136,21 +201,20 @@ export default function Runner() {
           <ItemPanel
             item={item}
             itemNumber={currentIdx + 1}
-            totalItems={flat.length}
+            totalItems={items.length}
           />
         </div>
       </div>
 
       <BottomBar
-        flat={flat}
+        items={items}
         current={currentIdx}
-        items={itemsById}
         onChange={go}
-        onReview={() => nav(`/profile/${p}/review/${unit.id}`)}
+        onReview={() => nav(`/profile/${p}/quiz/${quiz.quizId}/review`)}
       />
 
       {/* overlays */}
-      <Notepad passageId={passages[0]?.id ?? ""} />
+      <Notepad passageId={passage.id} />
       <LineReader />
       <Tutorial />
     </div>

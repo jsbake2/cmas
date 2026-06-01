@@ -22,7 +22,7 @@ export default function Settings() {
   return (
     <div className="max-w-2xl w-full mx-auto p-6 space-y-6">
       <header>
-        <Link to={`/profile/${profile}/forms`} className="text-sm text-accent underline">
+        <Link to={`/profile/${profile}/quizzes`} className="text-sm text-accent underline">
           ← Back
         </Link>
         <h1 className="font-ui text-2xl font-semibold mt-2">Settings</h1>
