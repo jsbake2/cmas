@@ -1,0 +1,60 @@
+# CMAS Practice — Docker Compose
+#
+# - `cmas` is the app (frontend + tiny backend) reachable on the LAN at :8473.
+# - `cloudflared` is a sidecar that connects out to the Cloudflare Tunnel and
+#   makes the same app available at https://cmas.jsb-emr.us, gated by
+#   Cloudflare Access (allow-list: jason.shawn.baker@gmail.com via OTP).
+#
+# Secrets: TUNNEL_TOKEN must be set in .env (gitignored). The token is a
+# per-tunnel JWT, not an account API key.
+
+services:
+  cmas:
+    build: .
+    image: cmas-sim:latest
+    container_name: cmas
+    restart: unless-stopped
+    environment:
+      PORT: "8473"
+      HOST: "0.0.0.0"
+      DB_PATH: "/data/cmas.db"
+      CONTENT_PATH: "/app/content/cmas-content.json"
+    volumes:
+      - cmas_data:/data
+      # Optional: mount a replacement content file without rebuilding the image.
+      # - ./cmas-content.json:/app/content/cmas-content.json:ro
+    ports:
+      # Default: publish on all host interfaces so the LAN can reach it at
+      # http://10.0.0.16:8473. To restrict strictly to the LAN interface,
+      # change the left side to the LAN IP, e.g. "10.0.0.16:8473:8473".
+      - "8473:8473"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:8473/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+
+  cloudflared:
+    image: cloudflare/cloudflared:2026.3.0
+    container_name: cmas-cloudflared
+    restart: unless-stopped
+    depends_on:
+      cmas:
+        condition: service_healthy
+    command:
+      - tunnel
+      - --no-autoupdate
+      - run
+      - --token
+      - ${TUNNEL_TOKEN:?TUNNEL_TOKEN must be set in .env}
+
+volumes:
+  cmas_data:
+    name: cmas_data

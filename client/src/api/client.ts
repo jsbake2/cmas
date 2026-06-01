@@ -1,0 +1,95 @@
+import type { Content } from "@/content/schema";
+
+const json = { "Content-Type": "application/json" } as const;
+
+async function req<T>(url: string, init?: RequestInit): Promise<T> {
+  const r = await fetch(url, init);
+  if (!r.ok) throw new Error(`${init?.method ?? "GET"} ${url} → ${r.status}`);
+  if (r.status === 204) return undefined as T;
+  return (await r.json()) as T;
+}
+
+export type ProfileId = "olive" | "fox";
+
+export interface Profile {
+  id: ProfileId;
+  name: string;
+  grade: number;
+  formId: string;
+}
+
+export interface CompletedResult {
+  id: string;
+  profile: ProfileId;
+  formId: string;
+  unitId: string;
+  submittedAt: number;
+  responses: Record<string, unknown>;
+  flags: Record<string, boolean>;
+  auto: {
+    earned: number;
+    possible: number;
+    byItem: Record<
+      string,
+      { earned: number; possible: number; correct: boolean | "partial" }
+    >;
+  };
+  parentScores: Record<string, number>;
+  meta?: Record<string, unknown>;
+}
+
+export interface SessionState {
+  profile: ProfileId;
+  formId: string;
+  unitId: string;
+  startedAt: number;
+  currentIndex: number;
+  responses: Record<string, unknown>;
+  flags: Record<string, boolean>;
+  eliminated: Record<string, string[]>;
+  masked: Record<string, boolean>;
+  highlights: Record<
+    string,
+    Array<{ paraIdx: number; start: number; end: number; color: string }>
+  >;
+  notes: Record<string, string>;
+  tutorialSeen?: boolean;
+  timer?: { startedAt: number; minutes: number; remainingMs: number | null };
+}
+
+export const api = {
+  health: () => req<{ ok: true }>("/api/health"),
+  content: () => req<Content>("/api/content"),
+  profiles: () => req<Profile[]>("/api/profiles"),
+
+  getState: (p: ProfileId) => req<SessionState | null>(`/api/state/${p}`),
+  putState: (p: ProfileId, s: SessionState) =>
+    req<{ ok: true }>(`/api/state/${p}`, {
+      method: "PUT",
+      headers: json,
+      body: JSON.stringify(s),
+    }),
+  clearState: (p: ProfileId) =>
+    req<{ ok: true }>(`/api/state/${p}`, { method: "DELETE" }),
+
+  results: (p: ProfileId) =>
+    req<CompletedResult[]>(`/api/results/${p}`),
+  postResult: (p: ProfileId, r: Omit<CompletedResult, "id">) =>
+    req<CompletedResult>(`/api/results/${p}`, {
+      method: "POST",
+      headers: json,
+      body: JSON.stringify(r),
+    }),
+  allResults: () => req<CompletedResult[]>("/api/results"),
+  patchParentScore: (
+    p: ProfileId,
+    id: string,
+    itemId: string,
+    score: number,
+  ) =>
+    req<{ ok: true }>(`/api/results/${p}/${id}/parent-score`, {
+      method: "PATCH",
+      headers: json,
+      body: JSON.stringify({ itemId, score }),
+    }),
+};

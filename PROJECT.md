@@ -15,7 +15,7 @@ All reading passages, questions, answer keys, and writing prompts are supplied i
 ### Key deployment facts (see §4 for detail)
 - **Served, not static.** It runs as a containerized service (frontend + small backend), not a static bundle the user opens locally.
 - **Host:** the user's home server at **`10.0.0.16`**.
-- **Access:** **`http://10.0.0.16:8473`**, reachable from any device on the home LAN (`10.0.0.0/24`). **Home-network only — never exposed to the public internet.**
+- **Access:** **`http://10.0.0.16:8473`** on the home LAN (`10.0.0.0/24`), and **`https://cmas.jsb-emr.us`** publicly via a **Cloudflare Tunnel** gated by **Cloudflare Access** (allow-list: `jason.shawn.baker@gmail.com` only). No router port-forwarding — the tunnel is outbound from the home server. The application itself still has no built-in auth; identity is enforced at the Cloudflare Access edge.
 - **Two children use it at the same time, on separate devices.** A profile selector picks who is using it: **Olive (6th grade)** and **Fox (4th grade)**.
 - **Containerized** (Docker + Compose) to sit alongside the user's other services on that server, with persistent data in a mounted volume.
 
@@ -61,10 +61,15 @@ A single container running a **small backend server that serves the built fronte
 - **Containerize with Docker**, orchestrated by **`docker-compose.yml`**, so it runs next to the user's other containerized services on the server.
 - **Host server:** `10.0.0.16`. **Port:** **`8473`** (configurable via the `PORT` env var and the compose port mapping; change only if 8473 is already taken on that host).
 - **Access URL:** `http://10.0.0.16:8473`.
-- **LAN exposure, home-only (MUST):**
+- **LAN exposure (MUST):**
   - Publish the port so devices on `10.0.0.0/24` can reach it. The default compose mapping `"8473:8473"` publishes on all host interfaces, which makes `http://10.0.0.16:8473` reachable from the LAN.
   - To restrict strictly to the LAN interface, bind the mapping to the server's LAN IP: `"10.0.0.16:8473:8473"`. Document both options in the README.
-  - **Do NOT** add any public exposure: no router port-forwarding, no public DNS, no reverse-proxy to the internet. If a host firewall (ufw/firewalld) is present, the README **SHOULD** show allowing `10.0.0.0/24` to the port and denying others.
+  - **MUST NOT** open the LAN port (`8473`) to the public via router port-forwarding. Public access is only via the Cloudflare Tunnel below.
+- **Public exposure (MUST):**
+  - A **Cloudflare Tunnel** (`cloudflared`) sidecar container connects outbound from the host to Cloudflare and routes `https://cmas.jsb-emr.us` to the app's `http://localhost:8473`. No inbound ports on the home router.
+  - A **Cloudflare Access** policy on the `cmas.jsb-emr.us` application restricts to `jason.shawn.baker@gmail.com` (one-time PIN identity provider). All public requests are authenticated at the edge before reaching the app.
+  - The `cloudflared` token (per-tunnel JWT, not an account API key) is provided via env var `TUNNEL_TOKEN` and is **never** committed to the repo. The compose file reads it from `${TUNNEL_TOKEN}`; document `.env` usage and that the env file is gitignored.
+  - The README documents how to enroll the tunnel, set the Access policy, and rotate the tunnel token.
 - **Container requirements:**
   - Multi-stage `Dockerfile`: stage 1 builds the frontend (`vite build`); stage 2 is a slim Node runtime that runs the server and serves `dist/` + the API.
   - `docker-compose.yml` **MUST** include: the `8473` port mapping, a **named volume mounted at `/data`** for the SQLite/JSON store, `restart: unless-stopped`, a `healthcheck` against `/api/health`, and `PORT` via environment.
@@ -246,8 +251,8 @@ Concurrency: each child writes only their own profile, so simple last-write-wins
 
 ## 14. Out of scope / non-goals (MUST NOT build)
 
-- **No public-internet exposure.** LAN-only on `10.0.0.0/24`. No port-forwarding, public DNS, or internet reverse proxy.
-- No real accounts, passwords, or PII — profile selection (Olive/Fox) is the only "identity."
+- **No router port-forwarding.** The only public path is the outbound-initiated Cloudflare Tunnel (§4); the LAN port `8473` must not be exposed via NAT/PAT.
+- No real accounts, passwords, or PII **inside the app** — profile selection (Olive/Fox) is the only in-app "identity." Public-side authentication is enforced at the Cloudflare Access edge (allow-list: `jason.shawn.baker@gmail.com`), not by the app itself.
 - No secure-browser lockdown / proctoring / anti-cheat.
 - No automated grading of essays or short responses.
 - No analytics or data that leave the server.
