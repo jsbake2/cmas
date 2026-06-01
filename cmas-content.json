@@ -1,0 +1,2794 @@
+{
+  "version": "1.0",
+  "forms": [
+    {
+      "id": "g4-form-a",
+      "grade": 4,
+      "title": "Grade 4 Practice Form A",
+      "units": [
+        {
+          "id": "g4-u1",
+          "title": "Unit 1",
+          "timeLimitMinutes": null,
+          "sections": [
+            {
+              "passageIds": [
+                "g4-why-do-leaves-change-color"
+              ],
+              "itemIds": [
+                "g4-why-do-leaves-change-color-q1",
+                "g4-why-do-leaves-change-color-q2",
+                "g4-why-do-leaves-change-color-q3",
+                "g4-why-do-leaves-change-color-msel",
+                "g4-why-do-leaves-change-color-q4",
+                "g4-why-do-leaves-change-color-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g4-the-mixed-up-lunchbox"
+              ],
+              "itemIds": [
+                "g4-the-mixed-up-lunchbox-q1",
+                "g4-the-mixed-up-lunchbox-q2",
+                "g4-the-mixed-up-lunchbox-q3",
+                "g4-the-mixed-up-lunchbox-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g4-the-bird-that-never-stops-traveling"
+              ],
+              "itemIds": [
+                "g4-the-bird-that-never-stops-traveling-q1",
+                "g4-the-bird-that-never-stops-traveling-q2",
+                "g4-the-bird-that-never-stops-traveling-q3",
+                "g4-the-bird-that-never-stops-traveling-evsel",
+                "g4-the-bird-that-never-stops-traveling-q4",
+                "g4-the-bird-that-never-stops-traveling-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g4-the-tryout"
+              ],
+              "itemIds": [
+                "g4-the-tryout-q1",
+                "g4-the-tryout-q2",
+                "g4-the-tryout-q3",
+                "g4-the-tryout-ebsr",
+                "g4-the-tryout-q4",
+                "g4-the-tryout-write"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g4-u2",
+          "title": "Unit 2",
+          "timeLimitMinutes": null,
+          "sections": [
+            {
+              "passageIds": [
+                "g4-the-great-wall-of-china"
+              ],
+              "itemIds": [
+                "g4-the-great-wall-of-china-q1",
+                "g4-the-great-wall-of-china-q2",
+                "g4-the-great-wall-of-china-q3",
+                "g4-the-great-wall-of-china-ebsr",
+                "g4-the-great-wall-of-china-q4",
+                "g4-the-great-wall-of-china-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g4-the-treehouse-rule"
+              ],
+              "itemIds": [
+                "g4-the-treehouse-rule-q1",
+                "g4-the-treehouse-rule-q2",
+                "g4-the-treehouse-rule-cloze",
+                "g4-the-treehouse-rule-q3",
+                "g4-the-treehouse-rule-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g4-why-is-the-ocean-salty"
+              ],
+              "itemIds": [
+                "g4-why-is-the-ocean-salty-q1",
+                "g4-why-is-the-ocean-salty-q2",
+                "g4-why-is-the-ocean-salty-q3",
+                "g4-why-is-the-ocean-salty-order",
+                "g4-why-is-the-ocean-salty-q4",
+                "g4-why-is-the-ocean-salty-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g4-the-lemonade-stand"
+              ],
+              "itemIds": [
+                "g4-the-lemonade-stand-q1",
+                "g4-the-lemonade-stand-q2",
+                "g4-the-lemonade-stand-q3",
+                "g4-the-lemonade-stand-evsel",
+                "g4-the-lemonade-stand-q4",
+                "g4-the-lemonade-stand-write"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-form-a",
+      "grade": 6,
+      "title": "Grade 6 Practice Form A",
+      "units": [
+        {
+          "id": "g6-u1",
+          "title": "Unit 1",
+          "timeLimitMinutes": null,
+          "sections": [
+            {
+              "passageIds": [
+                "g6-how-a-vaccine-teaches-the-body-to-fight"
+              ],
+              "itemIds": [
+                "g6-how-a-vaccine-teaches-the-body-to-fight-q1",
+                "g6-how-a-vaccine-teaches-the-body-to-fight-q2",
+                "g6-how-a-vaccine-teaches-the-body-to-fight-q3",
+                "g6-how-a-vaccine-teaches-the-body-to-fight-order",
+                "g6-how-a-vaccine-teaches-the-body-to-fight-q4",
+                "g6-how-a-vaccine-teaches-the-body-to-fight-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g6-the-photograph"
+              ],
+              "itemIds": [
+                "g6-the-photograph-q1",
+                "g6-the-photograph-q2",
+                "g6-the-photograph-q3",
+                "g6-the-photograph-q4",
+                "g6-the-photograph-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g6-why-the-sky-is-blue"
+              ],
+              "itemIds": [
+                "g6-why-the-sky-is-blue-q1",
+                "g6-why-the-sky-is-blue-q2",
+                "g6-why-the-sky-is-blue-q3",
+                "g6-why-the-sky-is-blue-evsel",
+                "g6-why-the-sky-is-blue-q4",
+                "g6-why-the-sky-is-blue-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g6-the-trade"
+              ],
+              "itemIds": [
+                "g6-the-trade-q1",
+                "g6-the-trade-q2",
+                "g6-the-trade-q3",
+                "g6-the-trade-q4",
+                "g6-the-trade-write"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g6-u2",
+          "title": "Unit 2",
+          "timeLimitMinutes": null,
+          "sections": [
+            {
+              "passageIds": [
+                "g6-the-library-of-alexandria"
+              ],
+              "itemIds": [
+                "g6-the-library-of-alexandria-q1",
+                "g6-the-library-of-alexandria-q2",
+                "g6-the-library-of-alexandria-q3",
+                "g6-the-library-of-alexandria-msel",
+                "g6-the-library-of-alexandria-q4",
+                "g6-the-library-of-alexandria-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g6-the-choice"
+              ],
+              "itemIds": [
+                "g6-the-choice-q1",
+                "g6-the-choice-q2",
+                "g6-the-choice-q3",
+                "g6-the-choice-ebsr",
+                "g6-the-choice-q4",
+                "g6-the-choice-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g6-the-dust-bowl-when-the-land-blew-away"
+              ],
+              "itemIds": [
+                "g6-the-dust-bowl-when-the-land-blew-away-q1",
+                "g6-the-dust-bowl-when-the-land-blew-away-q2",
+                "g6-the-dust-bowl-when-the-land-blew-away-q3",
+                "g6-the-dust-bowl-when-the-land-blew-away-ebsr",
+                "g6-the-dust-bowl-when-the-land-blew-away-q4",
+                "g6-the-dust-bowl-when-the-land-blew-away-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g6-moving-day"
+              ],
+              "itemIds": [
+                "g6-moving-day-q1",
+                "g6-moving-day-q2",
+                "g6-moving-day-q3",
+                "g6-moving-day-evsel",
+                "g6-moving-day-q4",
+                "g6-moving-day-write"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "id": "g4-why-do-leaves-change-color",
+      "title": "Why Do Leaves Change Color?",
+      "kind": "informational",
+      "genre": "Life science",
+      "grade": 4,
+      "paragraphs": [
+        "In summer, the leaves on many trees are green. But in autumn, those same leaves can turn yellow, orange, or bright red. Where does all that color come from?",
+        "Leaves are green because of a substance called chlorophyll. Chlorophyll helps a tree make food from sunlight. All summer long, leaves are full of it, and the green is so strong that it hides every other color.",
+        "Leaves also contain yellow and orange colors the whole time. We just cannot see them in summer because the green chlorophyll covers them up.",
+        "As autumn arrives, the days grow shorter and the air turns cooler. The tree senses these changes and slowly stops making chlorophyll. As the green fades away, the yellows and oranges that were hidden all along finally show through.",
+        "Some trees even add a color that was not there before. In the fall, they make a new substance that turns their leaves deep red and purple.",
+        "Before winter, the leaves dry out and fall to the ground. The tree rests through the cold months and grows fresh green leaves again in spring, starting the cycle over."
+      ]
+    },
+    {
+      "id": "g4-the-mixed-up-lunchbox",
+      "title": "The Mixed-Up Lunchbox",
+      "kind": "literary",
+      "genre": "Realistic fiction (short)",
+      "grade": 4,
+      "paragraphs": [
+        "When Ava opened her lunchbox at noon, she froze. Inside was a thick turkey sandwich, a chocolate brownie, and a little bag of strawberries. None of it was hers.",
+        "Her own lunch was plain: a cheese sandwich and an apple. Somehow, in the rush that morning, she had grabbed a lunchbox that looked just like hers off the kitchen counter — her older cousin Mateo’s lunchbox.",
+        "The brownie looked amazing. Ava’s stomach growled. No one would ever know, she thought.",
+        "But she pictured Mateo opening her plain little lunch, hungry after a long morning, and the brownie did not look quite so good anymore.",
+        "Ava closed the lunchbox and carried it to the office. “I think my cousin and I swapped lunches by accident,” she said. “Can you help me get his back to him?”",
+        "That afternoon, Mateo found her in the hall. “Thanks,” he said, and handed her half the brownie anyway. It tasted even better than she had imagined."
+      ]
+    },
+    {
+      "id": "g4-the-bird-that-never-stops-traveling",
+      "title": "The Bird That Never Stops Traveling",
+      "kind": "informational",
+      "genre": "Life science",
+      "grade": 4,
+      "paragraphs": [
+        "Twice a year, a small white seabird called the Arctic tern makes one of the most amazing journeys on Earth. It flies from the top of the world to the bottom and back again.",
+        "Arctic terns spend the northern summer near the Arctic, where they build nests and raise their chicks. When summer ends in the north, they do not simply fly a little south for the winter, the way many birds do.",
+        "Instead, they keep going — all the way to Antarctica, at the other end of the planet. There they find a second summer. Then, months later, they turn around and fly all the way back.",
+        "This round trip can cover tens of thousands of miles each year, making it the longest migration of any animal in the world. Over a lifetime, a single Arctic tern may fly far enough to reach the moon and back several times.",
+        "By chasing summer at both ends of the Earth, the Arctic tern sees more daylight in a year than almost any other creature. Its whole life is shaped by one incredible habit: it never stops traveling."
+      ]
+    },
+    {
+      "id": "g4-the-tryout",
+      "title": "The Tryout",
+      "kind": "literary",
+      "genre": "Realistic fiction",
+      "grade": 4,
+      "paragraphs": [
+        "Dev had wanted to make the school soccer team for as long as he could remember. At the first tryout, he ran hard, but when the coach read the list, his name was not on it.",
+        "He walked home slowly, his cleats slung over his shoulder. “Maybe I’m just not good enough,” he muttered.",
+        "His grandmother was on the porch. She listened, then said, “Not good enough yet. There is a big difference between ‘not good’ and ‘not yet.’”",
+        "The next morning, Dev started practicing in the empty lot behind his building. He dribbled around cans, kicked at a chalk goal on the wall, and ran until his legs burned. He did this every day for a year.",
+        "When tryouts came again, Dev moved differently — quicker, surer, his feet remembering a thousand hours of practice. This time, the coach called his name.",
+        "Walking home, Dev thought about the boy who had muttered “not good enough” a year ago. He smiled. His grandmother had been right. It had only ever been “not yet.”"
+      ]
+    },
+    {
+      "id": "g4-the-great-wall-of-china",
+      "title": "The Great Wall of China",
+      "kind": "informational",
+      "genre": "History / social studies",
+      "grade": 4,
+      "paragraphs": [
+        "The Great Wall of China is one of the most famous structures ever built. Stretching across northern China, it winds over mountains and through deserts for thousands of miles.",
+        "The wall was not built all at once. Over many centuries, different rulers added to it and repaired it. Workers used stone, brick, and packed earth, often carrying materials up steep slopes by hand.",
+        "Why build something so enormous? The main purpose was defense. Northern China was often raided by armies on horseback, and the wall was meant to slow invaders down and give guards time to send warnings using smoke and fire signals.",
+        "The wall did more than block enemies. Gates along it controlled trade and travel, and soldiers stationed in towers kept watch over the land for miles around.",
+        "People sometimes claim you can see the Great Wall from space with the naked eye. This is not true. Although the wall is very long, it is narrow, and astronauts have said it is no easier to spot than many other human-made things.",
+        "Today the Great Wall is no longer needed for defense. Millions of people visit it each year to walk along the stones and imagine the workers and soldiers who once depended on it."
+      ]
+    },
+    {
+      "id": "g4-the-treehouse-rule",
+      "title": "The Treehouse Rule",
+      "kind": "literary",
+      "genre": "Realistic fiction",
+      "grade": 4,
+      "paragraphs": [
+        "Jojo and her two best friends, Sam and Priya, had built the treehouse together all summer, hauling boards and pounding nails until their arms ached.",
+        "Now that it was finished, a problem appeared. Sam wanted it to be a reading library. Priya wanted a spy headquarters. Jojo wanted an art studio. Each of them was sure their own idea was best.",
+        "For two days they argued, and nobody used the treehouse at all. It sat empty — the very thing they had worked so hard for going to waste.",
+        "On the third day, Jojo climbed up alone and looked around. There was a shelf, a quiet corner, and a wide flat wall. An idea came to her.",
+        "“What if,” she told the others, “the shelf is Sam’s library, the corner is Priya’s spy base, and the wall is my art space? It can be all three.”",
+        "Sam blinked. Priya grinned. By that afternoon the treehouse held books, a spyglass, and a half-finished painting, and the three of them were finally, happily, inside it together."
+      ]
+    },
+    {
+      "id": "g4-why-is-the-ocean-salty",
+      "title": "Why Is the Ocean Salty?",
+      "kind": "informational",
+      "genre": "Earth science",
+      "grade": 4,
+      "paragraphs": [
+        "If you have ever swallowed a mouthful of seawater, you know the ocean is salty. But rivers and rain are not salty, so where does all the salt come from?",
+        "The answer begins on land. As rain falls and rivers flow, the water moves over rocks and soil. Slowly, it dissolves tiny amounts of minerals, including salt, and carries them along.",
+        "Rivers carry this mineral-filled water to the sea. By itself, the amount of salt in any one river is far too small to taste. But rivers have been pouring into the ocean for millions of years.",
+        "Here is the key: when ocean water evaporates and rises into the air to form clouds, the salt is left behind. The water leaves, but the salt stays in the sea.",
+        "Over an enormous stretch of time, that salt has built up. Each year rivers add a little more, and each year evaporation leaves it behind, so the ocean stays salty while rivers do not."
+      ]
+    },
+    {
+      "id": "g4-the-lemonade-stand",
+      "title": "The Lemonade Stand",
+      "kind": "literary",
+      "genre": "Realistic fiction (longer)",
+      "grade": 4,
+      "paragraphs": [
+        "Carlos had planned his lemonade stand for a week. He made a bright sign, squeezed two pitchers of lemonade, and set up his table on the corner Saturday morning.",
+        "By ten o’clock, the sky turned gray. By ten-thirty, rain was pouring down, and Carlos dragged his soggy sign under the porch roof. Not one cup had sold.",
+        "He wanted to give up. But as he sat watching the rain, he noticed something: the mail carrier hurrying by, the neighbors dashing from their cars — everyone cold and wet.",
+        "Carlos went inside, and instead of pouring out his lemonade, he heated it on the stove with a little honey and cinnamon. He made a new sign in thick marker: HOT LEMONADE — 50 CENTS. WARM UP HERE.",
+        "He set up just inside the open garage, out of the rain. The mail carrier stopped first, then a jogger, then two neighbors. The warm cups disappeared faster than the cold ones ever would have on a sunny day.",
+        "That night Carlos counted his coins — more than he had hoped for. He realized the rain had not ruined his plan. It had only asked him to change it."
+      ]
+    },
+    {
+      "id": "g6-how-a-vaccine-teaches-the-body-to-fight",
+      "title": "How a Vaccine Teaches the Body to Fight",
+      "kind": "informational",
+      "genre": "Life science",
+      "grade": 6,
+      "paragraphs": [
+        "Your body has a built-in defense system called the immune system. When a harmful germ enters your body, the immune system learns to recognize it and builds special weapons, called antibodies, to destroy it. The trouble is that learning takes time, and during that time you can get sick.",
+        "A vaccine is a clever way to give the immune system a head start. It works by introducing a harmless version, or a tiny piece, of a germ — something that cannot actually make you sick.",
+        "When the immune system meets this harmless sample, it reacts as if it were facing the real germ. It studies the invader and produces antibodies designed to fight that exact germ.",
+        "The most important part comes next. After the threat is gone, the immune system keeps a kind of memory of it. Special memory cells remember how to make those antibodies.",
+        "Later, if the real germ ever shows up, the body does not have to start from scratch. The memory cells spring into action and defeat the germ so quickly that you may never feel sick at all.",
+        "This is why vaccines are so powerful. They let your body practice fighting a dangerous germ safely, before it ever has the chance to do real harm."
+      ]
+    },
+    {
+      "id": "g6-the-photograph",
+      "title": "The Photograph",
+      "kind": "literary",
+      "genre": "Realistic fiction (short)",
+      "grade": 6,
+      "paragraphs": [
+        "In the shoebox of old pictures, Nadia found one she had never seen: a girl about her own age, laughing on a bicycle, frozen forever in black and white.",
+        "“Who is that?” she asked. Her grandfather looked over her shoulder and went quiet for a moment. “That,” he said softly, “is your great-grandmother. She was twelve there. Same age as you.”",
+        "Nadia stared. She had only ever known her great-grandmother as a name on a wall, an old woman in a few faded portraits. It had never occurred to her that this person had once been twelve, with scraped knees and a bicycle and a laugh caught mid-flight.",
+        "“What was she like?” Nadia asked. Her grandfather smiled. “Fearless. She rode that bike down the steepest hill in the village just to feel the wind. She would have liked you.”",
+        "Nadia held the photo carefully, as if it might fly away. The girl in the picture was not a stranger, and not quite the great-grandmother she had imagined. She was something new: a whole person, with a whole life, smiling at Nadia across a hundred years."
+      ]
+    },
+    {
+      "id": "g6-why-the-sky-is-blue",
+      "title": "Why the Sky Is Blue",
+      "kind": "informational",
+      "genre": "Physical science",
+      "grade": 6,
+      "paragraphs": [
+        "On a clear day, the sky overhead is a deep, even blue. It is such a familiar sight that few people stop to ask why. The answer lies in the sunlight itself.",
+        "Sunlight may look white, but it is actually a mixture of all the colors of the rainbow. Each color travels as a wave, and the colors have different wavelengths. Blue light travels in short waves, while red light travels in longer ones.",
+        "As sunlight enters the air, it crashes into the countless tiny molecules of gas that make up our atmosphere. These molecules scatter the light, bouncing it off in every direction.",
+        "Here is the key: the short waves of blue light scatter much more easily than the long waves of red light. So blue light gets thrown across the whole sky, reaching your eyes from every direction. That scattered blue is the color you see.",
+        "The same idea explains a sunset. When the sun sits low, its light must pass through much more air to reach you. Along that long path, the blue light is scattered away before it arrives, leaving the reds and oranges to color the evening sky."
+      ]
+    },
+    {
+      "id": "g6-the-trade",
+      "title": "The Trade",
+      "kind": "literary",
+      "genre": "Realistic fiction",
+      "grade": 6,
+      "paragraphs": [
+        "Eli had wanted Marcus’s knife for months — a folding camp knife with a smooth wooden handle, the kind that made you feel ready for any adventure. So when Marcus offered to trade it for Eli’s old fishing reel, Eli said yes before he could think twice.",
+        "The reel had been his grandfather’s. It was scratched and a little stiff, nothing special to look at. But Grandpa had taught Eli to cast with it on the dock, their feet dangling over the green water, summer after summer.",
+        "For a week, Eli carried the knife everywhere. He opened and closed it a hundred times. It was exactly as cool as he had imagined.",
+        "But one evening, sitting on the dock at sunset, his hand reached for the reel that was no longer there, and the empty feeling surprised him. The knife in his pocket could not cast a line. It could not bring back the sound of his grandfather’s laugh.",
+        "The next day, Eli found Marcus. “Any chance you’d trade back?” he asked, holding out the knife. Marcus shrugged. “Sure. I kind of missed the reel anyway.”",
+        "Walking home with the scratched old reel in his hand, Eli understood something he hadn’t before. The knife had been worth more in his imagination than in his pocket. The reel was worth more than it looked, because of everything it carried."
+      ]
+    },
+    {
+      "id": "g6-the-library-of-alexandria",
+      "title": "The Library of Alexandria",
+      "kind": "informational",
+      "genre": "History",
+      "grade": 6,
+      "paragraphs": [
+        "More than two thousand years ago, in the Egyptian city of Alexandria, scholars set out to do something astonishing: gather all the knowledge in the world under one roof.",
+        "The Library of Alexandria became the greatest center of learning in the ancient world. It is said to have held hundreds of thousands of scrolls — the books of that time — on subjects from mathematics and astronomy to medicine and poetry.",
+        "The library was more than a storehouse. Scholars from many lands came to study, argue, and make discoveries there. Some of the ideas worked out in Alexandria, such as an early measurement of the size of the Earth, were remarkably accurate.",
+        "To fill its shelves, the city went to great lengths. Officials are said to have searched ships that docked in the harbor, borrowing any books on board so that copies could be made for the collection.",
+        "Over the centuries, the library declined. Through a mix of fire, war, and neglect, its scrolls were lost, and much of the knowledge they held vanished with them.",
+        "Today no one knows exactly how much was lost. The Library of Alexandria survives as a powerful symbol — a reminder of how much a society can gain by gathering knowledge, and how much it can lose when that knowledge disappears."
+      ]
+    },
+    {
+      "id": "g6-the-choice",
+      "title": "The Choice",
+      "kind": "literary",
+      "genre": "Realistic fiction (longer)",
+      "grade": 6,
+      "paragraphs": [
+        "Tomas saw it happen. During the math test, his best friend Liam slid his phone halfway out of his pocket, glanced at the screen, and slid it back. Cheating.",
+        "Afterward, Liam was thrilled. “I think I aced it,” he said, bumping Tomas’s shoulder as they walked out. Tomas managed a weak smile.",
+        "That night, the weak smile would not leave Tomas alone. Liam was his oldest friend. They had built forts together and learned to ride bikes together. Telling on him felt impossible. But every time Tomas closed his eyes, he saw that phone sliding out, and something in his chest tightened.",
+        "The next morning, Tomas found Liam by the lockers. He did not go to the teacher. Instead, he said quietly, “I saw your phone yesterday. During the test.”",
+        "Liam’s face went red, then angry, then — slowly — ashamed. For a long moment neither of them spoke.",
+        "“I knew it was wrong while I was doing it,” Liam finally said. “I just… panicked.” He let out a breath. “I’m going to tell Mr. Reyes I want to retake it. The honest way.”",
+        "Tomas felt the tightness in his chest finally loosen. He hadn’t had to choose between his friend and the truth after all. By being honest with Liam, he had given Liam the chance to be honest too."
+      ]
+    },
+    {
+      "id": "g6-the-dust-bowl-when-the-land-blew-away",
+      "title": "The Dust Bowl: When the Land Blew Away",
+      "kind": "informational",
+      "genre": "History / earth science",
+      "grade": 6,
+      "paragraphs": [
+        "During the 1930s, a disaster struck the Great Plains of the United States. The land itself seemed to rise into the air, carried off in towering storms of dust. People called the region the Dust Bowl.",
+        "The trouble had several causes. For years, farmers had plowed up the wild prairie grasses to plant wheat. Those grasses had deep roots that held the soil in place. Once they were gone, nothing anchored the dirt.",
+        "Then came a long, severe drought. Without rain, crops withered and the bare soil dried into powder. When strong winds swept across the open plains, they lifted that loose soil into enormous clouds.",
+        "These storms, sometimes called “black blizzards,” could turn day into night. Dust crept into homes, food, and lungs. Many families lost everything, and thousands packed up and left, traveling west to look for work.",
+        "The disaster forced people to rethink how they treated the land. New methods were taught: planting trees to block the wind, plowing in patterns that held water, and letting fields rest. These practices helped the soil recover.",
+        "The Dust Bowl is remembered as a hard lesson. It showed that even something as vast as the land can be harmed by the way people use it, and that careful choices are needed to protect it."
+      ]
+    },
+    {
+      "id": "g6-moving-day",
+      "title": "Moving Day",
+      "kind": "literary",
+      "genre": "Realistic fiction (longer)",
+      "grade": 6,
+      "paragraphs": [
+        "The moving truck swallowed the last box, and suddenly the house Mia had lived in her whole life was empty. Her footsteps echoed in rooms that no longer felt like hers.",
+        "She stood in her old bedroom, now just four blank walls and a square of brighter paint where her mirror had hung. “It doesn’t even look like my room anymore,” she whispered.",
+        "Her mother appeared in the doorway. “It isn’t,” she said gently. “A room is just a box. You’re taking the important parts with you.”",
+        "Mia didn’t believe her. On the long drive, she watched her town shrink in the side mirror until it disappeared, and the ache in her stomach grew with every mile.",
+        "But the new house was not as empty as she feared. As she unpacked, here was the chip in her favorite mug, there was the blanket that still smelled like home, and there, taped inside a box, was a note from her old neighbor: “Come visit. The treehouse will wait.”",
+        "That night, lying in her familiar bed in an unfamiliar room, Mia realized her mother had been half right. The house was just a box. But the home — the people, the memories, the small worn things she loved — had traveled with her after all.",
+        "It would take time to fill these new walls with that same feeling. But for the first time since the truck pulled away, Mia believed that she could."
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "g4-why-do-leaves-change-color-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-why-do-leaves-change-color"
+      ],
+      "skill": "Central idea",
+      "stem": "What is the passage mainly about?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Why leaves change color in autumn"
+        },
+        {
+          "id": "B",
+          "text": "How trees grow in spring"
+        },
+        {
+          "id": "C",
+          "text": "How to rake leaves in the yard"
+        },
+        {
+          "id": "D",
+          "text": "Why some trees are taller than others"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Re-read the text and look for the central idea the question asks about."
+    },
+    {
+      "id": "g4-why-do-leaves-change-color-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-why-do-leaves-change-color"
+      ],
+      "skill": "Key detail",
+      "stem": "Why can we not see yellow and orange in a leaf during the summer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The colors are not there yet"
+        },
+        {
+          "id": "B",
+          "text": "The strong green chlorophyll hides them"
+        },
+        {
+          "id": "C",
+          "text": "The leaves are too small"
+        },
+        {
+          "id": "D",
+          "text": "The sun is too bright"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Re-read the text and look for the key detail the question asks about."
+    },
+    {
+      "id": "g4-why-do-leaves-change-color-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-why-do-leaves-change-color"
+      ],
+      "skill": "Cause and effect",
+      "stem": "According to the passage, what makes a tree stop making chlorophyll?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Heavy rain"
+        },
+        {
+          "id": "B",
+          "text": "Strong winds"
+        },
+        {
+          "id": "C",
+          "text": "Shorter, cooler autumn days"
+        },
+        {
+          "id": "D",
+          "text": "Falling leaves"
+        }
+      ],
+      "correct": "C",
+      "rationale": "Re-read the text and look for the cause and effect the question asks about."
+    },
+    {
+      "id": "g4-the-mixed-up-lunchbox-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-mixed-up-lunchbox"
+      ],
+      "skill": "Theme",
+      "stem": "What is the main message of the story?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Always pack a brownie"
+        },
+        {
+          "id": "B",
+          "text": "Cousins should share lunchboxes"
+        },
+        {
+          "id": "C",
+          "text": "Plain lunches are boring"
+        },
+        {
+          "id": "D",
+          "text": "Doing the honest thing can feel even better than getting what you wanted"
+        }
+      ],
+      "correct": "D",
+      "rationale": "Re-read the text and look for the theme the question asks about."
+    },
+    {
+      "id": "g4-the-mixed-up-lunchbox-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-mixed-up-lunchbox"
+      ],
+      "skill": "Inference",
+      "stem": "Why does the brownie stop looking good to Ava?",
+      "options": [
+        {
+          "id": "A",
+          "text": "She imagines Mateo hungry with only her plain lunch"
+        },
+        {
+          "id": "B",
+          "text": "It melted in the sun"
+        },
+        {
+          "id": "C",
+          "text": "She is not hungry anymore"
+        },
+        {
+          "id": "D",
+          "text": "She does not like chocolate"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Re-read the text and look for the inference the question asks about."
+    },
+    {
+      "id": "g4-the-bird-that-never-stops-traveling-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-bird-that-never-stops-traveling"
+      ],
+      "skill": "Central idea",
+      "stem": "What is the passage mainly about?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The color of seabirds"
+        },
+        {
+          "id": "B",
+          "text": "The Arctic tern, which makes the longest migration of any animal"
+        },
+        {
+          "id": "C",
+          "text": "How cold Antarctica is"
+        },
+        {
+          "id": "D",
+          "text": "How birds build their nests"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Re-read the text and look for the central idea the question asks about."
+    },
+    {
+      "id": "g4-the-bird-that-never-stops-traveling-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-bird-that-never-stops-traveling"
+      ],
+      "skill": "Key detail",
+      "stem": "Where do Arctic terns go when the northern summer ends?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They stay near the Arctic"
+        },
+        {
+          "id": "B",
+          "text": "They stop flying for the winter"
+        },
+        {
+          "id": "C",
+          "text": "They fly all the way to Antarctica"
+        },
+        {
+          "id": "D",
+          "text": "They move to the desert"
+        }
+      ],
+      "correct": "C",
+      "rationale": "Re-read the text and look for the key detail the question asks about."
+    },
+    {
+      "id": "g4-the-bird-that-never-stops-traveling-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-bird-that-never-stops-traveling"
+      ],
+      "skill": "Vocabulary in context",
+      "stem": "In paragraph 1, the word “journey” most nearly means —",
+      "options": [
+        {
+          "id": "A",
+          "text": "a kind of bird"
+        },
+        {
+          "id": "B",
+          "text": "a nest"
+        },
+        {
+          "id": "C",
+          "text": "a season"
+        },
+        {
+          "id": "D",
+          "text": "a long trip"
+        }
+      ],
+      "correct": "D",
+      "rationale": "Re-read the text and look for the vocabulary in context the question asks about."
+    },
+    {
+      "id": "g4-the-tryout-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-tryout"
+      ],
+      "skill": "Theme",
+      "stem": "Which statement best expresses the theme?",
+      "options": [
+        {
+          "id": "A",
+          "text": "With practice and patience, “not yet” can become “yes”"
+        },
+        {
+          "id": "B",
+          "text": "Soccer is the most important sport"
+        },
+        {
+          "id": "C",
+          "text": "Coaches are unfair to new players"
+        },
+        {
+          "id": "D",
+          "text": "Grandmothers know a lot about soccer"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Re-read the text and look for the theme the question asks about."
+    },
+    {
+      "id": "g4-the-tryout-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-tryout"
+      ],
+      "skill": "Character",
+      "stem": "How does Dev respond to not making the team?",
+      "options": [
+        {
+          "id": "A",
+          "text": "He gives up on soccer"
+        },
+        {
+          "id": "B",
+          "text": "He practices every day for a year"
+        },
+        {
+          "id": "C",
+          "text": "He joins a different school"
+        },
+        {
+          "id": "D",
+          "text": "He blames the coach"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Re-read the text and look for the character the question asks about."
+    },
+    {
+      "id": "g4-the-tryout-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-tryout"
+      ],
+      "skill": "Vocabulary in context",
+      "stem": "Grandma’s phrase “not yet” suggests that Dev —",
+      "options": [
+        {
+          "id": "A",
+          "text": "will never make the team"
+        },
+        {
+          "id": "B",
+          "text": "should quit trying"
+        },
+        {
+          "id": "C",
+          "text": "can still get better with time and effort"
+        },
+        {
+          "id": "D",
+          "text": "is already the best player"
+        }
+      ],
+      "correct": "C",
+      "rationale": "Re-read the text and look for the vocabulary in context the question asks about."
+    },
+    {
+      "id": "g4-the-great-wall-of-china-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-great-wall-of-china"
+      ],
+      "skill": "Central idea",
+      "stem": "What is the passage mainly about?",
+      "options": [
+        {
+          "id": "A",
+          "text": "How tall the mountains in China are"
+        },
+        {
+          "id": "B",
+          "text": "How astronauts travel in space"
+        },
+        {
+          "id": "C",
+          "text": "How bricks are made"
+        },
+        {
+          "id": "D",
+          "text": "The Great Wall — why it was built and how it was used"
+        }
+      ],
+      "correct": "D",
+      "rationale": "Re-read the text and look for the central idea the question asks about."
+    },
+    {
+      "id": "g4-the-great-wall-of-china-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-great-wall-of-china"
+      ],
+      "skill": "Cause and effect",
+      "stem": "According to the passage, what was the main reason the wall was built?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To defend northern China from invaders"
+        },
+        {
+          "id": "B",
+          "text": "For tourists to visit"
+        },
+        {
+          "id": "C",
+          "text": "To grow crops"
+        },
+        {
+          "id": "D",
+          "text": "To watch the stars"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Re-read the text and look for the cause and effect the question asks about."
+    },
+    {
+      "id": "g4-the-great-wall-of-china-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-great-wall-of-china"
+      ],
+      "skill": "Key detail",
+      "stem": "The passage says the idea that you can see the wall from space with the naked eye is —",
+      "options": [
+        {
+          "id": "A",
+          "text": "true"
+        },
+        {
+          "id": "B",
+          "text": "not true"
+        },
+        {
+          "id": "C",
+          "text": "only true at night"
+        },
+        {
+          "id": "D",
+          "text": "true only for astronauts"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Re-read the text and look for the key detail the question asks about."
+    },
+    {
+      "id": "g4-the-treehouse-rule-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-treehouse-rule"
+      ],
+      "skill": "Theme",
+      "stem": "Which lesson does the story best support?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Treehouses are hard to build"
+        },
+        {
+          "id": "B",
+          "text": "The biggest idea should always win"
+        },
+        {
+          "id": "C",
+          "text": "Working out a compromise can satisfy everyone"
+        },
+        {
+          "id": "D",
+          "text": "Friends should not build things together"
+        }
+      ],
+      "correct": "C",
+      "rationale": "Re-read the text and look for the theme the question asks about."
+    },
+    {
+      "id": "g4-the-treehouse-rule-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-treehouse-rule"
+      ],
+      "skill": "Plot",
+      "stem": "Why did the treehouse sit empty for two days?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It rained the whole time"
+        },
+        {
+          "id": "B",
+          "text": "It was broken"
+        },
+        {
+          "id": "C",
+          "text": "They were too tired to climb up"
+        },
+        {
+          "id": "D",
+          "text": "The friends argued about how to use it"
+        }
+      ],
+      "correct": "D",
+      "rationale": "Re-read the text and look for the plot the question asks about."
+    },
+    {
+      "id": "g4-why-is-the-ocean-salty-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-why-is-the-ocean-salty"
+      ],
+      "skill": "Central idea",
+      "stem": "What is the passage mainly about?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Why the ocean is salty"
+        },
+        {
+          "id": "B",
+          "text": "Why rivers flow downhill"
+        },
+        {
+          "id": "C",
+          "text": "How clouds are shaped"
+        },
+        {
+          "id": "D",
+          "text": "How salt is used in cooking"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Re-read the text and look for the central idea the question asks about."
+    },
+    {
+      "id": "g4-why-is-the-ocean-salty-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-why-is-the-ocean-salty"
+      ],
+      "skill": "Cause and effect",
+      "stem": "Where does the salt in the ocean come from?",
+      "options": [
+        {
+          "id": "A",
+          "text": "From fish in the sea"
+        },
+        {
+          "id": "B",
+          "text": "From minerals that rivers dissolve from rocks and carry to the sea"
+        },
+        {
+          "id": "C",
+          "text": "From the clouds"
+        },
+        {
+          "id": "D",
+          "text": "From the wind"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Re-read the text and look for the cause and effect the question asks about."
+    },
+    {
+      "id": "g4-why-is-the-ocean-salty-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-why-is-the-ocean-salty"
+      ],
+      "skill": "Key detail",
+      "stem": "What happens to the salt when ocean water evaporates?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It evaporates too"
+        },
+        {
+          "id": "B",
+          "text": "It turns into rain"
+        },
+        {
+          "id": "C",
+          "text": "It is left behind in the sea"
+        },
+        {
+          "id": "D",
+          "text": "It sinks to the bottom"
+        }
+      ],
+      "correct": "C",
+      "rationale": "Re-read the text and look for the key detail the question asks about."
+    },
+    {
+      "id": "g4-the-lemonade-stand-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-lemonade-stand"
+      ],
+      "skill": "Theme",
+      "stem": "Which statement best expresses the theme?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Never sell lemonade"
+        },
+        {
+          "id": "B",
+          "text": "Rainy days are always bad for business"
+        },
+        {
+          "id": "C",
+          "text": "Hot drinks are better than cold drinks"
+        },
+        {
+          "id": "D",
+          "text": "When things go wrong, you can adapt instead of giving up"
+        }
+      ],
+      "correct": "D",
+      "rationale": "Re-read the text and look for the theme the question asks about."
+    },
+    {
+      "id": "g4-the-lemonade-stand-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-lemonade-stand"
+      ],
+      "skill": "Inference",
+      "stem": "Why does Carlos heat the lemonade?",
+      "options": [
+        {
+          "id": "A",
+          "text": "He realizes cold, wet people would want something warm"
+        },
+        {
+          "id": "B",
+          "text": "He prefers it hot"
+        },
+        {
+          "id": "C",
+          "text": "The lemonade had spoiled"
+        },
+        {
+          "id": "D",
+          "text": "The stove was already on"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Re-read the text and look for the inference the question asks about."
+    },
+    {
+      "id": "g4-the-lemonade-stand-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-lemonade-stand"
+      ],
+      "skill": "Vocabulary in context",
+      "stem": "In paragraph 6, “it had only asked him to change it” means the rain —",
+      "options": [
+        {
+          "id": "A",
+          "text": "destroyed his plan"
+        },
+        {
+          "id": "B",
+          "text": "forced him to throw the lemonade away"
+        },
+        {
+          "id": "C",
+          "text": "made him adjust his plan to fit the situation"
+        },
+        {
+          "id": "D",
+          "text": "ended the day early"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Re-read the text and look for the vocabulary in context the question asks about."
+    },
+    {
+      "id": "g6-how-a-vaccine-teaches-the-body-to-fight-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-how-a-vaccine-teaches-the-body-to-fight"
+      ],
+      "skill": "Central idea",
+      "stem": "Which statement best expresses the central idea?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Germs are dangerous"
+        },
+        {
+          "id": "B",
+          "text": "Antibodies are tiny weapons"
+        },
+        {
+          "id": "C",
+          "text": "A vaccine trains the immune system to fight a germ safely, before a real infection"
+        },
+        {
+          "id": "D",
+          "text": "The body contains memory cells"
+        }
+      ],
+      "correct": "C",
+      "rationale": "Re-read the text and look for the central idea the question asks about."
+    },
+    {
+      "id": "g6-how-a-vaccine-teaches-the-body-to-fight-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-how-a-vaccine-teaches-the-body-to-fight"
+      ],
+      "skill": "Word meaning",
+      "stem": "In paragraph 1, “antibodies” are —",
+      "options": [
+        {
+          "id": "A",
+          "text": "harmful germs"
+        },
+        {
+          "id": "B",
+          "text": "a type of memory cell"
+        },
+        {
+          "id": "C",
+          "text": "a kind of vaccine"
+        },
+        {
+          "id": "D",
+          "text": "special weapons the body builds to destroy a germ"
+        }
+      ],
+      "correct": "D",
+      "rationale": "Re-read the text and look for the word meaning the question asks about."
+    },
+    {
+      "id": "g6-how-a-vaccine-teaches-the-body-to-fight-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-how-a-vaccine-teaches-the-body-to-fight"
+      ],
+      "skill": "Text structure",
+      "stem": "Paragraphs 2 through 5 are organized mainly by —",
+      "options": [
+        {
+          "id": "A",
+          "text": "describing the steps of how a vaccine works"
+        },
+        {
+          "id": "B",
+          "text": "comparing two different germs"
+        },
+        {
+          "id": "C",
+          "text": "listing famous vaccines"
+        },
+        {
+          "id": "D",
+          "text": "telling a story about one patient"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Re-read the text and look for the text structure the question asks about."
+    },
+    {
+      "id": "g6-the-photograph-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-photograph"
+      ],
+      "skill": "Theme",
+      "stem": "Which statement best expresses a theme of the passage?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Old photographs fade over time"
+        },
+        {
+          "id": "B",
+          "text": "People we think we know were once young and full of life, with whole stories of their own"
+        },
+        {
+          "id": "C",
+          "text": "Bicycles can be dangerous"
+        },
+        {
+          "id": "D",
+          "text": "Grandfathers tell good stories"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Re-read the text and look for the theme the question asks about."
+    },
+    {
+      "id": "g6-the-photograph-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-photograph"
+      ],
+      "skill": "Figurative language",
+      "stem": "Nadia holds the photo “as if it might fly away.” This suggests she feels the photo is —",
+      "options": [
+        {
+          "id": "A",
+          "text": "annoying"
+        },
+        {
+          "id": "B",
+          "text": "too heavy"
+        },
+        {
+          "id": "C",
+          "text": "precious and fragile"
+        },
+        {
+          "id": "D",
+          "text": "boring"
+        }
+      ],
+      "correct": "C",
+      "rationale": "Re-read the text and look for the figurative language the question asks about."
+    },
+    {
+      "id": "g6-the-photograph-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-photograph"
+      ],
+      "skill": "Inference",
+      "stem": "Why does the discovery surprise Nadia?",
+      "options": [
+        {
+          "id": "A",
+          "text": "She did not know she had a great-grandmother"
+        },
+        {
+          "id": "B",
+          "text": "The photo is in color"
+        },
+        {
+          "id": "C",
+          "text": "Her grandfather is in the photo"
+        },
+        {
+          "id": "D",
+          "text": "She had never pictured her great-grandmother as a real, lively young girl"
+        }
+      ],
+      "correct": "D",
+      "rationale": "Re-read the text and look for the inference the question asks about."
+    },
+    {
+      "id": "g6-why-the-sky-is-blue-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-why-the-sky-is-blue"
+      ],
+      "skill": "Central idea",
+      "stem": "Which statement best expresses the central idea?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The sky looks blue because air molecules scatter blue light more than other colors"
+        },
+        {
+          "id": "B",
+          "text": "Sunsets are orange"
+        },
+        {
+          "id": "C",
+          "text": "Sunlight is white"
+        },
+        {
+          "id": "D",
+          "text": "The atmosphere is made of gas"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Re-read the text and look for the central idea the question asks about."
+    },
+    {
+      "id": "g6-why-the-sky-is-blue-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-why-the-sky-is-blue"
+      ],
+      "skill": "Key detail",
+      "stem": "According to paragraph 2, how is blue light different from red light?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Blue light is brighter"
+        },
+        {
+          "id": "B",
+          "text": "Blue light travels in shorter waves"
+        },
+        {
+          "id": "C",
+          "text": "Blue light is warmer"
+        },
+        {
+          "id": "D",
+          "text": "Blue light moves more slowly"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Re-read the text and look for the key detail the question asks about."
+    },
+    {
+      "id": "g6-why-the-sky-is-blue-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-why-the-sky-is-blue"
+      ],
+      "skill": "Cause and effect",
+      "stem": "Why does the sky turn red and orange at sunset?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The sun changes color"
+        },
+        {
+          "id": "B",
+          "text": "Clouds turn red at night"
+        },
+        {
+          "id": "C",
+          "text": "Light passes through more air, and the blue is scattered away before it reaches you"
+        },
+        {
+          "id": "D",
+          "text": "The air gets colder in the evening"
+        }
+      ],
+      "correct": "C",
+      "rationale": "Re-read the text and look for the cause and effect the question asks about."
+    },
+    {
+      "id": "g6-the-trade-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-trade"
+      ],
+      "skill": "Theme",
+      "stem": "Which statement best expresses the theme?",
+      "options": [
+        {
+          "id": "A",
+          "text": "You should never trade your belongings"
+        },
+        {
+          "id": "B",
+          "text": "Knives are better than fishing reels"
+        },
+        {
+          "id": "C",
+          "text": "Trades always end badly"
+        },
+        {
+          "id": "D",
+          "text": "The value of something can come from its meaning and memories, not just how it looks"
+        }
+      ],
+      "correct": "D",
+      "rationale": "Re-read the text and look for the theme the question asks about."
+    },
+    {
+      "id": "g6-the-trade-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-trade"
+      ],
+      "skill": "Character development",
+      "stem": "How does Eli change over the story?",
+      "options": [
+        {
+          "id": "A",
+          "text": "He realizes the old reel matters more to him than the exciting knife"
+        },
+        {
+          "id": "B",
+          "text": "He learns to enjoy camping"
+        },
+        {
+          "id": "C",
+          "text": "He decides to stop fishing"
+        },
+        {
+          "id": "D",
+          "text": "He becomes best friends with Marcus"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Re-read the text and look for the character development the question asks about."
+    },
+    {
+      "id": "g6-the-trade-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-trade"
+      ],
+      "skill": "Figurative language",
+      "stem": "In paragraph 6, “the reel was worth more than it looked, because of everything it carried” means the reel held —",
+      "options": [
+        {
+          "id": "A",
+          "text": "fishing line"
+        },
+        {
+          "id": "B",
+          "text": "memories of his grandfather"
+        },
+        {
+          "id": "C",
+          "text": "hidden money"
+        },
+        {
+          "id": "D",
+          "text": "a second knife"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Re-read the text and look for the figurative language the question asks about."
+    },
+    {
+      "id": "g6-the-library-of-alexandria-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-library-of-alexandria"
+      ],
+      "skill": "Central idea",
+      "stem": "Which statement best expresses the central idea?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Alexandria was a city in Egypt"
+        },
+        {
+          "id": "B",
+          "text": "Scrolls were the books of the ancient world"
+        },
+        {
+          "id": "C",
+          "text": "The Library of Alexandria was a great center of learning, and its loss shows the value of knowledge"
+        },
+        {
+          "id": "D",
+          "text": "Ships once carried books across the sea"
+        }
+      ],
+      "correct": "C",
+      "rationale": "Re-read the text and look for the central idea the question asks about."
+    },
+    {
+      "id": "g6-the-library-of-alexandria-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-library-of-alexandria"
+      ],
+      "skill": "Key detail",
+      "stem": "How did the library try to fill its shelves?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It bought books from stores"
+        },
+        {
+          "id": "B",
+          "text": "It printed new books on a press"
+        },
+        {
+          "id": "C",
+          "text": "It traded scrolls for gold"
+        },
+        {
+          "id": "D",
+          "text": "It borrowed and copied books from ships in the harbor"
+        }
+      ],
+      "correct": "D",
+      "rationale": "Re-read the text and look for the key detail the question asks about."
+    },
+    {
+      "id": "g6-the-library-of-alexandria-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-library-of-alexandria"
+      ],
+      "skill": "Word meaning",
+      "stem": "In paragraph 2, “scrolls” were —",
+      "options": [
+        {
+          "id": "A",
+          "text": "the books of that time"
+        },
+        {
+          "id": "B",
+          "text": "scholars who studied there"
+        },
+        {
+          "id": "C",
+          "text": "ships in the harbor"
+        },
+        {
+          "id": "D",
+          "text": "shelves in the library"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Re-read the text and look for the word meaning the question asks about."
+    },
+    {
+      "id": "g6-the-choice-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-choice"
+      ],
+      "skill": "Theme",
+      "stem": "Which statement best expresses the theme?",
+      "options": [
+        {
+          "id": "A",
+          "text": "You should never take a test"
+        },
+        {
+          "id": "B",
+          "text": "Being honest with a friend can help them do the right thing, even when it is hard"
+        },
+        {
+          "id": "C",
+          "text": "Cheating is the fastest way to a good grade"
+        },
+        {
+          "id": "D",
+          "text": "Friends should keep every secret"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Re-read the text and look for the theme the question asks about."
+    },
+    {
+      "id": "g6-the-choice-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-choice"
+      ],
+      "skill": "Character motivation",
+      "stem": "Why does Tomas talk to Liam instead of going straight to the teacher?",
+      "options": [
+        {
+          "id": "A",
+          "text": "He is afraid of the teacher"
+        },
+        {
+          "id": "B",
+          "text": "He wants to cheat too"
+        },
+        {
+          "id": "C",
+          "text": "Liam is his oldest friend, and he wants to handle it honestly between them"
+        },
+        {
+          "id": "D",
+          "text": "He forgot what he saw"
+        }
+      ],
+      "correct": "C",
+      "rationale": "Re-read the text and look for the character motivation the question asks about."
+    },
+    {
+      "id": "g6-the-choice-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-choice"
+      ],
+      "skill": "Word meaning",
+      "stem": "In paragraph 7, “the tightness in his chest finally loosen[ed]” shows that Tomas feels —",
+      "options": [
+        {
+          "id": "A",
+          "text": "sick"
+        },
+        {
+          "id": "B",
+          "text": "angry"
+        },
+        {
+          "id": "C",
+          "text": "sleepy"
+        },
+        {
+          "id": "D",
+          "text": "relieved"
+        }
+      ],
+      "correct": "D",
+      "rationale": "Re-read the text and look for the word meaning the question asks about."
+    },
+    {
+      "id": "g6-the-dust-bowl-when-the-land-blew-away-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-dust-bowl-when-the-land-blew-away"
+      ],
+      "skill": "Central idea",
+      "stem": "Which statement best expresses the central idea?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Dust Bowl was a disaster caused partly by how people farmed, and it changed how the land was cared for"
+        },
+        {
+          "id": "B",
+          "text": "The 1930s were a difficult decade"
+        },
+        {
+          "id": "C",
+          "text": "Wheat grows well on the plains"
+        },
+        {
+          "id": "D",
+          "text": "Dust is dangerous to breathe"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Re-read the text and look for the central idea the question asks about."
+    },
+    {
+      "id": "g6-the-dust-bowl-when-the-land-blew-away-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-dust-bowl-when-the-land-blew-away"
+      ],
+      "skill": "Cause and effect",
+      "stem": "According to the passage, why did the soil blow away so easily?",
+      "options": [
+        {
+          "id": "A",
+          "text": "There was too much rain"
+        },
+        {
+          "id": "B",
+          "text": "The deep-rooted prairie grasses had been plowed up, so nothing held the soil"
+        },
+        {
+          "id": "C",
+          "text": "The wind was unusually weak"
+        },
+        {
+          "id": "D",
+          "text": "Farmers planted too many trees"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Re-read the text and look for the cause and effect the question asks about."
+    },
+    {
+      "id": "g6-the-dust-bowl-when-the-land-blew-away-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-the-dust-bowl-when-the-land-blew-away"
+      ],
+      "skill": "Word meaning",
+      "stem": "In paragraph 4, “black blizzards” were —",
+      "options": [
+        {
+          "id": "A",
+          "text": "snowstorms"
+        },
+        {
+          "id": "B",
+          "text": "heavy rainstorms"
+        },
+        {
+          "id": "C",
+          "text": "huge storms of blowing dust"
+        },
+        {
+          "id": "D",
+          "text": "clouds of insects"
+        }
+      ],
+      "correct": "C",
+      "rationale": "Re-read the text and look for the word meaning the question asks about."
+    },
+    {
+      "id": "g6-moving-day-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-moving-day"
+      ],
+      "skill": "Theme",
+      "stem": "Which statement best expresses the theme?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Moving is always easy"
+        },
+        {
+          "id": "B",
+          "text": "New houses are better than old ones"
+        },
+        {
+          "id": "C",
+          "text": "You should never move away"
+        },
+        {
+          "id": "D",
+          "text": "A home is made of people, memories, and things you love — not just a building"
+        }
+      ],
+      "correct": "D",
+      "rationale": "Re-read the text and look for the theme the question asks about."
+    },
+    {
+      "id": "g6-moving-day-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-moving-day"
+      ],
+      "skill": "Figurative language",
+      "stem": "Mia’s mother says “a room is just a box.” She mostly means that —",
+      "options": [
+        {
+          "id": "A",
+          "text": "the building matters less than the people and memories that make a home"
+        },
+        {
+          "id": "B",
+          "text": "rooms are shaped like boxes"
+        },
+        {
+          "id": "C",
+          "text": "Mia should pack more carefully"
+        },
+        {
+          "id": "D",
+          "text": "the room is too small"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Re-read the text and look for the figurative language the question asks about."
+    },
+    {
+      "id": "g6-moving-day-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-moving-day"
+      ],
+      "skill": "Character development",
+      "stem": "How do Mia’s feelings change by the end of the story?",
+      "options": [
+        {
+          "id": "A",
+          "text": "She decides she hates the new house"
+        },
+        {
+          "id": "B",
+          "text": "She begins to believe she can make the new place feel like home"
+        },
+        {
+          "id": "C",
+          "text": "She wants to move again right away"
+        },
+        {
+          "id": "D",
+          "text": "She stops missing her old town completely"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Re-read the text and look for the character development the question asks about."
+    },
+    {
+      "id": "g4-the-great-wall-of-china-ebsr",
+      "type": "two_part_ebsr",
+      "passageIds": [
+        "g4-the-great-wall-of-china"
+      ],
+      "skill": "Cite the evidence (EBSR)",
+      "partA": {
+        "stem": "What was the main purpose of the Great Wall?",
+        "options": [
+          {
+            "id": "A",
+            "text": "To attract visitors"
+          },
+          {
+            "id": "B",
+            "text": "To defend China from invaders from the north"
+          },
+          {
+            "id": "C",
+            "text": "To mark the border with the ocean"
+          },
+          {
+            "id": "D",
+            "text": "To store grain"
+          }
+        ],
+        "correct": "B"
+      },
+      "partB": {
+        "stem": "Which sentence from the passage best supports your answer to Part A?",
+        "options": [
+          {
+            "id": "A",
+            "text": "The main purpose was defense."
+          },
+          {
+            "id": "B",
+            "text": "The wall was not built all at once."
+          },
+          {
+            "id": "C",
+            "text": "Today the Great Wall is no longer needed for defense."
+          },
+          {
+            "id": "D",
+            "text": "Workers used stone, brick, and packed earth, often carrying materials up steep slopes by hand."
+          }
+        ],
+        "correct": "A"
+      },
+      "rationale": "Part B states directly that the main purpose was defense."
+    },
+    {
+      "id": "g4-the-bird-that-never-stops-traveling-evsel",
+      "type": "evidence_select",
+      "passageIds": [
+        "g4-the-bird-that-never-stops-traveling"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Click the sentence that tells you the Arctic tern’s migration is the longest of any animal.",
+      "paragraphScope": 4,
+      "correct": [
+        "This round trip can cover tens of thousands of miles each year, making it the longest migration of any animal in the world."
+      ],
+      "rationale": "This sentence states it is the longest migration of any animal."
+    },
+    {
+      "id": "g4-why-do-leaves-change-color-msel",
+      "type": "multiple_select",
+      "passageIds": [
+        "g4-why-do-leaves-change-color"
+      ],
+      "skill": "Key details (multi-select)",
+      "stem": "Select the TWO statements the passage supports about leaf color.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Yellow and orange colors are in leaves even during the summer."
+        },
+        {
+          "id": "B",
+          "text": "Some trees make a new red or purple color in the fall."
+        },
+        {
+          "id": "C",
+          "text": "Chlorophyll is what makes leaves turn red."
+        },
+        {
+          "id": "D",
+          "text": "Leaves stay on the tree all winter."
+        },
+        {
+          "id": "E",
+          "text": "Cold weather paints the leaves orange."
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "rationale": "Paragraph 3 (hidden colors) and paragraph 5 (new red color) support these."
+    },
+    {
+      "id": "g4-why-is-the-ocean-salty-order",
+      "type": "order",
+      "passageIds": [
+        "g4-why-is-the-ocean-salty"
+      ],
+      "skill": "Sequence / cause and effect",
+      "stem": "Put the steps that make the ocean salty in the correct order.",
+      "elements": [
+        {
+          "id": "s1",
+          "text": "Rain and rivers flow over rocks and soil."
+        },
+        {
+          "id": "s2",
+          "text": "The water dissolves tiny amounts of salt and minerals."
+        },
+        {
+          "id": "s3",
+          "text": "Rivers carry the dissolved minerals to the sea."
+        },
+        {
+          "id": "s4",
+          "text": "Ocean water evaporates and rises to form clouds."
+        },
+        {
+          "id": "s5",
+          "text": "The salt is left behind, so it builds up in the ocean."
+        }
+      ],
+      "correctOrder": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "rationale": "This matches the process described in the passage."
+    },
+    {
+      "id": "g4-the-tryout-ebsr",
+      "type": "two_part_ebsr",
+      "passageIds": [
+        "g4-the-tryout"
+      ],
+      "skill": "Cite the evidence (EBSR)",
+      "partA": {
+        "stem": "What helps Dev finally make the team?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Luck on the day of tryouts"
+          },
+          {
+            "id": "B",
+            "text": "A year of daily practice"
+          },
+          {
+            "id": "C",
+            "text": "A new coach"
+          },
+          {
+            "id": "D",
+            "text": "New cleats"
+          }
+        ],
+        "correct": "B"
+      },
+      "partB": {
+        "stem": "Which sentence from the story best supports your answer to Part A?",
+        "options": [
+          {
+            "id": "A",
+            "text": "He did this every day for a year."
+          },
+          {
+            "id": "B",
+            "text": "He walked home slowly, his cleats slung over his shoulder."
+          },
+          {
+            "id": "C",
+            "text": "His grandmother was on the porch."
+          },
+          {
+            "id": "D",
+            "text": "Maybe I’m just not good enough, he muttered."
+          }
+        ],
+        "correct": "A"
+      },
+      "rationale": "A year of daily practice is what changes Dev’s result."
+    },
+    {
+      "id": "g4-the-treehouse-rule-cloze",
+      "type": "inline_dropdown",
+      "passageIds": [
+        "g4-the-treehouse-rule"
+      ],
+      "skill": "Inference (inline choice)",
+      "stem": "Choose the words that best complete the sentence. At first the friends each thought their {{b1}} idea was best, but Jojo’s plan worked because it let them {{b2}}.",
+      "blanks": {
+        "b1": {
+          "options": [
+            {
+              "id": "A",
+              "text": "own"
+            },
+            {
+              "id": "B",
+              "text": "oldest"
+            }
+          ],
+          "correct": "A"
+        },
+        "b2": {
+          "options": [
+            {
+              "id": "A",
+              "text": "share the space"
+            },
+            {
+              "id": "B",
+              "text": "pick one winner"
+            }
+          ],
+          "correct": "A"
+        }
+      },
+      "rationale": "Each wanted their own idea; the solution let all three share the treehouse."
+    },
+    {
+      "id": "g4-the-lemonade-stand-evsel",
+      "type": "evidence_select",
+      "passageIds": [
+        "g4-the-lemonade-stand"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Click the sentence that shows the moment Carlos decides to change his plan instead of giving up.",
+      "paragraphScope": 4,
+      "correct": [
+        "Carlos went inside, and instead of pouring out his lemonade, he heated it on the stove with a little honey and cinnamon."
+      ],
+      "rationale": "This is where he adapts his plan rather than quitting."
+    },
+    {
+      "id": "g6-how-a-vaccine-teaches-the-body-to-fight-order",
+      "type": "order",
+      "passageIds": [
+        "g6-how-a-vaccine-teaches-the-body-to-fight"
+      ],
+      "skill": "Sequence / process",
+      "stem": "Put the steps of how a vaccine works in the correct order.",
+      "elements": [
+        {
+          "id": "s1",
+          "text": "A vaccine introduces a harmless piece or version of a germ."
+        },
+        {
+          "id": "s2",
+          "text": "The immune system reacts and makes antibodies for that germ."
+        },
+        {
+          "id": "s3",
+          "text": "After the threat is gone, memory cells remember how to fight it."
+        },
+        {
+          "id": "s4",
+          "text": "If the real germ appears later, the memory cells respond quickly."
+        },
+        {
+          "id": "s5",
+          "text": "The body defeats the germ so fast you may never feel sick."
+        }
+      ],
+      "correctOrder": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "rationale": "This is the order described in paragraphs 2 through 5."
+    },
+    {
+      "id": "g6-why-the-sky-is-blue-evsel",
+      "type": "evidence_select",
+      "passageIds": [
+        "g6-why-the-sky-is-blue"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Click the sentence in paragraph 4 that explains why blue, and not red, fills the sky.",
+      "paragraphScope": 4,
+      "correct": [
+        "Here is the key: the short waves of blue light scatter much more easily than the long waves of red light."
+      ],
+      "rationale": "Blue scatters more than red, which is why the sky looks blue."
+    },
+    {
+      "id": "g6-the-library-of-alexandria-msel",
+      "type": "multiple_select",
+      "passageIds": [
+        "g6-the-library-of-alexandria"
+      ],
+      "skill": "Key details (multi-select)",
+      "stem": "Select the TWO statements the passage supports about the Library of Alexandria.",
+      "options": [
+        {
+          "id": "A",
+          "text": "It aimed to gather all the world’s knowledge in one place."
+        },
+        {
+          "id": "B",
+          "text": "Scholars made real discoveries there."
+        },
+        {
+          "id": "C",
+          "text": "It is still open to visitors today."
+        },
+        {
+          "id": "D",
+          "text": "It was destroyed in a single day."
+        },
+        {
+          "id": "E",
+          "text": "It held only books of poetry."
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "rationale": "Paragraph 1 (gathering all knowledge) and paragraph 3 (discoveries) support these."
+    },
+    {
+      "id": "g6-the-dust-bowl-when-the-land-blew-away-ebsr",
+      "type": "two_part_ebsr",
+      "passageIds": [
+        "g6-the-dust-bowl-when-the-land-blew-away"
+      ],
+      "skill": "Cite the evidence (EBSR)",
+      "partA": {
+        "stem": "What was one major cause of the Dust Bowl?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Too much rain on the plains"
+          },
+          {
+            "id": "B",
+            "text": "Plowing up the prairie grasses that held the soil"
+          },
+          {
+            "id": "C",
+            "text": "Planting too many trees"
+          },
+          {
+            "id": "D",
+            "text": "A shortage of farmers"
+          }
+        ],
+        "correct": "B"
+      },
+      "partB": {
+        "stem": "Which sentence from the passage best supports your answer to Part A?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Those grasses had deep roots that held the soil in place."
+          },
+          {
+            "id": "B",
+            "text": "These storms, sometimes called “black blizzards,” could turn day into night."
+          },
+          {
+            "id": "C",
+            "text": "The Dust Bowl is remembered as a hard lesson."
+          },
+          {
+            "id": "D",
+            "text": "Many families lost everything, and thousands packed up and left, traveling west to look for work."
+          }
+        ],
+        "correct": "A"
+      },
+      "rationale": "Removing the deep-rooted grasses left nothing to hold the soil."
+    },
+    {
+      "id": "g6-the-choice-ebsr",
+      "type": "two_part_ebsr",
+      "passageIds": [
+        "g6-the-choice"
+      ],
+      "skill": "Cite the evidence (EBSR)",
+      "partA": {
+        "stem": "What is the result of Tomas being honest with Liam?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Liam stops being his friend"
+          },
+          {
+            "id": "B",
+            "text": "Liam admits it was wrong and decides to retake the test honestly"
+          },
+          {
+            "id": "C",
+            "text": "Tomas gets in trouble"
+          },
+          {
+            "id": "D",
+            "text": "Nothing changes"
+          }
+        ],
+        "correct": "B"
+      },
+      "partB": {
+        "stem": "Which sentence from the story best supports your answer to Part A?",
+        "options": [
+          {
+            "id": "A",
+            "text": "I’m going to tell Mr. Reyes I want to retake it."
+          },
+          {
+            "id": "B",
+            "text": "Liam was thrilled."
+          },
+          {
+            "id": "C",
+            "text": "Tomas saw it happen."
+          },
+          {
+            "id": "D",
+            "text": "They had built forts together and learned to ride bikes together."
+          }
+        ],
+        "correct": "A"
+      },
+      "rationale": "Liam decides to retake the test the honest way."
+    },
+    {
+      "id": "g6-moving-day-evsel",
+      "type": "evidence_select",
+      "passageIds": [
+        "g6-moving-day"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Click the sentence that best shows Mia beginning to accept her new home.",
+      "paragraphScope": 7,
+      "correct": [
+        "But for the first time since the truck pulled away, Mia believed that she could."
+      ],
+      "rationale": "This shows her shift toward hope about the new place."
+    },
+    {
+      "id": "g4-why-do-leaves-change-color-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g4-why-do-leaves-change-color"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Explain why a green leaf turns yellow in the fall. Use a detail and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "As the tree senses shorter, cooler days, it stops making chlorophyll; as the green fades, the yellow that was hidden shows through (paragraph 4)."
+    },
+    {
+      "id": "g4-why-do-leaves-change-color-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g4-why-do-leaves-change-color"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, explain why leaves change color in the fall. Include at least two details and name the paragraph each comes from.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 120,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g4-the-mixed-up-lunchbox-q3",
+      "type": "short_response",
+      "passageIds": [
+        "g4-the-mixed-up-lunchbox"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Write one detail that shows Ava decided to do the right thing.",
+      "requireCitation": false,
+      "rubricMax": 2,
+      "sampleAnswer": "She closed the lunchbox and carried it to the office, asking for help getting Mateo’s lunch back to him (paragraph 5)."
+    },
+    {
+      "id": "g4-the-mixed-up-lunchbox-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g4-the-mixed-up-lunchbox"
+      ],
+      "skill": "Written response",
+      "stem": "Write about a time you did the honest thing even though it was tempting not to. What happened, and how did you feel afterward?",
+      "taskType": "narrative",
+      "requireCitation": false,
+      "wordCountHint": 120,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Develops the response with specific details and a clear sequence",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g4-the-bird-that-never-stops-traveling-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g4-the-bird-that-never-stops-traveling"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Why does the passage say the Arctic tern sees more daylight than almost any other animal? Use a detail and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "By flying to summer at both ends of the Earth, it gets two summers a year, so it experiences more daylight than almost any other animal (paragraphs 3 and 5)."
+    },
+    {
+      "id": "g4-the-bird-that-never-stops-traveling-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g4-the-bird-that-never-stops-traveling"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, explain what makes the Arctic tern’s migration so remarkable. Use at least two details and name the paragraph for each.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 120,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g4-the-tryout-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g4-the-tryout"
+      ],
+      "skill": "Constructed response",
+      "stem": "How does Dev change from the beginning to the end of the story? Use one detail for each.",
+      "requireCitation": false,
+      "rubricMax": 2,
+      "sampleAnswer": "Beginning: discouraged — he says he is “not good enough.” End: confident and proud after a year of daily practice, he makes the team and realizes it was only “not yet.”"
+    },
+    {
+      "id": "g4-the-tryout-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g4-the-tryout"
+      ],
+      "skill": "Written response",
+      "stem": "Write about a goal you had to work hard for over time. What did you do to improve, and what happened in the end?",
+      "taskType": "narrative",
+      "requireCitation": false,
+      "wordCountHint": 120,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Develops the response with specific details and a clear sequence",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g4-the-great-wall-of-china-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g4-the-great-wall-of-china"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Besides blocking enemies, name one other way the wall was used, and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "Gates along the wall controlled trade and travel, and soldiers in towers kept watch over the land for miles (paragraph 4)."
+    },
+    {
+      "id": "g4-the-great-wall-of-china-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g4-the-great-wall-of-china"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, explain why the Great Wall of China was built and how it was used. Use at least two details with paragraph numbers.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 120,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g4-the-treehouse-rule-q3",
+      "type": "short_response",
+      "passageIds": [
+        "g4-the-treehouse-rule"
+      ],
+      "skill": "Constructed response",
+      "stem": "How does Jojo solve the friends’ problem? Use a detail from the story.",
+      "requireCitation": false,
+      "rubricMax": 2,
+      "sampleAnswer": "She suggests dividing the treehouse so it can be all three things at once — a library shelf, a spy corner, and an art wall (paragraph 5)."
+    },
+    {
+      "id": "g4-the-treehouse-rule-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g4-the-treehouse-rule"
+      ],
+      "skill": "Written response",
+      "stem": "Write about a time you and others disagreed and found a way to make everyone happy. What was the disagreement, and how did you solve it?",
+      "taskType": "narrative",
+      "requireCitation": false,
+      "wordCountHint": 120,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Develops the response with specific details and a clear sequence",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g4-why-is-the-ocean-salty-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g4-why-is-the-ocean-salty"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Why is the ocean salty but rivers are not? Use a detail and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "Each river adds only a tiny amount of salt, but rivers have poured into the sea for millions of years, and evaporation keeps leaving the salt behind (paragraphs 3 and 4)."
+    },
+    {
+      "id": "g4-why-is-the-ocean-salty-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g4-why-is-the-ocean-salty"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, explain why the ocean is salty. Include at least two steps in the process and name the paragraph each comes from.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 120,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g4-the-lemonade-stand-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g4-the-lemonade-stand"
+      ],
+      "skill": "Constructed response",
+      "stem": "How does Carlos turn a bad situation into a good one? Use two details from the story.",
+      "requireCitation": false,
+      "rubricMax": 2,
+      "sampleAnswer": "Instead of giving up when rain stopped sales, he heats the lemonade with honey and cinnamon and sells “hot lemonade” from the garage to cold, wet people, earning more than he hoped (paragraphs 4 and 5)."
+    },
+    {
+      "id": "g4-the-lemonade-stand-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g4-the-lemonade-stand"
+      ],
+      "skill": "Written response",
+      "stem": "Write about a time a plan of yours went wrong and you found a new way to make it work. What changed, and how did it turn out?",
+      "taskType": "narrative",
+      "requireCitation": false,
+      "wordCountHint": 120,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Develops the response with specific details and a clear sequence",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g6-how-a-vaccine-teaches-the-body-to-fight-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g6-how-a-vaccine-teaches-the-body-to-fight"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Why does the passage say a vaccine gives the immune system a “head start”? Use a detail and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "Memory cells remember how to make the antibodies, so if the real germ appears the body fights it quickly instead of starting from scratch (paragraphs 4 and 5)."
+    },
+    {
+      "id": "g6-how-a-vaccine-teaches-the-body-to-fight-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g6-how-a-vaccine-teaches-the-body-to-fight"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, write a short explanation of how a vaccine protects you from a disease. Include at least three details, each with a paragraph number, and end with why this matters.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 200,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g6-the-photograph-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g6-the-photograph"
+      ],
+      "skill": "Cite textual evidence",
+      "stem": "What does Nadia come to understand about her great-grandmother by the end? Use a detail.",
+      "requireCitation": false,
+      "rubricMax": 2,
+      "sampleAnswer": "That her great-grandmother was “a whole person, with a whole life” — once a fearless twelve-year-old — not just an old name or portrait (paragraphs 3 and 5)."
+    },
+    {
+      "id": "g6-the-photograph-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g6-the-photograph"
+      ],
+      "skill": "Written response",
+      "stem": "Write a short narrative about a time you learned something surprising about an older person in your life that changed how you saw them.",
+      "taskType": "narrative",
+      "requireCitation": false,
+      "wordCountHint": 200,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Develops the response with specific details and a clear sequence",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g6-why-the-sky-is-blue-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g6-why-the-sky-is-blue"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Explain why we see blue when we look up at a clear daytime sky. Use a detail and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "Air molecules scatter the short blue waves much more than the long red waves, so scattered blue light reaches our eyes from all over the sky (paragraph 4)."
+    },
+    {
+      "id": "g6-why-the-sky-is-blue-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g6-why-the-sky-is-blue"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, explain why the sky is blue during the day but red and orange at sunset. Cite at least two details by paragraph number.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 200,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g6-the-trade-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g6-the-trade"
+      ],
+      "skill": "Cite textual evidence",
+      "stem": "Why does Eli want to trade back? Support your answer with details from the story.",
+      "requireCitation": false,
+      "rubricMax": 2,
+      "sampleAnswer": "The reel was his grandfather’s and tied to memories of learning to fish together; the knife “could not bring back the sound of his grandfather’s laugh” (paragraphs 2 and 4)."
+    },
+    {
+      "id": "g6-the-trade-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g6-the-trade"
+      ],
+      "skill": "Written response",
+      "stem": "Write about an object that means a lot to you for reasons that have nothing to do with how it looks or what it costs. Tell its story.",
+      "taskType": "narrative",
+      "requireCitation": false,
+      "wordCountHint": 200,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Develops the response with specific details and a clear sequence",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g6-the-library-of-alexandria-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g6-the-library-of-alexandria"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Why does the passage call the library “more than a storehouse”? Use a detail and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "Scholars came there to study, argue, and make discoveries, such as an accurate early measurement of the size of the Earth (paragraph 3)."
+    },
+    {
+      "id": "g6-the-library-of-alexandria-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g6-the-library-of-alexandria"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, write a short essay explaining why the Library of Alexandria mattered and why its loss is remembered. Make a claim, cite at least three details by paragraph, and end with why it matters.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 200,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g6-the-choice-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g6-the-choice"
+      ],
+      "skill": "Cite textual evidence",
+      "stem": "How does being honest with Liam turn out better than staying silent? Use evidence from the story.",
+      "requireCitation": false,
+      "rubricMax": 2,
+      "sampleAnswer": "Tomas’s honesty gives Liam the chance to feel ashamed and choose to retake the test “the honest way,” so Tomas didn’t have to choose between his friend and the truth (paragraphs 6 and 7)."
+    },
+    {
+      "id": "g6-the-choice-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g6-the-choice"
+      ],
+      "skill": "Written response",
+      "stem": "Write about a time you faced a hard choice between two things you cared about. What did you decide, and what happened?",
+      "taskType": "narrative",
+      "requireCitation": false,
+      "wordCountHint": 200,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Develops the response with specific details and a clear sequence",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g6-the-dust-bowl-when-the-land-blew-away-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g6-the-dust-bowl-when-the-land-blew-away"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Name one way people changed how they treated the land after the Dust Bowl, and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "People planted trees to block the wind, plowed in patterns that held water, and let fields rest (paragraph 5)."
+    },
+    {
+      "id": "g6-the-dust-bowl-when-the-land-blew-away-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g6-the-dust-bowl-when-the-land-blew-away"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, explain what caused the Dust Bowl and how people responded. Make a claim, cite at least three details by paragraph, and end with the lesson it teaches.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 200,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g6-moving-day-q4",
+      "type": "short_response",
+      "passageIds": [
+        "g6-moving-day"
+      ],
+      "skill": "Cite textual evidence",
+      "stem": "What does Mia come to understand by the end of the story? Use a detail.",
+      "requireCitation": false,
+      "rubricMax": 2,
+      "sampleAnswer": "That a house is “just a box,” but the home — the people, memories, and small things she loves — traveled with her, and she can fill the new walls with that feeling in time (paragraphs 6 and 7)."
+    },
+    {
+      "id": "g6-moving-day-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g6-moving-day"
+      ],
+      "skill": "Written response",
+      "stem": "Write about a big change you went through. What was hard about it, and how did you come to feel differently over time?",
+      "taskType": "narrative",
+      "requireCitation": false,
+      "wordCountHint": 200,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Develops the response with specific details and a clear sequence",
+        "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    }
+  ]
+}
