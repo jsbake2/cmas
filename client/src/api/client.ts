@@ -18,6 +18,14 @@ export interface Profile {
   formId: string;
 }
 
+export interface WritingAnalysis {
+  overall: string;
+  spelling: Array<{ misspelled: string; suggestion: string }>;
+  grammar: Array<{ issue: string; where: string }>;
+  addresses_prompt: "yes" | "partial" | "no";
+  next_step: string;
+}
+
 export interface CompletedResult {
   id: string;
   profile: ProfileId;
@@ -40,6 +48,7 @@ export interface CompletedResult {
     >;
   };
   parentScores: Record<string, number>;
+  aiAnalyses?: Record<string, WritingAnalysis>;
   meta?: Record<string, unknown>;
 }
 
@@ -105,5 +114,11 @@ export const api = {
     req<{ ok: true; removedResults: number }>(
       `/api/profile/${p}/all-data`,
       { method: "DELETE" },
+    ),
+
+  aiAnalyze: (p: ProfileId, resultId: string, itemId: string) =>
+    req<{ ok: true; analysis: WritingAnalysis }>(
+      `/api/results/${p}/${resultId}/ai-analyze/${itemId}`,
+      { method: "POST", headers: json },
     ),
 };

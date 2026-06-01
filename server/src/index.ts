@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { db, stmts } from "./db.js";
 import { getContent, getContentPath } from "./content.js";
 import { PROFILES, isProfileId } from "./profiles.js";
+import { aiInfo, analyzeWriting, type WritingAnalysis } from "./ai.js";
 
 const PORT = Number(process.env.PORT ?? 8473);
 const HOST = process.env.HOST ?? "0.0.0.0";
@@ -154,6 +155,105 @@ app.post("/api/results/:profile", (req, res) => {
   };
   stmts.upsertResult.run(id, p, quizId, submittedAt, JSON.stringify(stored));
   res.status(existing ? 200 : 201).json(stored);
+});
+
+/**
+ * Quick-and-dirty AI preview of a written response. Calls Ollama (qwen2.5
+ * by default) and stores the result on the saved result row so subsequent
+ * page loads don't re-call the model.
+ */
+app.post(
+  "/api/results/:profile/:resultId/ai-analyze/:itemId",
+  async (req, res) => {
+    const p = requireProfile(req, res);
+    if (!p) return;
+    const { resultId, itemId } = req.params;
+
+    const row = stmts.getResult.get(p, String(resultId)) as
+      | { json: string }
+      | undefined;
+    if (!row) return res.status(404).json({ error: "Result not found" });
+    let result: {
+      formId?: string;
+      responses?: Record<string, unknown>;
+      aiAnalyses?: Record<string, WritingAnalysis>;
+    };
+    try {
+      result = JSON.parse(row.json);
+    } catch {
+      return res.status(500).json({ error: "Stored result is corrupted" });
+    }
+    const responseText = result.responses?.[itemId];
+    if (typeof responseText !== "string" || !responseText.trim()) {
+      return res
+        .status(400)
+        .json({ error: "Item has no written response to analyze" });
+    }
+
+    // Look up the item and passage from the content file.
+    const content = getContent() as {
+      items: Array<Record<string, unknown>>;
+      passages: Array<{ id: string; title: string; paragraphs: string[] }>;
+    };
+    const item = content.items.find((i) => i.id === itemId) as
+      | (Record<string, unknown> & {
+          type: string;
+          stem?: string;
+          passageIds?: string[];
+          requireCitation?: boolean;
+          rubric?: string[];
+          taskType?: string;
+        })
+      | undefined;
+    if (!item) return res.status(404).json({ error: "Item not found" });
+    if (item.type !== "short_response" && item.type !== "prose_response") {
+      return res
+        .status(400)
+        .json({ error: "AI analysis only applies to written responses" });
+    }
+    const passage = content.passages.find(
+      (pp) => pp.id === (item.passageIds ?? [])[0],
+    );
+
+    const grade = p === "olive" ? 6 : 4;
+    const studentName = p === "olive" ? "Olive" : "Fox";
+
+    let analysis: WritingAnalysis;
+    try {
+      analysis = await analyzeWriting({
+        studentName,
+        grade,
+        passageTitle: passage?.title ?? "",
+        passageText: passage?.paragraphs.join("\n\n") ?? "",
+        prompt: String(item.stem ?? ""),
+        studentResponse: responseText,
+        rubric: Array.isArray(item.rubric) ? (item.rubric as string[]) : undefined,
+        requireCitation: !!item.requireCitation,
+        taskType:
+          item.type === "short_response"
+            ? "short"
+            : (item.taskType as
+                | "narrative"
+                | "research_simulation"
+                | "literary_analysis"
+                | undefined),
+      });
+    } catch (e) {
+      console.error("[ai] analyze failed", e);
+      return res.status(502).json({
+        error: "AI analyzer is unavailable right now",
+        detail: e instanceof Error ? e.message : String(e),
+      });
+    }
+
+    result.aiAnalyses = { ...(result.aiAnalyses ?? {}), [itemId]: analysis };
+    stmts.updateResult.run(JSON.stringify(result), p, String(resultId));
+    res.json({ ok: true, analysis });
+  },
+);
+
+app.get("/api/ai/info", (_req, res) => {
+  res.json(aiInfo());
 });
 
 /**

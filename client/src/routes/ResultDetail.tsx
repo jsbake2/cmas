@@ -1,6 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { api, type ProfileId, type CompletedResult } from "@/api/client";
+import {
+  api,
+  type ProfileId,
+  type CompletedResult,
+  type WritingAnalysis,
+} from "@/api/client";
 import { useContentStore } from "@/store/content";
 import type { Item } from "@/content/schema";
 
@@ -135,10 +140,13 @@ export default function ResultDetail() {
             <ItemReview
               key={itemId}
               idx={idx + 1}
+              profile={p}
+              resultId={result.id}
               item={it}
               response={result.responses[itemId]}
               auto={result.auto.byItem[itemId]}
               parentScore={result.parentScores[itemId]}
+              aiAnalysis={result.aiAnalyses?.[itemId]}
               onParentScore={async (s) => {
                 await api.patchParentScore(p, result.id, itemId, s);
                 setResult({
@@ -146,6 +154,15 @@ export default function ResultDetail() {
                   parentScores: { ...result.parentScores, [itemId]: s },
                 });
               }}
+              onAiAnalysis={(a) =>
+                setResult({
+                  ...result,
+                  aiAnalyses: {
+                    ...(result.aiAnalyses ?? {}),
+                    [itemId]: a,
+                  },
+                })
+              }
             />
           );
         })}
@@ -156,18 +173,26 @@ export default function ResultDetail() {
 
 function ItemReview({
   idx,
+  profile,
+  resultId,
   item,
   response,
   auto,
   parentScore,
+  aiAnalysis,
   onParentScore,
+  onAiAnalysis,
 }: {
   idx: number;
+  profile: ProfileId;
+  resultId: string;
   item: Item;
   response: unknown;
   auto: { earned: number; possible: number; correct: boolean | "partial" };
   parentScore?: number;
+  aiAnalysis?: WritingAnalysis;
   onParentScore: (s: number) => void | Promise<void>;
+  onAiAnalysis: (a: WritingAnalysis) => void;
 }) {
   const isAuto = item.type !== "short_response" && item.type !== "prose_response";
   return (
@@ -230,6 +255,14 @@ function ItemReview({
             value={parentScore}
             onChange={onParentScore}
           />
+          <AiPanel
+            profile={profile}
+            resultId={resultId}
+            itemId={item.id}
+            response={response}
+            analysis={aiAnalysis}
+            onAnalysis={onAiAnalysis}
+          />
         </div>
       )}
 
@@ -256,6 +289,150 @@ function ItemReview({
             value={parentScore}
             onChange={onParentScore}
           />
+          <AiPanel
+            profile={profile}
+            resultId={resultId}
+            itemId={item.id}
+            response={response}
+            analysis={aiAnalysis}
+            onAnalysis={onAiAnalysis}
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function AiPanel({
+  profile,
+  resultId,
+  itemId,
+  response,
+  analysis,
+  onAnalysis,
+}: {
+  profile: ProfileId;
+  resultId: string;
+  itemId: string;
+  response: unknown;
+  analysis?: WritingAnalysis;
+  onAnalysis: (a: WritingAnalysis) => void;
+}) {
+  const [loading, setLoading] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+  const hasText = typeof response === "string" && response.trim().length > 0;
+
+  async function run() {
+    setLoading(true);
+    setErr(null);
+    try {
+      const { analysis } = await api.aiAnalyze(profile, resultId, itemId);
+      onAnalysis(analysis);
+    } catch (e) {
+      setErr(e instanceof Error ? e.message : String(e));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  if (!hasText) return null;
+
+  return (
+    <div className="mt-3 border-t border-dashed border-border pt-3">
+      <div className="flex items-center justify-between mb-2 gap-2 flex-wrap">
+        <div className="font-ui font-semibold text-sm flex items-center gap-2">
+          <span aria-hidden="true">🤖</span>
+          <span>Quick AI feedback</span>
+          <span className="text-xs text-muted font-normal">
+            (preview — not a grade)
+          </span>
+        </div>
+        <button
+          className="btn"
+          onClick={run}
+          disabled={loading}
+          title="Runs locally on Qwen via Ollama"
+        >
+          {loading
+            ? "Thinking…"
+            : analysis
+              ? "Re-run"
+              : "Get AI feedback"}
+        </button>
+      </div>
+
+      {err && (
+        <div
+          className="text-sm card mb-2"
+          style={{
+            borderColor: "#dc2626",
+            background: "#fef2f2",
+            color: "#991b1b",
+          }}
+        >
+          Couldn't reach the AI: {err}
+        </div>
+      )}
+
+      {analysis && (
+        <div className="space-y-2 text-sm">
+          <div>
+            <strong>Overall:</strong> {analysis.overall}
+          </div>
+          <div>
+            <strong>Did it answer the prompt?</strong>{" "}
+            <span
+              style={{
+                color:
+                  analysis.addresses_prompt === "yes"
+                    ? "#15803d"
+                    : analysis.addresses_prompt === "partial"
+                      ? "#a16207"
+                      : "#b91c1c",
+                fontWeight: 600,
+              }}
+            >
+              {analysis.addresses_prompt}
+            </span>
+          </div>
+          {analysis.spelling.length > 0 && (
+            <div>
+              <strong>Spelling to check:</strong>
+              <ul className="list-disc pl-5">
+                {analysis.spelling.map((s, i) => (
+                  <li key={i}>
+                    <span style={{ textDecoration: "line-through" }}>
+                      {s.misspelled}
+                    </span>{" "}
+                    → <span style={{ fontWeight: 600 }}>{s.suggestion}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {analysis.grammar.length > 0 && (
+            <div>
+              <strong>Grammar to check:</strong>
+              <ul className="list-disc pl-5">
+                {analysis.grammar.map((g, i) => (
+                  <li key={i}>
+                    {g.issue} <em className="text-muted">({g.where})</em>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {analysis.spelling.length === 0 &&
+            analysis.grammar.length === 0 && (
+              <div className="text-muted">
+                Nothing obvious to flag for spelling or grammar.
+              </div>
+            )}
+          {analysis.next_step && (
+            <div>
+              <strong>Try next time:</strong> {analysis.next_step}
+            </div>
+          )}
         </div>
       )}
     </div>
