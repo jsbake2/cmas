@@ -65,16 +65,23 @@ export default function BottomBar({ items, current, onChange, onReview }: Props)
           })}
         </div>
       </div>
-      <button className="btn" onClick={onReview}>
-        Review
-      </button>
-      <button
-        className="btn btn-primary"
-        disabled={current === items.length - 1}
-        onClick={() => onChange(current + 1)}
-      >
-        Next →
-      </button>
+      {current === items.length - 1 ? (
+        <button className="btn btn-primary" onClick={onReview}>
+          Finish &amp; review →
+        </button>
+      ) : (
+        <>
+          <button className="btn" onClick={onReview}>
+            Review
+          </button>
+          <button
+            className="btn btn-primary"
+            onClick={() => onChange(current + 1)}
+          >
+            Next →
+          </button>
+        </>
+      )}
     </div>
   );
 }
