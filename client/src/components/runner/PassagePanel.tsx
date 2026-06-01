@@ -180,7 +180,16 @@ function PassageBody({
             key={i}
             className="passage-paragraph"
             data-para-idx={i}
+            data-evidence-scope={allowSentenceSelect ? "true" : undefined}
           >
+            {allowSentenceSelect && (
+              <div className="evidence-scope-hint" aria-hidden="true">
+                <span>👇</span>
+                <span>
+                  Click a sentence below to choose it
+                </span>
+              </div>
+            )}
             <span className="para-num" aria-hidden="true">
               {i + 1}
             </span>
