@@ -64,6 +64,16 @@ export default function ResultDetail() {
 
   const finalScore = computeFinalScore(result, itemsById);
 
+  // Written items eligible for AI analysis (have a response).
+  const writtenItemIds = Object.keys(result.auto.byItem).filter((id) => {
+    const it = itemsById.get(id);
+    if (!it) return false;
+    if (it.type !== "short_response" && it.type !== "prose_response")
+      return false;
+    const r = result.responses[id];
+    return typeof r === "string" && r.trim().length > 0;
+  });
+
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       <header className="flex items-start justify-between gap-3 flex-wrap">
@@ -88,6 +98,25 @@ export default function ResultDetail() {
           Save &amp; back to quizzes →
         </Link>
       </header>
+
+      {writtenItemIds.length > 0 && (
+        <AnalyzeAll
+          profile={p}
+          resultId={result.id}
+          writtenItemIds={writtenItemIds}
+          existingAnalyses={result.aiAnalyses ?? {}}
+          onAnalysis={(itemId, a) => {
+            setResult((prev) =>
+              prev
+                ? {
+                    ...prev,
+                    aiAnalyses: { ...(prev.aiAnalyses ?? {}), [itemId]: a },
+                  }
+                : prev,
+            );
+          }}
+        />
+      )}
 
       <section
         className="card"
@@ -362,6 +391,121 @@ function ItemReview({
         </div>
       )}
     </div>
+  );
+}
+
+function AnalyzeAll({
+  profile,
+  resultId,
+  writtenItemIds,
+  existingAnalyses,
+  onAnalysis,
+}: {
+  profile: ProfileId;
+  resultId: string;
+  writtenItemIds: string[];
+  existingAnalyses: Record<string, WritingAnalysis>;
+  onAnalysis: (itemId: string, a: WritingAnalysis) => void;
+}) {
+  const [progress, setProgress] = useState<
+    | { state: "idle" }
+    | { state: "running"; current: number; total: number; itemId: string }
+    | { state: "done"; ok: number; failed: number }
+  >({ state: "idle" });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const pending = writtenItemIds.filter((id) => !existingAnalyses[id]);
+
+  async function run(idsToRun: string[]) {
+    setErrors({});
+    let ok = 0;
+    let failed = 0;
+    for (let i = 0; i < idsToRun.length; i++) {
+      const itemId = idsToRun[i];
+      setProgress({
+        state: "running",
+        current: i + 1,
+        total: idsToRun.length,
+        itemId,
+      });
+      try {
+        const { analysis } = await api.aiAnalyze(profile, resultId, itemId);
+        onAnalysis(itemId, analysis);
+        ok += 1;
+      } catch (e) {
+        failed += 1;
+        setErrors((prev) => ({
+          ...prev,
+          [itemId]: e instanceof Error ? e.message : String(e),
+        }));
+      }
+    }
+    setProgress({ state: "done", ok, failed });
+  }
+
+  const running = progress.state === "running";
+  const hasPending = pending.length > 0;
+
+  return (
+    <section
+      className="card flex flex-wrap items-center justify-between gap-3"
+      style={{
+        background: "var(--color-accent-soft)",
+        borderColor: "var(--color-accent)",
+      }}
+    >
+      <div>
+        <div className="font-ui font-semibold flex items-center gap-2">
+          <span aria-hidden="true">🤖</span>
+          <span>Quick AI feedback on writing</span>
+        </div>
+        <div className="text-sm text-muted">
+          {progress.state === "running" ? (
+            <>
+              Analyzing {progress.current} of {progress.total}… (about a
+              minute per item)
+            </>
+          ) : progress.state === "done" ? (
+            <>
+              Done — {progress.ok} analyzed
+              {progress.failed > 0 ? `, ${progress.failed} failed` : ""}.
+              Scroll down to read each one with {profile === "olive" ? "Olive" : "Fox"}.
+            </>
+          ) : hasPending ? (
+            <>
+              {pending.length} written item{pending.length === 1 ? "" : "s"}{" "}
+              to analyze. Runs locally on Qwen — kick it off and come back.
+            </>
+          ) : (
+            <>All written items already have feedback. Re-analyze if she edited and re-submitted.</>
+          )}
+        </div>
+      </div>
+      <div className="flex gap-2">
+        {hasPending ? (
+          <button
+            className="btn btn-primary whitespace-nowrap"
+            disabled={running}
+            onClick={() => run(pending)}
+          >
+            {running ? "Analyzing…" : `Analyze all (${pending.length})`}
+          </button>
+        ) : (
+          <button
+            className="btn whitespace-nowrap"
+            disabled={running}
+            onClick={() => run(writtenItemIds)}
+          >
+            {running ? "Re-analyzing…" : "Re-analyze all"}
+          </button>
+        )}
+      </div>
+      {Object.entries(errors).length > 0 && (
+        <div className="text-sm w-full" style={{ color: "#b91c1c" }}>
+          Some items failed — see their AI panel below for details.
+        </div>
+      )}
+    </section>
   );
 }
 
