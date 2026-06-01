@@ -4,6 +4,7 @@ import { useContentStore } from "@/store/content";
 import { useSessionStore } from "@/store/session";
 import { api, type ProfileId, type CompletedResult } from "@/api/client";
 import { enumerateQuizzes } from "@/lib/quizzes";
+import { computeFinalScore } from "@/lib/finalScore";
 
 const PROFILE_DISPLAY: Record<ProfileId, { name: string; grade: number; formId: string; swatch: string }> = {
   olive: { name: "Olive", grade: 6, formId: "g6-form-a", swatch: "#6d28d9" },
@@ -38,6 +39,7 @@ export default function QuizSelect() {
     () => (form ? enumerateQuizzes(form, passagesById) : []),
     [form, passagesById],
   );
+  const { itemsById } = useContentStore();
 
   const completedByQuizId = useMemo(() => {
     const m = new Map<string, CompletedResult>();
@@ -145,6 +147,9 @@ export default function QuizSelect() {
         {quizzes.map((q) => {
           const done = completedByQuizId.get(q.quizId);
           const isResume = resumeOnQuiz?.quizId === q.quizId;
+          const finalScore = done
+            ? computeFinalScore(done, itemsById)
+            : null;
           return (
             <QuizButton
               key={q.quizId}
@@ -152,6 +157,7 @@ export default function QuizSelect() {
               title={q.passage.title}
               itemCount={q.itemIds.length}
               done={done}
+              finalScore={finalScore}
               isResume={isResume}
               onClick={() => {
                 if (done) {
@@ -188,6 +194,7 @@ function QuizButton({
   title,
   itemCount,
   done,
+  finalScore,
   isResume,
   onClick,
 }: {
@@ -195,14 +202,15 @@ function QuizButton({
   title: string;
   itemCount: number;
   done: CompletedResult | undefined;
+  finalScore: ReturnType<typeof computeFinalScore> | null;
   isResume: boolean;
   onClick: () => void;
 }) {
   const isDone = !!done;
-  const score =
-    done && done.auto.possible > 0
-      ? `${Math.round(done.auto.earned * 10) / 10} / ${done.auto.possible}`
-      : null;
+  const hasPending = finalScore ? finalScore.unscored > 0 : false;
+  const scoreText = finalScore
+    ? `${Math.round(finalScore.earned * 10) / 10} / ${finalScore.possible}`
+    : null;
 
   return (
     <button
@@ -223,27 +231,29 @@ function QuizButton({
       }}
       aria-label={
         isDone
-          ? `Quiz ${quizN}, ${title}, completed${score ? `, score ${score}` : ""}; opens results`
+          ? `Quiz ${quizN}, ${title}, completed, score ${scoreText}${
+              hasPending ? `, ${finalScore!.unscored} written items still need a parent score` : ""
+            }; opens results`
           : `Quiz ${quizN}, ${title}, ${itemCount} items`
       }
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-2">
         <span
           className="font-ui font-semibold text-base"
           style={{ color: isDone ? "#15803d" : "var(--color-ink)" }}
         >
           Quiz {quizN}
         </span>
-        {isDone && (
+        {isDone && scoreText && (
           <span
-            className="text-xs font-ui font-semibold px-2 py-0.5 rounded-full"
+            className="text-xs font-ui font-semibold px-2 py-0.5 rounded-full whitespace-nowrap"
             style={{
-              background: "#16a34a",
+              background: hasPending ? "#a16207" : "#16a34a",
               color: "white",
             }}
             aria-hidden="true"
           >
-            ✓ Done{score ? ` · ${score}` : ""}
+            {scoreText}
           </span>
         )}
         {!isDone && isResume && (
@@ -266,8 +276,11 @@ function QuizButton({
         {title}
       </div>
       <div className="mt-auto text-xs text-muted">
-        {itemCount} question{itemCount === 1 ? "" : "s"}
-        {isDone ? " · tap to review with a grown-up" : ""}
+        {isDone
+          ? hasPending
+            ? `${finalScore!.unscored} written item${finalScore!.unscored === 1 ? "" : "s"} pending parent score`
+            : "Tap to review"
+          : `${itemCount} question${itemCount === 1 ? "" : "s"}`}
       </div>
     </button>
   );

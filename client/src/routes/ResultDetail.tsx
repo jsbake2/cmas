@@ -8,6 +8,7 @@ import {
 } from "@/api/client";
 import { useContentStore } from "@/store/content";
 import type { Item } from "@/content/schema";
+import { computeFinalScore } from "@/lib/finalScore";
 
 export default function ResultDetail() {
   const { profile, resultId } = useParams();
@@ -61,38 +62,66 @@ export default function ResultDetail() {
     ? `Quiz ${result.quizId}${result.passageTitle ? `: ${result.passageTitle}` : ""}`
     : result.unitId;
 
+  const finalScore = computeFinalScore(result, itemsById);
+
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6">
-      <header>
+      <header className="flex items-start justify-between gap-3 flex-wrap">
+        <div>
+          <Link
+            to={`/profile/${p}/quizzes`}
+            className="text-sm text-accent underline"
+          >
+            ← Back to quizzes
+          </Link>
+          <h1 className="font-ui text-2xl font-semibold mt-2">{quizLabel}</h1>
+          <p className="text-muted text-sm">
+            Submitted {new Date(result.submittedAt).toLocaleString()} ·{" "}
+            {p === "olive" ? "Olive" : "Fox"}
+          </p>
+        </div>
         <Link
           to={`/profile/${p}/quizzes`}
-          className="text-sm text-accent underline"
+          className="btn btn-primary whitespace-nowrap"
+          title="Your scores are saved as you tap them — this just takes you back to the quiz list."
         >
-          ← Back to quizzes
+          Save &amp; back to quizzes →
         </Link>
-        <h1 className="font-ui text-2xl font-semibold mt-2">
-          {quizLabel}
-        </h1>
-        <p className="text-muted text-sm">
-          Submitted {new Date(result.submittedAt).toLocaleString()} ·{" "}
-          {p === "olive" ? "Olive" : "Fox"}
-        </p>
       </header>
 
       <section
         className="card"
         style={{
-          background: "rgba(34,197,94,0.10)",
-          borderColor: "#16a34a",
+          background:
+            finalScore.unscored > 0
+              ? "rgba(161,98,7,0.10)"
+              : "rgba(34,197,94,0.10)",
+          borderColor: finalScore.unscored > 0 ? "#a16207" : "#16a34a",
         }}
       >
-        <h2 className="font-ui font-semibold mb-2">Auto-scored total</h2>
+        <h2 className="font-ui font-semibold mb-2">Score</h2>
         <div className="text-3xl">
-          {Math.round(result.auto.earned * 10) / 10} / {result.auto.possible}
+          {Math.round(finalScore.earned * 10) / 10} / {finalScore.possible}
         </div>
         <p className="text-sm text-muted mt-1">
-          Written responses are not auto-scored — read those together below
-          and use the rubric buttons to record a score.
+          {finalScore.totalWritten > 0 ? (
+            <>
+              Auto-scored {Math.round(result.auto.earned * 10) / 10} /{" "}
+              {result.auto.possible}
+              {finalScore.unscored > 0 ? (
+                <>
+                  {" "}
+                  · <strong>{finalScore.unscored}</strong> written item
+                  {finalScore.unscored === 1 ? "" : "s"} still need
+                  {finalScore.unscored === 1 ? "s" : ""} a parent score below.
+                </>
+              ) : (
+                <> · all written items scored by parent.</>
+              )}
+            </>
+          ) : (
+            <>Auto-scored — no written items in this quiz.</>
+          )}
         </p>
         {result.quizId && (
           <div className="mt-4 flex flex-wrap gap-2">
@@ -105,7 +134,7 @@ export default function ResultDetail() {
             </Link>
             <Link
               to={`/profile/${p}/quiz/${result.quizId}/review`}
-              className="btn btn-primary"
+              className="btn"
             >
               Re-submit from review
             </Link>
@@ -131,7 +160,7 @@ export default function ResultDetail() {
         </section>
       )}
 
-      <section className="space-y-4">
+      <section className="space-y-4" id="per-item">
         <h2 className="font-ui font-semibold">Per item</h2>
         {Object.keys(result.auto.byItem).map((itemId, idx) => {
           const it = itemsById.get(itemId);
@@ -167,6 +196,39 @@ export default function ResultDetail() {
           );
         })}
       </section>
+
+      <footer
+        className="card flex flex-wrap items-center justify-between gap-3 sticky bottom-4 z-10"
+        style={{
+          background: "var(--color-paper)",
+          borderColor: finalScore.unscored > 0 ? "#a16207" : "#16a34a",
+          boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
+        }}
+      >
+        <div>
+          <div className="text-xs text-muted font-ui uppercase tracking-wide">
+            {quizLabel}
+          </div>
+          <div className="font-ui text-xl font-semibold">
+            Score: {Math.round(finalScore.earned * 10) / 10} /{" "}
+            {finalScore.possible}
+            {finalScore.unscored > 0 && (
+              <span
+                className="ml-2 text-sm font-normal"
+                style={{ color: "#a16207" }}
+              >
+                ({finalScore.unscored} written pending)
+              </span>
+            )}
+          </div>
+        </div>
+        <Link
+          to={`/profile/${p}/quizzes`}
+          className="btn btn-primary"
+        >
+          Save &amp; back to quizzes →
+        </Link>
+      </footer>
     </div>
   );
 }
