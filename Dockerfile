@@ -44,9 +44,9 @@ RUN groupadd --system --gid 1001 app \
  && mkdir -p /data /app/content \
  && chown -R app:app /data /app
 
-# Copy runtime artifacts only
+# Copy runtime artifacts only. npm workspaces hoists deps to /app/node_modules,
+# so server/ does not have its own node_modules directory.
 COPY --from=build --chown=app:app /app/node_modules ./node_modules
-COPY --from=build --chown=app:app /app/server/node_modules ./server/node_modules
 COPY --from=build --chown=app:app /app/server/dist ./server/dist
 COPY --from=build --chown=app:app /app/client/dist ./client/dist
 COPY --from=build --chown=app:app /app/cmas-content.json /app/content/cmas-content.json
