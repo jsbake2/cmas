@@ -76,6 +76,22 @@ export default function QuizSelect() {
     }
   }
 
+  async function resetInProgress(label: string) {
+    if (
+      !confirm(
+        `Reset ${label}? ${meta.name}'s in-progress work will be cleared and the quest starts fresh.`,
+      )
+    )
+      return;
+    try {
+      await useSessionStore.getState().clear();
+      refreshPast();
+      void loadProgress(p);
+    } catch (e) {
+      alert(`Failed to reset: ${e instanceof Error ? e.message : String(e)}`);
+    }
+  }
+
   async function resetAll() {
     if (
       !confirm(
@@ -335,6 +351,41 @@ export default function QuizSelect() {
                           e.preventDefault();
                           void resetSingleQuiz(
                             done,
+                            `Quest ${q.quizN}: ${q.passage.title}`,
+                          );
+                        }
+                      }}
+                      className="chip"
+                      style={{
+                        position: "absolute",
+                        top: 10,
+                        right: 10,
+                        cursor: "pointer",
+                        color: "#b91c1c",
+                        padding: "0.15rem 0.45rem",
+                      }}
+                    >
+                      ↺
+                    </span>
+                  )}
+                  {isResume && isAdmin && (
+                    <span
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Reset in-progress quest ${q.quizN}`}
+                      title="Reset this in-progress quest"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        void resetInProgress(
+                          `Quest ${q.quizN}: ${q.passage.title}`,
+                        );
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          void resetInProgress(
                             `Quest ${q.quizN}: ${q.passage.title}`,
                           );
                         }
