@@ -368,6 +368,7 @@ button {
 
 /* Game-HUD grid backdrop */
 .stage {
+  flex: 1 0 auto;
   min-height: 100%;
   color: var(--ink);
   background-color: var(--bg);
