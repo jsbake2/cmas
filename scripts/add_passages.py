@@ -601,7 +601,7 @@ for form in data["forms"]:
         })
 
 with open(PATH, "w") as f:
-    json.dump(data, f, indent=2, ensure_ascii=True)
+    json.dump(data, f, indent=2, ensure_ascii=False)
     f.write("\n")
 
 print(f"Added {len(passages)} passages and {len(items)} items.")

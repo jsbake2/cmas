@@ -52,6 +52,26 @@ export interface CompletedResult {
   meta?: Record<string, unknown>;
 }
 
+export interface RankInfo {
+  rank: string;
+  next: string | null;
+  level: number;
+  rankMin: number;
+  nextMin: number | null;
+  xpToNext: number;
+}
+
+export interface ProgressSummary {
+  totalXp: number;
+  maxXp: number;
+  bestByQuiz: Record<string, number>;
+  completedCount: number;
+  badges: string[];
+  streakCount: number;
+  lastActiveDate: string | null;
+  rank: RankInfo;
+}
+
 export interface SessionState {
   profile: ProfileId;
   formId: string;
@@ -91,11 +111,13 @@ export const api = {
   results: (p: ProfileId) =>
     req<CompletedResult[]>(`/api/results/${p}`),
   postResult: (p: ProfileId, r: Omit<CompletedResult, "id">) =>
-    req<CompletedResult>(`/api/results/${p}`, {
+    req<CompletedResult & { progress?: ProgressSummary }>(`/api/results/${p}`, {
       method: "POST",
       headers: json,
       body: JSON.stringify(r),
     }),
+
+  progress: (p: ProfileId) => req<ProgressSummary>(`/api/progress/${p}`),
   allResults: () => req<CompletedResult[]>("/api/results"),
   patchParentScore: (
     p: ProfileId,

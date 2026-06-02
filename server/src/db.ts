@@ -23,6 +23,11 @@ db.exec(`
   );
   CREATE INDEX IF NOT EXISTS idx_results_profile
     ON results(profile, submitted_at DESC);
+  CREATE TABLE IF NOT EXISTS progress (
+    profile TEXT PRIMARY KEY,
+    json TEXT NOT NULL,
+    updated_at INTEGER NOT NULL
+  );
 `);
 
 // Migrate: add quiz_id column + UNIQUE(profile, quiz_id) so re-submits upsert.
@@ -92,4 +97,14 @@ export const stmts = {
   deleteResultById: db.prepare<[string, string]>(
     `DELETE FROM results WHERE profile = ? AND id = ?`,
   ),
+
+  getProgress: db.prepare<[string]>(`SELECT json FROM progress WHERE profile = ?`),
+  putProgress: db.prepare<[string, string, number]>(
+    `INSERT INTO progress(profile, json, updated_at)
+       VALUES(?, ?, ?)
+       ON CONFLICT(profile) DO UPDATE SET
+         json = excluded.json,
+         updated_at = excluded.updated_at`,
+  ),
+  deleteProgress: db.prepare<[string]>(`DELETE FROM progress WHERE profile = ?`),
 };

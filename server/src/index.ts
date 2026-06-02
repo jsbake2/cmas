@@ -7,6 +7,12 @@ import { db, stmts } from "./db.js";
 import { getContent, getContentPath } from "./content.js";
 import { PROFILES, isProfileId } from "./profiles.js";
 import { aiInfo, analyzeWriting, type WritingAnalysis } from "./ai.js";
+import {
+  computeProgress,
+  bumpStreak,
+  type ProgressSummary,
+  type StoredResult,
+} from "./progress.js";
 
 const PORT = Number(process.env.PORT ?? 8473);
 const HOST = process.env.HOST ?? "0.0.0.0";
@@ -53,6 +59,76 @@ function requireProfile(req: Request, res: Response): string | null {
     return null;
   }
   return p;
+}
+
+type ProfileId = (typeof PROFILES)[number]["id"];
+
+function formIdFor(p: ProfileId): string {
+  return PROFILES.find((x) => x.id === p)!.formId;
+}
+
+function totalQuizzesFor(formId: string): number {
+  const content = getContent() as {
+    forms: Array<{ id: string; units: Array<{ sections: unknown[] }> }>;
+  };
+  const form = content.forms.find((f) => f.id === formId);
+  if (!form) return 0;
+  return form.units.reduce((n, u) => n + u.sections.length, 0);
+}
+
+function resultsFor(p: ProfileId): StoredResult[] {
+  const rows = stmts.getResultsByProfile.all(p) as { json: string }[];
+  const out: StoredResult[] = [];
+  for (const r of rows) {
+    try {
+      out.push(JSON.parse(r.json) as StoredResult);
+    } catch {
+      /* skip corrupt row */
+    }
+  }
+  return out;
+}
+
+function priorProgress(p: ProfileId): {
+  streakCount: number;
+  lastActiveDate: string | null;
+  badges: string[];
+} {
+  const row = stmts.getProgress.get(p) as { json: string } | undefined;
+  if (!row) return { streakCount: 0, lastActiveDate: null, badges: [] };
+  try {
+    const j = JSON.parse(row.json) as ProgressSummary;
+    return {
+      streakCount: j.streakCount ?? 0,
+      lastActiveDate: j.lastActiveDate ?? null,
+      badges: j.badges ?? [],
+    };
+  } catch {
+    return { streakCount: 0, lastActiveDate: null, badges: [] };
+  }
+}
+
+/**
+ * Recompute the gamification summary from stored results + content and
+ * persist it. `advanceStreak` is true only on a real completion event
+ * (a result POST) so re-fetches and resets don't inflate the streak.
+ */
+function recomputeProgress(p: ProfileId, advanceStreak: boolean): ProgressSummary {
+  const prior = priorProgress(p);
+  const streak = advanceStreak
+    ? bumpStreak(prior)
+    : { streakCount: prior.streakCount, lastActiveDate: prior.lastActiveDate };
+  const content = getContent() as Parameters<typeof computeProgress>[0]["content"];
+  const summary = computeProgress({
+    results: resultsFor(p),
+    content,
+    totalQuizzes: totalQuizzesFor(formIdFor(p)),
+    streakCount: streak.streakCount,
+    lastActiveDate: streak.lastActiveDate,
+    priorBadges: prior.badges,
+  });
+  stmts.putProgress.run(p, JSON.stringify(summary), Date.now());
+  return summary;
 }
 
 app.get("/api/state/:profile", (req, res) => {
@@ -154,7 +230,15 @@ app.post("/api/results/:profile", (req, res) => {
     parentScores: { ...(priorParent ?? {}), ...(body.parentScores ?? {}) },
   };
   stmts.upsertResult.run(id, p, quizId, submittedAt, JSON.stringify(stored));
-  res.status(existing ? 200 : 201).json(stored);
+  // A submit is a completion event: recompute progress and advance the streak.
+  const progress = recomputeProgress(p as ProfileId, true);
+  res.status(existing ? 200 : 201).json({ ...stored, progress });
+});
+
+app.get("/api/progress/:profile", (req, res) => {
+  const p = requireProfile(req, res);
+  if (!p) return;
+  res.json(recomputeProgress(p as ProfileId, false));
 });
 
 /**
@@ -289,6 +373,8 @@ app.delete("/api/results/:profile/:resultId", (req, res) => {
       } catch {}
     }
   }
+  // XP for the removed quiz drops out; badges + streak stay sticky.
+  recomputeProgress(p as ProfileId, false);
   res.json({ ok: true });
 });
 
@@ -301,6 +387,8 @@ app.delete("/api/profile/:profile/all-data", (req, res) => {
   if (!p) return;
   stmts.deleteState.run(p);
   const r = stmts.deleteResultsForProfile.run(p);
+  // Full reset = clean slate, including XP, badges, and streak.
+  stmts.deleteProgress.run(p);
   res.json({ ok: true, removedResults: r.changes });
 });
 
