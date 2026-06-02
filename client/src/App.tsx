@@ -8,6 +8,8 @@ import Review from "@/routes/Review";
 import Results from "@/routes/Results";
 import ParentReview from "@/routes/ParentReview";
 import ResultDetail from "@/routes/ResultDetail";
+import Trophy from "@/routes/Trophy";
+import Celebrate from "@/routes/Celebrate";
 import { useSettingsStore } from "@/store/settings";
 import Footer from "@/components/Footer";
 
@@ -17,12 +19,7 @@ export default function App() {
 
   useEffect(() => {
     const html = document.documentElement;
-    html.classList.remove(
-      "theme-default",
-      "theme-cream",
-      "theme-dark",
-      "theme-yellow-on-black",
-    );
+    html.classList.remove("theme-day", "theme-dusk", "theme-night");
     html.classList.add(`theme-${theme}`);
     html.setAttribute("data-text-size", textSize);
   }, [theme, textSize]);
@@ -47,6 +44,14 @@ export default function App() {
             element={<ResultDetail />}
           />
           <Route path="/profile/:profile/results" element={<Results />} />
+          <Route
+            path="/profile/:profile/trophies"
+            element={<Trophy />}
+          />
+          <Route
+            path="/profile/:profile/celebrate/:resultId"
+            element={<Celebrate />}
+          />
           <Route path="/review" element={<ParentReview />} />
           {/* Legacy / redirect old links */}
           <Route

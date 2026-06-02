@@ -2,10 +2,9 @@ import { Link, useParams } from "react-router-dom";
 import { useSettingsStore, type ThemeName, type TextSize } from "@/store/settings";
 
 const THEMES: Array<{ id: ThemeName; label: string }> = [
-  { id: "default", label: "Black on white (default)" },
-  { id: "cream", label: "Black on cream" },
-  { id: "dark", label: "White on black" },
-  { id: "yellow-on-black", label: "Yellow on black" },
+  { id: "day", label: "Day (bright)" },
+  { id: "dusk", label: "Dusk (warm)" },
+  { id: "night", label: "Night (dark)" },
 ];
 
 const SIZES: Array<{ id: TextSize; label: string }> = [
@@ -31,7 +30,7 @@ export default function Settings() {
         </p>
       </header>
 
-      <Section title="Color contrast">
+      <Section title="Color theme">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {THEMES.map((t) => (
             <label key={t.id} className="flex items-center gap-2 cursor-pointer">

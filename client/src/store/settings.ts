@@ -1,8 +1,25 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export type ThemeName = "default" | "cream" | "dark" | "yellow-on-black";
+export type ThemeName = "day" | "dusk" | "night";
 export type TextSize = "s" | "m" | "l" | "xl";
+
+/** Map any legacy persisted theme name onto the new Day/Dusk/Night set. */
+function normalizeTheme(t: unknown): ThemeName {
+  switch (t) {
+    case "day":
+    case "dusk":
+    case "night":
+      return t;
+    case "cream":
+      return "dusk";
+    case "dark":
+    case "yellow-on-black":
+      return "night";
+    default:
+      return "day";
+  }
+}
 
 interface SettingsState {
   theme: ThemeName;
@@ -25,14 +42,14 @@ interface SettingsState {
 export const useSettingsStore = create<SettingsState>()(
   persist(
     (set) => ({
-      theme: "default",
+      theme: "day",
       textSize: "m",
       lineReader: false,
       spellCheck: true,
       timerEnabled: false,
       timerMinutes: 45,
       tutorialSeen: false,
-      setTheme: (t) => set({ theme: t }),
+      setTheme: (t) => set({ theme: normalizeTheme(t) }),
       setTextSize: (s) => set({ textSize: s }),
       setLineReader: (b) => set({ lineReader: b }),
       setSpellCheck: (b) => set({ spellCheck: b }),
@@ -41,6 +58,11 @@ export const useSettingsStore = create<SettingsState>()(
       markTutorialSeen: () => set({ tutorialSeen: true }),
       resetTutorial: () => set({ tutorialSeen: false }),
     }),
-    { name: "cmas.settings.v1" },
+    {
+      name: "cmas.settings.v1",
+      onRehydrateStorage: () => (state) => {
+        if (state) state.theme = normalizeTheme(state.theme);
+      },
+    },
   ),
 );

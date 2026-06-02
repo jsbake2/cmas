@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
-  darkMode: ["class", ".theme-dark"],
+  darkMode: ["class", ".theme-night"],
   theme: {
     extend: {
       fontFamily: {
@@ -14,12 +14,18 @@ export default {
           "serif",
         ],
         ui: [
+          '"Outfit"',
           "system-ui",
           "-apple-system",
           "Segoe UI",
           "Roboto",
           "Helvetica",
           "Arial",
+          "sans-serif",
+        ],
+        display: [
+          '"Chakra Petch"',
+          "system-ui",
           "sans-serif",
         ],
       },

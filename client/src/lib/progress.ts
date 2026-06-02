@@ -9,6 +9,10 @@
  */
 
 export const XP_PER_QUIZ = 100;
+/** A perfect 12-quiz run. */
+export const MAX_XP = 1200;
+/** Top rank threshold — ~90% across all 12 quizzes. */
+export const LEGEND_XP = 1080;
 
 export const RANKS = [
   { name: "Word Pup", min: 0 },
@@ -85,4 +89,51 @@ export function rankBarFraction(xp: number, info: RankInfo): number {
   const span = info.nextMin - info.rankMin;
   if (span <= 0) return 1;
   return Math.max(0, Math.min(1, (xp - info.rankMin) / span));
+}
+
+/** Percent (0..100) for the XP bar within the current rank. */
+export function rankBarPct(xp: number, info: RankInfo): number {
+  return Math.round(rankBarFraction(xp, info) * 100);
+}
+
+/** Star rating (1..3) for a quiz given fraction correct on auto-scored items. */
+export function starsForFraction(fractionCorrect: number): number {
+  if (fractionCorrect >= 0.9) return 3;
+  if (fractionCorrect >= 0.75) return 2;
+  return 1;
+}
+
+/** Soft disc background for a badge tier (bronze/silver/gold). */
+export function tierBg(tier: Tier): string {
+  if (tier === "gold") return "color-mix(in oklab, var(--gold) 38%, white)";
+  if (tier === "silver") return "color-mix(in oklab, var(--blue) 22%, white)";
+  return "color-mix(in oklab, var(--orange) 24%, white)";
+}
+
+/**
+ * A small curated emoji glyph for a passage, keyed off its free-text genre
+ * with a fallback by kind. Used as the banner glyph on quest cards.
+ */
+export function genreGlyph(passage: {
+  kind: "informational" | "literary";
+  genre: string;
+}): string {
+  const g = passage.genre.toLowerCase();
+  if (g.includes("biograph")) return "👤";
+  if (g.includes("american history")) return "🦅";
+  if (g.includes("history")) return "📜";
+  if (g.includes("life science")) return "🦴";
+  if (g.includes("earth science")) return "🌍";
+  if (g.includes("physical science")) return "🔬";
+  if (g.includes("science")) return "🧪";
+  if (g.includes("adventure")) return "🗺️";
+  if (g.includes("fiction")) return "📖";
+  return passage.kind === "informational" ? "🧪" : "📖";
+}
+
+/** Friendly genre label for a quest card. */
+export function genreLabel(passage: {
+  kind: "informational" | "literary";
+}): string {
+  return passage.kind === "informational" ? "Science / Info" : "Story";
 }

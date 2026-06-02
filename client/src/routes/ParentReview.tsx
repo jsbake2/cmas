@@ -27,9 +27,7 @@ export default function ParentReview() {
           <Link to="/" className="text-sm text-accent underline">
             ← Home
           </Link>
-          <h1 className="font-ui text-2xl font-semibold mt-2">
-            Parent review
-          </h1>
+          <h1 className="h-display text-2xl mt-2">Parent review</h1>
           <p className="text-muted text-sm">
             All completed sessions for both children. Click any to see
             per-item details and score written responses.
@@ -64,9 +62,7 @@ function PasswordGate() {
   return (
     <div className="flex-1 flex flex-col items-center justify-center px-6 py-10">
       <div className="card max-w-md w-full">
-        <h1 className="font-ui text-xl font-semibold mb-2">
-          Parent review — locked
-        </h1>
+        <h1 className="h-display text-xl mb-2">Parent review — locked</h1>
         <p className="text-sm text-muted mb-4">
           This page shows both kids' results and is for grown-ups only. Enter
           the parent password to continue.
@@ -114,7 +110,7 @@ function ChildColumn({
 }) {
   return (
     <section>
-      <h2 className="font-ui font-semibold text-lg mb-2">{title}</h2>
+      <h2 className="h-display text-lg mb-2">{title}</h2>
       {results.length === 0 ? (
         <div className="card text-muted">No completed sessions yet.</div>
       ) : (

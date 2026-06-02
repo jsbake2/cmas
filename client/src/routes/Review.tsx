@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContentStore } from "@/store/content";
 import { useSessionStore } from "@/store/session";
+import { useProgressStore } from "@/store/progress";
 import { isItemAnswered, scoreItem } from "@/lib/scoring";
 import { api, type ProfileId, type CompletedResult } from "@/api/client";
 import { enumerateQuizzes } from "@/lib/quizzes";
@@ -18,6 +19,7 @@ export default function Review() {
   const { content, status, load, formsById, passagesById, itemsById } =
     useContentStore();
   const session = useSessionStore();
+  const setProgress = useProgressStore((s) => s.set);
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
@@ -106,9 +108,27 @@ export default function Review() {
           notes: session.state.notes,
         },
       };
+      // Snapshot progress before posting so the celebration can animate XP
+      // and detect rank-ups / new badges.
+      const before = await api.progress(p).catch(() => null);
       const saved = await api.postResult(p, payload);
+      const after = saved.progress ?? before;
+      if (after) setProgress(p, after);
       // Keep in-progress state — student may want to edit & re-submit.
-      nav(`/profile/${p}/results/${saved.id}`);
+      if (after) {
+        nav(`/profile/${p}/celebrate/${saved.id}`, {
+          state: {
+            before,
+            after,
+            quizN: quiz.quizN,
+            title: quiz.passage.title,
+            earned,
+            possible,
+          },
+        });
+      } else {
+        nav(`/profile/${p}/results/${saved.id}`);
+      }
     } finally {
       setSubmitting(false);
     }

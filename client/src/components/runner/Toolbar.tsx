@@ -1,5 +1,5 @@
 import { useToolsStore, type HighlightColor } from "@/store/tools";
-import { useSettingsStore, type TextSize, type ThemeName } from "@/store/settings";
+import { useSettingsStore, type TextSize } from "@/store/settings";
 import { useSessionStore } from "@/store/session";
 import type { Item } from "@/content/schema";
 
@@ -11,12 +11,6 @@ const COLORS: Array<{ id: HighlightColor; label: string; cls: string }> = [
 ];
 
 const SIZES: TextSize[] = ["s", "m", "l", "xl"];
-const THEMES: Array<{ id: ThemeName; label: string }> = [
-  { id: "default", label: "Default" },
-  { id: "cream", label: "Cream" },
-  { id: "dark", label: "Dark" },
-  { id: "yellow-on-black", label: "Yellow/Black" },
-];
 
 interface Props {
   currentItem: Item;
@@ -131,21 +125,6 @@ export default function Toolbar({ currentItem }: Props) {
               </span>
             </button>
           ))}
-        </div>
-
-        <div className="ml-2 pl-2 border-l border-border">
-          <select
-            className="border border-border rounded px-2 py-1 text-sm bg-paper text-ink"
-            value={settings.theme}
-            onChange={(e) => settings.setTheme(e.target.value as ThemeName)}
-            aria-label="Color theme"
-          >
-            {THEMES.map((t) => (
-              <option key={t.id} value={t.id}>
-                {t.label}
-              </option>
-            ))}
-          </select>
         </div>
 
         <div className="ml-auto flex items-center gap-1">
