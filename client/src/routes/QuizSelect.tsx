@@ -2,9 +2,11 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContentStore } from "@/store/content";
 import { useSessionStore } from "@/store/session";
+import { useAdminStore } from "@/store/admin";
 import { api, type ProfileId, type CompletedResult } from "@/api/client";
 import { enumerateQuizzes } from "@/lib/quizzes";
 import { computeFinalScore } from "@/lib/finalScore";
+import AdminBar from "@/components/AdminBar";
 
 const PROFILE_DISPLAY: Record<ProfileId, { name: string; grade: number; formId: string; swatch: string }> = {
   olive: { name: "Olive", grade: 6, formId: "g6-form-a", swatch: "#6d28d9" },
@@ -40,6 +42,7 @@ export default function QuizSelect() {
     [form, passagesById],
   );
   const { itemsById } = useContentStore();
+  const isAdmin = useAdminStore((s) => s.isAdmin);
 
   const completedByQuizId = useMemo(() => {
     const m = new Map<string, CompletedResult>();
@@ -108,18 +111,25 @@ export default function QuizSelect() {
             Grade {meta.grade} · {quizzes.length} quizzes · {completedByQuizId.size} completed
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center flex-wrap">
+          <AdminBar />
           <Link className="btn" to={`/profile/${p}/settings`}>
             Settings
           </Link>
-          <button
-            className="btn"
-            onClick={reset}
-            disabled={resetting}
-            title="Wipe in-progress session and all completed quizzes for this profile"
-          >
-            {resetting ? "Resetting…" : "Reset progress"}
-          </button>
+          {isAdmin && (
+            <button
+              className="btn"
+              onClick={reset}
+              disabled={resetting}
+              title="Wipe in-progress session and all completed quizzes for this profile"
+              style={{
+                borderColor: "#b91c1c",
+                color: "#b91c1c",
+              }}
+            >
+              {resetting ? "Resetting…" : "Reset progress"}
+            </button>
+          )}
         </div>
       </header>
 
@@ -174,7 +184,7 @@ export default function QuizSelect() {
               finalScore={finalScore}
               isResume={isResume}
               onReset={
-                done
+                done && isAdmin
                   ? () =>
                       resetSingleQuiz(
                         done,
@@ -280,10 +290,10 @@ function QuizButton({
               onReset();
             }
           }}
-          className="absolute top-1.5 right-1.5 inline-flex items-center justify-center w-6 h-6 rounded text-xs font-ui font-semibold hover:bg-paper transition-colors"
+          className="absolute bottom-1.5 right-1.5 inline-flex items-center justify-center w-6 h-6 rounded text-xs font-ui font-semibold hover:bg-paper transition-colors"
           style={{
-            color: "#15803d",
-            background: "rgba(255,255,255,0.5)",
+            color: "#b91c1c",
+            background: "rgba(255,255,255,0.7)",
           }}
         >
           ↺

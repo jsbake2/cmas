@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContentStore } from "@/store/content";
+import AdminBar from "@/components/AdminBar";
 
 const PROFILES: Array<{
   id: "olive" | "fox";
@@ -22,7 +23,10 @@ export default function Home() {
   }, [load]);
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center px-6 py-10">
+    <div className="flex-1 flex flex-col items-center justify-center px-6 py-10 relative">
+      <div className="absolute top-4 right-4">
+        <AdminBar />
+      </div>
       <h1 className="font-ui text-3xl sm:text-4xl font-semibold mb-2">
         Who's practicing?
       </h1>
