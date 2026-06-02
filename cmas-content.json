@@ -120,6 +120,64 @@
               ]
             }
           ]
+        },
+        {
+          "id": "g4-u3",
+          "title": "Unit 3",
+          "timeLimitMinutes": null,
+          "sections": [
+            {
+              "passageIds": [
+                "g4-how-cats-moved-in"
+              ],
+              "itemIds": [
+                "g4-how-cats-moved-in-q1",
+                "g4-how-cats-moved-in-q2",
+                "g4-how-cats-moved-in-q3",
+                "g4-how-cats-moved-in-evsel",
+                "g4-how-cats-moved-in-short",
+                "g4-how-cats-moved-in-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g4-big-and-small-cats"
+              ],
+              "itemIds": [
+                "g4-big-and-small-cats-q1",
+                "g4-big-and-small-cats-q2",
+                "g4-big-and-small-cats-q3",
+                "g4-big-and-small-cats-msel",
+                "g4-big-and-small-cats-short",
+                "g4-big-and-small-cats-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g4-the-diamond-cave"
+              ],
+              "itemIds": [
+                "g4-the-diamond-cave-q1",
+                "g4-the-diamond-cave-q2",
+                "g4-the-diamond-cave-q3",
+                "g4-the-diamond-cave-ebsr",
+                "g4-the-diamond-cave-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g4-firehouse-dalmatian"
+              ],
+              "itemIds": [
+                "g4-firehouse-dalmatian-q1",
+                "g4-firehouse-dalmatian-q2",
+                "g4-firehouse-dalmatian-q3",
+                "g4-firehouse-dalmatian-order",
+                "g4-firehouse-dalmatian-short",
+                "g4-firehouse-dalmatian-write"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -240,6 +298,67 @@
                 "g6-moving-day-evsel",
                 "g6-moving-day-q4",
                 "g6-moving-day-write"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g6-u3",
+          "title": "Unit 3",
+          "timeLimitMinutes": null,
+          "sections": [
+            {
+              "passageIds": [
+                "g6-labrador-retriever"
+              ],
+              "itemIds": [
+                "g6-labrador-retriever-q1",
+                "g6-labrador-retriever-q2",
+                "g6-labrador-retriever-q3",
+                "g6-labrador-retriever-msel",
+                "g6-labrador-retriever-evsel",
+                "g6-labrador-retriever-short",
+                "g6-labrador-retriever-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g6-constitution"
+              ],
+              "itemIds": [
+                "g6-constitution-q1",
+                "g6-constitution-q2",
+                "g6-constitution-q3",
+                "g6-constitution-order",
+                "g6-constitution-cloze",
+                "g6-constitution-short",
+                "g6-constitution-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g6-sally-ride"
+              ],
+              "itemIds": [
+                "g6-sally-ride-q1",
+                "g6-sally-ride-q2",
+                "g6-sally-ride-q3",
+                "g6-sally-ride-ebsr",
+                "g6-sally-ride-evsel",
+                "g6-sally-ride-write"
+              ]
+            },
+            {
+              "passageIds": [
+                "g6-ann-dunwoody"
+              ],
+              "itemIds": [
+                "g6-ann-dunwoody-q1",
+                "g6-ann-dunwoody-q2",
+                "g6-ann-dunwoody-q3",
+                "g6-ann-dunwoody-msel",
+                "g6-ann-dunwoody-short",
+                "g6-ann-dunwoody-write"
               ]
             }
           ]
@@ -484,6 +603,118 @@
         "But the new house was not as empty as she feared. As she unpacked, here was the chip in her favorite mug, there was the blanket that still smelled like home, and there, taped inside a box, was a note from her old neighbor: “Come visit. The treehouse will wait.”",
         "That night, lying in her familiar bed in an unfamiliar room, Mia realized her mother had been half right. The house was just a box. But the home — the people, the memories, the small worn things she loved — had traveled with her after all.",
         "It would take time to fill these new walls with that same feeling. But for the first time since the truck pulled away, Mia believed that she could."
+      ]
+    },
+    {
+      "id": "g6-labrador-retriever",
+      "title": "The Real Home of the Labrador Retriever",
+      "kind": "informational",
+      "genre": "History of science",
+      "grade": 6,
+      "paragraphs": [
+        "The Labrador retriever is one of the most popular dogs in the world, but its name hides a surprising fact. The breed did not actually come from Labrador. It came from the island of Newfoundland, off the eastern coast of Canada, where it began as a hardworking fishing dog.",
+        "In the seventeenth and eighteenth centuries, fishing families on Newfoundland kept a sturdy animal called the St. John's water dog. These dogs spent their days in freezing water, hauling in nets, towing ropes, and fetching fish that slipped off the hooks. A thick, oily double coat kept them warm, and webbed feet helped them paddle like little boats.",
+        "British visitors who sailed to Newfoundland noticed how tireless and obedient these dogs were. Beginning in the early eighteen hundreds, English nobles brought some of the dogs home across the ocean. One of them, the Earl of Malmesbury, admired the animals so much that he started a kennel and called them Labrador dogs, borrowing the name of the nearby region.",
+        "In England the breeders shaped the dog we know today. They prized its gentle mouth, its eagerness to please, and its love of water. The breed nearly disappeared in Canada because of heavy dog taxes and strict laws, so the carefully kept English dogs became the foundation of the modern Labrador.",
+        "Today Labradors do far more than fetch fish. They guide people who cannot see, search for missing hikers, sniff out danger, and curl up beside families as faithful pets. The breed traveled a long way from a cold Newfoundland harbor, but it never lost the steady, willing nature that made fishermen depend on it."
+      ]
+    },
+    {
+      "id": "g6-constitution",
+      "title": "Building the Constitution",
+      "kind": "informational",
+      "genre": "American history",
+      "grade": 6,
+      "paragraphs": [
+        "In the summer of 1787, fifty-five men gathered in a hot brick building in Philadelphia. They came from twelve of the thirteen states, and they had a serious problem to solve. The young country was held together by a set of rules called the Articles of Confederation, but those rules left the national government far too weak to do its job.",
+        "Under the Articles, the states acted almost like separate countries. The government could not collect taxes well, settle quarrels between states, or pay the soldiers who had won the war for independence. Many leaders feared the new nation would simply fall apart unless something changed.",
+        "The delegates met in secret so they could argue freely. They kept the windows shut against listening crowds, even in the summer heat. James Madison took careful notes every day and offered so many ideas that he is often called the Father of the Constitution.",
+        "The biggest fight was over how many votes each state should get in the new government. Large states wanted votes based on population, while small states wanted every state to count the same. The answer was the Great Compromise, which created two houses of Congress: one based on population and one that gave every state an equal voice.",
+        "On September 17, 1787, the delegates signed the finished plan. The work was not over, because nine of the thirteen states still had to approve it. After fierce debate, they did, and the Constitution became the framework that still guides the nation today."
+      ]
+    },
+    {
+      "id": "g6-sally-ride",
+      "title": "Sally Ride Reaches for Space",
+      "kind": "informational",
+      "genre": "Biography",
+      "grade": 6,
+      "paragraphs": [
+        "Sally Ride grew up loving two very different things: science and sports. She was a talented tennis player who once thought about turning professional, but her curiosity about how the universe worked pulled her toward physics instead. She earned advanced degrees at Stanford University and spent her days studying stars and lasers.",
+        "One morning in 1977 she opened the student newspaper and saw an announcement that changed her life. The National Aeronautics and Space Administration, known as NASA, was looking for new astronauts, and for the first time it was inviting women to apply. Out of more than eight thousand applicants, Ride was one of only six women chosen.",
+        "On June 18, 1983, she rode the space shuttle Challenger into orbit and became the first American woman in space. She was thirty-two years old. During the mission she operated a robotic arm she had helped design, using it to release and recover satellites high above the Earth.",
+        "The attention was not always kind. Reporters asked her silly questions they never asked male astronauts, such as whether spaceflight would damage her health or make her cry. Ride answered calmly and kept the focus on her work, letting her skill speak for itself.",
+        "After leaving NASA, Ride became a professor and started a company to help young people, especially girls, get excited about science. She wanted them to know that the doors she had pushed open would stay open for them. Sally Ride died in 2012, but the path she cleared still leads upward."
+      ]
+    },
+    {
+      "id": "g6-ann-dunwoody",
+      "title": "Four Stars for Ann Dunwoody",
+      "kind": "informational",
+      "genre": "Biography",
+      "grade": 6,
+      "paragraphs": [
+        "Ann Dunwoody came from a family that had worn the uniform for generations. Her father, her grandfather, and others before them had all served as soldiers. Growing up, she assumed she would do something else with her life, and she planned to teach physical education after college.",
+        "In 1975 she joined the Army, expecting to stay only a couple of years. Instead she discovered that she loved leading people and solving hard problems. She decided to make the military her career, even though very few women held senior command at the time.",
+        "Dunwoody became an expert in logistics, the difficult work of getting food, fuel, equipment, and supplies to the right place at the right time. Armies cannot fight or even move without logistics, so her skill made her valuable. Step by step she earned promotions that few women before her had reached.",
+        "In November 2008 she made history when she became the first woman ever to earn the rank of four-star general in the armed forces. At the ceremony she said she was honored but added that she was sure she would not be the last. She wanted other women to see the rank as something they could reach too.",
+        "As a four-star general she commanded a massive organization responsible for supplying soldiers all over the world. When she retired, leaders praised not only what she had achieved but the path she had opened. Ann Dunwoody had proved that the highest ranks were within reach for women who were ready to lead."
+      ]
+    },
+    {
+      "id": "g4-how-cats-moved-in",
+      "title": "How Cats Moved In",
+      "kind": "informational",
+      "genre": "Life science",
+      "grade": 4,
+      "paragraphs": [
+        "House cats have not always lived with people. Long ago, all cats were wild. The story of how they came to nap on our couches began about ten thousand years ago, far away in the Middle East.",
+        "Around that time, people stopped moving from place to place and started farming. They grew grain and stored it in big piles. The grain was a feast for mice, and soon the mice came in great numbers.",
+        "Wild cats followed the mice. Where there were mice to hunt, the cats had plenty to eat. The people were happy too, because the cats protected the stored grain. Slowly, the cats and the people learned to live near each other.",
+        "Over many years, the cats grew tamer and friendlier. People began to welcome them, feed them, and even keep them as pets. In ancient Egypt, cats were treated with great honor and care.",
+        "Scientists say that in a way, cats chose to live with us. No one captured them or forced them to stay. They simply found that a life near people was a good life, and they have stayed by our side ever since."
+      ]
+    },
+    {
+      "id": "g4-big-and-small-cats",
+      "title": "The Biggest and Smallest Cats",
+      "kind": "informational",
+      "genre": "Life science",
+      "grade": 4,
+      "paragraphs": [
+        "Not all pet cats are the same size. Some are big enough to surprise you, and some stay tiny their whole lives. Two breeds show just how different cats can be: the Maine Coon and the Singapura.",
+        "The Maine Coon is one of the largest pet cats in the world. A big one can stretch more than three feet long from nose to tail. With a thick, shaggy coat and a bushy tail, a Maine Coon can look almost like a small bobcat curled up on the bed.",
+        "Even though they are large, Maine Coons are known for being gentle and playful. People sometimes call them the gentle giants of the cat world. They enjoy following their owners around the house like furry shadows.",
+        "The Singapura is the opposite. It is one of the smallest pet cats, and a grown one may weigh only about five pounds. It has short fur, big ears, and large eyes that make it look like a kitten even when it is fully grown.",
+        "Big or small, both cats make loving pets. The Maine Coon and the Singapura prove that a cat does not have to be a certain size to be a wonderful friend."
+      ]
+    },
+    {
+      "id": "g4-the-diamond-cave",
+      "title": "The Diamond Cave",
+      "kind": "literary",
+      "genre": "Adventure",
+      "grade": 4,
+      "paragraphs": [
+        "Mateo and Jade had been digging for hours, and the sun in their game world was already sinking low. Their pickaxes chipped at the stone wall, clink, clink, clink, until suddenly Jade's pick broke through into empty space. Cool air drifted out of the dark opening.",
+        "\"A cave,\" Jade whispered, holding up a torch. The light spilled across a huge cavern, and there, sparkling in the wall like blue stars, were diamonds. Mateo could hardly believe their luck.",
+        "But caves were dangerous after dark. Just as they started to dig, a low hiss came from the shadows behind them. A green creeper was creeping closer, ready to explode and ruin everything they had found.",
+        "Jade did not panic. \"Build a wall, quick!\" she said. The two friends slapped down blocks of cobblestone as fast as they could, sealing the creeper on the other side. They heard a muffled boom, but their diamonds were safe.",
+        "By the time they carried their treasure home, the sun was rising again. Mateo grinned at Jade. They had not just found diamonds, he thought. They had learned that staying calm and working together was the real treasure."
+      ]
+    },
+    {
+      "id": "g4-firehouse-dalmatian",
+      "title": "The Firehouse Dog",
+      "kind": "informational",
+      "genre": "History",
+      "grade": 4,
+      "paragraphs": [
+        "Have you ever seen a white dog covered in black spots riding on a fire truck? That dog is a Dalmatian, and it has been a friend to firefighters for a very long time. To understand why, we have to go back to the days before fire trucks had engines.",
+        "Long ago, fire wagons were pulled by horses. When an alarm rang, the horses had to race through busy streets to reach the fire. The trouble was that horses are easily frightened by noise and crowds.",
+        "This is where the Dalmatian helped. Dalmatians are calm around horses, and the two animals quickly became friends. A Dalmatian would run beside the horses, keeping them steady and helping clear a path through the crowd.",
+        "The dogs were useful at the firehouse too. They guarded the wagon and the horses while the firefighters worked, and they kept the horses company between alarms. A good firehouse dog was a true member of the team.",
+        "Today fire trucks have engines, so the horses are gone. But many fire stations still keep a Dalmatian, now as a mascot and a friend. The spotted dog reminds everyone of the brave horses and dogs that once raced to the rescue together."
       ]
     }
   ],
@@ -2786,6 +3017,1301 @@
         "Clearly addresses the prompt with a main idea or claim",
         "Develops the response with specific details and a clear sequence",
         "Organized and easy to follow, in the writer’s own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g6-labrador-retriever-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-labrador-retriever"
+      ],
+      "skill": "Central idea",
+      "stem": "Which sentence best states the central idea of the passage?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Labrador retrievers were first bred in England by wealthy nobles purely for hunting birds"
+        },
+        {
+          "id": "B",
+          "text": "Despite its name, the Labrador retriever began as a fishing dog in Newfoundland"
+        },
+        {
+          "id": "C",
+          "text": "Most popular dog breeds in the world come from islands near Canada"
+        },
+        {
+          "id": "D",
+          "text": "The St. John's water dog had a thick coat and webbed feet for swimming"
+        }
+      ],
+      "correct": "B",
+      "rationale": "The whole passage traces the breed from Newfoundland to its modern roles."
+    },
+    {
+      "id": "g6-labrador-retriever-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-labrador-retriever"
+      ],
+      "skill": "Key detail",
+      "stem": "According to the passage, why was the breed renamed by the Earl of Malmesbury?",
+      "options": [
+        {
+          "id": "A",
+          "text": "He borrowed the name of the nearby region of Labrador"
+        },
+        {
+          "id": "B",
+          "text": "The dogs were first discovered living in the region of Labrador"
+        },
+        {
+          "id": "C",
+          "text": "Fishermen in Newfoundland asked him to rename them"
+        },
+        {
+          "id": "D",
+          "text": "The dogs were better at fishing than at retrieving"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Paragraph 3 says he called them Labrador dogs after the nearby region."
+    },
+    {
+      "id": "g6-labrador-retriever-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-labrador-retriever"
+      ],
+      "skill": "Vocabulary in context",
+      "stem": "In paragraph 2, the word \"tireless\" most nearly means",
+      "options": [
+        {
+          "id": "A",
+          "text": "needing a great deal of rest after a short time"
+        },
+        {
+          "id": "B",
+          "text": "able to keep working without tiring"
+        },
+        {
+          "id": "C",
+          "text": "clumsy and slow while moving in the water"
+        },
+        {
+          "id": "D",
+          "text": "friendly toward strangers"
+        }
+      ],
+      "correct": "B",
+      "rationale": "The dogs worked all day in freezing water, so tireless means not getting tired."
+    },
+    {
+      "id": "g6-labrador-retriever-msel",
+      "type": "multiple_select",
+      "passageIds": [
+        "g6-labrador-retriever"
+      ],
+      "skill": "Key details (multi-select)",
+      "stem": "Select the TWO traits the passage says helped the St. John's water dog work in cold water.",
+      "options": [
+        {
+          "id": "A",
+          "text": "A thick, oily double coat"
+        },
+        {
+          "id": "B",
+          "text": "Webbed feet for paddling"
+        },
+        {
+          "id": "C",
+          "text": "A loud bark to warn the boats"
+        },
+        {
+          "id": "D",
+          "text": "An unusually long tail for steering"
+        },
+        {
+          "id": "E",
+          "text": "Sharp claws for climbing rocks"
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "rationale": "Paragraph 2 names the oily double coat and webbed feet."
+    },
+    {
+      "id": "g6-labrador-retriever-evsel",
+      "type": "evidence_select",
+      "passageIds": [
+        "g6-labrador-retriever"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Click the sentence that explains why the breed nearly died out in Canada.",
+      "paragraphScope": 4,
+      "correct": [
+        "The breed nearly disappeared in Canada because of heavy dog taxes and strict laws, so the carefully kept English dogs became the foundation of the modern Labrador."
+      ],
+      "rationale": "This sentence names the taxes and laws that nearly ended the breed in Canada."
+    },
+    {
+      "id": "g6-labrador-retriever-short",
+      "type": "short_response",
+      "passageIds": [
+        "g6-labrador-retriever"
+      ],
+      "skill": "Cite textual evidence",
+      "stem": "Why is it surprising that the breed is called the \"Labrador\" retriever? Use a detail from the passage and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "The breed did not come from Labrador at all; it came from the island of Newfoundland, where it worked as a fishing dog (paragraph 1)."
+    },
+    {
+      "id": "g6-labrador-retriever-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g6-labrador-retriever"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, explain how a Newfoundland fishing dog became the modern Labrador retriever. Use at least two details and name the paragraph for each.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 130,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer's own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g6-constitution-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-constitution"
+      ],
+      "skill": "Central idea",
+      "stem": "What is the passage mainly about?",
+      "options": [
+        {
+          "id": "A",
+          "text": "How one unusually hot summer in Philadelphia changed the local weather"
+        },
+        {
+          "id": "B",
+          "text": "How delegates wrote the Constitution to fix a weak government"
+        },
+        {
+          "id": "C",
+          "text": "How James Madison won the war for independence"
+        },
+        {
+          "id": "D",
+          "text": "How the thirteen states became separate countries"
+        }
+      ],
+      "correct": "B",
+      "rationale": "The passage traces the writing of the Constitution to replace the weak Articles."
+    },
+    {
+      "id": "g6-constitution-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-constitution"
+      ],
+      "skill": "Cause and effect",
+      "stem": "According to the passage, why did the delegates meet to change the rules?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Articles of Confederation made the government too weak"
+        },
+        {
+          "id": "B",
+          "text": "The states wanted to declare war on one another right away"
+        },
+        {
+          "id": "C",
+          "text": "James Madison ordered all of the states to gather quickly"
+        },
+        {
+          "id": "D",
+          "text": "Philadelphia was the only large city with a building big enough"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Paragraphs 1 and 2 explain the Articles left the government too weak."
+    },
+    {
+      "id": "g6-constitution-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-constitution"
+      ],
+      "skill": "Vocabulary in context",
+      "stem": "In paragraph 4, the word \"compromise\" most nearly means",
+      "options": [
+        {
+          "id": "A",
+          "text": "a complete and total victory for just one side"
+        },
+        {
+          "id": "B",
+          "text": "an agreement where each side gives a little"
+        },
+        {
+          "id": "C",
+          "text": "a vote that is taken in secret"
+        },
+        {
+          "id": "D",
+          "text": "a refusal to change any of the rules"
+        }
+      ],
+      "correct": "B",
+      "rationale": "The Great Compromise gave each side part of what it wanted."
+    },
+    {
+      "id": "g6-constitution-order",
+      "type": "order",
+      "passageIds": [
+        "g6-constitution"
+      ],
+      "skill": "Sequence",
+      "stem": "Put the events from the passage in the order they happened.",
+      "elements": [
+        {
+          "id": "s1",
+          "text": "States struggle under the weak Articles of Confederation."
+        },
+        {
+          "id": "s2",
+          "text": "Fifty-five delegates gather in Philadelphia in 1787."
+        },
+        {
+          "id": "s3",
+          "text": "Delegates argue and reach the Great Compromise."
+        },
+        {
+          "id": "s4",
+          "text": "The delegates sign the finished Constitution."
+        },
+        {
+          "id": "s5",
+          "text": "Nine states approve it and it becomes law."
+        }
+      ],
+      "correctOrder": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "rationale": "This is the order described from paragraph 1 through paragraph 5."
+    },
+    {
+      "id": "g6-constitution-cloze",
+      "type": "inline_dropdown",
+      "passageIds": [
+        "g6-constitution"
+      ],
+      "skill": "Inference (inline choice)",
+      "stem": "Choose the words that best complete the sentence. The Great Compromise settled the fight by giving large states {{b1}} and giving small states {{b2}}.",
+      "blanks": {
+        "b1": {
+          "options": [
+            {
+              "id": "A",
+              "text": "more votes based on population"
+            },
+            {
+              "id": "B",
+              "text": "control of the army"
+            }
+          ],
+          "correct": "A"
+        },
+        "b2": {
+          "options": [
+            {
+              "id": "A",
+              "text": "an equal voice in one house"
+            },
+            {
+              "id": "B",
+              "text": "the right to leave the country"
+            }
+          ],
+          "correct": "A"
+        }
+      },
+      "rationale": "Paragraph 4 explains the two houses balanced population and equal votes."
+    },
+    {
+      "id": "g6-constitution-short",
+      "type": "short_response",
+      "passageIds": [
+        "g6-constitution"
+      ],
+      "skill": "Cite textual evidence",
+      "stem": "Why did the delegates keep their meetings secret? Use a detail from the passage and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "They met in secret and shut the windows so they could argue freely without listening crowds (paragraph 3)."
+    },
+    {
+      "id": "g6-constitution-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g6-constitution"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, explain why the Great Compromise was so important to finishing the Constitution. Use at least two details and name the paragraph for each.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 130,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer's own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g6-sally-ride-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-sally-ride"
+      ],
+      "skill": "Central idea",
+      "stem": "Which statement best describes the central idea of the passage?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sally Ride always preferred playing tennis to studying any science"
+        },
+        {
+          "id": "B",
+          "text": "Sally Ride broke barriers as the first American woman in space"
+        },
+        {
+          "id": "C",
+          "text": "Reporters asked astronauts many difficult science questions"
+        },
+        {
+          "id": "D",
+          "text": "NASA chose eight thousand new astronauts in the year 1977"
+        }
+      ],
+      "correct": "B",
+      "rationale": "The passage centers on Ride breaking barriers and opening doors for girls."
+    },
+    {
+      "id": "g6-sally-ride-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-sally-ride"
+      ],
+      "skill": "Key detail",
+      "stem": "What did Sally Ride do during her 1983 mission?",
+      "options": [
+        {
+          "id": "A",
+          "text": "She designed a brand-new space shuttle by herself"
+        },
+        {
+          "id": "B",
+          "text": "She operated a robotic arm to release satellites"
+        },
+        {
+          "id": "C",
+          "text": "She trained the other five women astronauts"
+        },
+        {
+          "id": "D",
+          "text": "She wrote articles for the student newspaper"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Paragraph 3 says she operated a robotic arm to release and recover satellites."
+    },
+    {
+      "id": "g6-sally-ride-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-sally-ride"
+      ],
+      "skill": "Author's purpose",
+      "stem": "Why does the author include the reporters' questions in paragraph 4?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To show the unfair treatment Ride faced and how she handled it"
+        },
+        {
+          "id": "B",
+          "text": "To prove that spaceflight is truly dangerous for a person's health"
+        },
+        {
+          "id": "C",
+          "text": "To explain how a robotic arm releases a satellite while in orbit"
+        },
+        {
+          "id": "D",
+          "text": "To describe the training that all new astronauts must complete"
+        }
+      ],
+      "correct": "A",
+      "rationale": "The questions show unfair treatment, and Ride stayed focused on her work."
+    },
+    {
+      "id": "g6-sally-ride-ebsr",
+      "type": "two_part_ebsr",
+      "passageIds": [
+        "g6-sally-ride"
+      ],
+      "skill": "Cite the evidence (EBSR)",
+      "partA": {
+        "stem": "Part A: What helped Sally Ride become an astronaut?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Her fame as a tennis player"
+          },
+          {
+            "id": "B",
+            "text": "A NASA notice in a newspaper"
+          },
+          {
+            "id": "C",
+            "text": "An offer from a satellite company"
+          },
+          {
+            "id": "D",
+            "text": "A letter from another astronaut"
+          }
+        ],
+        "correct": "B"
+      },
+      "partB": {
+        "stem": "Part B: Which sentence best supports your answer to Part A?",
+        "options": [
+          {
+            "id": "A",
+            "text": "She was a talented tennis player who once thought about turning professional, but her curiosity about how the universe worked pulled her toward physics instead."
+          },
+          {
+            "id": "B",
+            "text": "One morning in 1977 she opened the student newspaper and saw an announcement that changed her life."
+          },
+          {
+            "id": "C",
+            "text": "She was thirty-two years old."
+          },
+          {
+            "id": "D",
+            "text": "Sally Ride died in 2012, but the path she cleared still leads upward."
+          }
+        ],
+        "correct": "B"
+      },
+      "rationale": "The newspaper announcement is what led her to apply to NASA."
+    },
+    {
+      "id": "g6-sally-ride-evsel",
+      "type": "evidence_select",
+      "passageIds": [
+        "g6-sally-ride"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Click the sentence that shows Ride wanted to help other girls follow her.",
+      "paragraphScope": 5,
+      "correct": [
+        "After leaving NASA, Ride became a professor and started a company to help young people, especially girls, get excited about science."
+      ],
+      "rationale": "This sentence describes the company she started to inspire girls in science."
+    },
+    {
+      "id": "g6-sally-ride-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g6-sally-ride"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, explain how Sally Ride opened doors for other women and girls. Use at least two details and name the paragraph for each.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 130,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer's own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g6-ann-dunwoody-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-ann-dunwoody"
+      ],
+      "skill": "Central idea",
+      "stem": "What is the central idea of the passage?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ann Dunwoody had always planned to teach physical education after college"
+        },
+        {
+          "id": "B",
+          "text": "Ann Dunwoody became the first woman to earn four-star general rank"
+        },
+        {
+          "id": "C",
+          "text": "Logistics means moving food, fuel, and supplies to soldiers"
+        },
+        {
+          "id": "D",
+          "text": "Many members of Dunwoody's family served as soldiers too"
+        }
+      ],
+      "correct": "B",
+      "rationale": "The passage centers on her historic rise to four-star general."
+    },
+    {
+      "id": "g6-ann-dunwoody-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-ann-dunwoody"
+      ],
+      "skill": "Key detail",
+      "stem": "What was Ann Dunwoody's area of expertise in the Army?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Flying fast fighter jets in combat"
+        },
+        {
+          "id": "B",
+          "text": "Logistics, or supplying an army"
+        },
+        {
+          "id": "C",
+          "text": "Designing brand-new uniforms"
+        },
+        {
+          "id": "D",
+          "text": "Teaching physical education classes"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Paragraph 3 explains she became an expert in logistics."
+    },
+    {
+      "id": "g6-ann-dunwoody-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g6-ann-dunwoody"
+      ],
+      "skill": "Vocabulary in context",
+      "stem": "In paragraph 3, the word \"logistics\" most nearly means",
+      "options": [
+        {
+          "id": "A",
+          "text": "the work of moving supplies where they are needed"
+        },
+        {
+          "id": "B",
+          "text": "the special rank a soldier earns only after many years"
+        },
+        {
+          "id": "C",
+          "text": "a kind of weapon used by an army"
+        },
+        {
+          "id": "D",
+          "text": "a ceremony held to honor a general"
+        }
+      ],
+      "correct": "A",
+      "rationale": "The passage defines logistics as getting supplies to the right place."
+    },
+    {
+      "id": "g6-ann-dunwoody-msel",
+      "type": "multiple_select",
+      "passageIds": [
+        "g6-ann-dunwoody"
+      ],
+      "skill": "Key details (multi-select)",
+      "stem": "Select the TWO statements the passage supports about Ann Dunwoody.",
+      "options": [
+        {
+          "id": "A",
+          "text": "She came from a family with a long history of military service."
+        },
+        {
+          "id": "B",
+          "text": "She first planned to teach physical education after college."
+        },
+        {
+          "id": "C",
+          "text": "She refused every promotion she was ever offered."
+        },
+        {
+          "id": "D",
+          "text": "She invented a new kind of fighter jet for the Army."
+        },
+        {
+          "id": "E",
+          "text": "She left the Army after only two years of service."
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "rationale": "Paragraphs 1 and 2 support the family history and the teaching plan."
+    },
+    {
+      "id": "g6-ann-dunwoody-short",
+      "type": "short_response",
+      "passageIds": [
+        "g6-ann-dunwoody"
+      ],
+      "skill": "Cite textual evidence",
+      "stem": "What did Dunwoody mean when she said she would not be the last? Use a detail from the passage and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "She wanted other women to see the four-star rank as something they too could reach (paragraph 4)."
+    },
+    {
+      "id": "g6-ann-dunwoody-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g6-ann-dunwoody"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, explain how Ann Dunwoody rose to become a four-star general. Use at least two details and name the paragraph for each.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 130,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer's own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g4-how-cats-moved-in-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-how-cats-moved-in"
+      ],
+      "skill": "Central idea",
+      "stem": "What is the passage mainly about?",
+      "options": [
+        {
+          "id": "A",
+          "text": "How wild cats slowly came to live with people"
+        },
+        {
+          "id": "B",
+          "text": "Why hungry mice like to eat the grain people store"
+        },
+        {
+          "id": "C",
+          "text": "How people in Egypt built their homes long ago"
+        },
+        {
+          "id": "D",
+          "text": "Why cats sleep on couches all day long"
+        }
+      ],
+      "correct": "A",
+      "rationale": "The whole passage explains how cats came to live with people."
+    },
+    {
+      "id": "g4-how-cats-moved-in-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-how-cats-moved-in"
+      ],
+      "skill": "Cause and effect",
+      "stem": "Why did wild cats first come close to people?",
+      "options": [
+        {
+          "id": "A",
+          "text": "People called the cats inside"
+        },
+        {
+          "id": "B",
+          "text": "They were chasing the mice"
+        },
+        {
+          "id": "C",
+          "text": "They were cold in the winter"
+        },
+        {
+          "id": "D",
+          "text": "They wanted a soft couch"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Paragraph 3 says the cats followed the mice."
+    },
+    {
+      "id": "g4-how-cats-moved-in-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-how-cats-moved-in"
+      ],
+      "skill": "Vocabulary in context",
+      "stem": "In paragraph 4, the word \"tamer\" most nearly means",
+      "options": [
+        {
+          "id": "A",
+          "text": "more wild and afraid of people"
+        },
+        {
+          "id": "B",
+          "text": "less wild and friendlier"
+        },
+        {
+          "id": "C",
+          "text": "much faster at running"
+        },
+        {
+          "id": "D",
+          "text": "hungrier than ever before"
+        }
+      ],
+      "correct": "B",
+      "rationale": "The next words say the cats grew friendlier, so tamer means less wild."
+    },
+    {
+      "id": "g4-how-cats-moved-in-evsel",
+      "type": "evidence_select",
+      "passageIds": [
+        "g4-how-cats-moved-in"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Click the sentence that tells why the people were glad to have the cats around.",
+      "paragraphScope": 3,
+      "correct": [
+        "The people were happy too, because the cats protected the stored grain."
+      ],
+      "rationale": "This sentence says the cats protected the grain, which made people glad."
+    },
+    {
+      "id": "g4-how-cats-moved-in-short",
+      "type": "short_response",
+      "passageIds": [
+        "g4-how-cats-moved-in"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Explain why the writer says cats chose to live with us. Use a detail and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "No one captured the cats or forced them to stay; they found that living near people was a good life (paragraph 5)."
+    },
+    {
+      "id": "g4-how-cats-moved-in-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g4-how-cats-moved-in"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, explain how wild cats became the pets we keep today. Use at least two details and name the paragraph for each.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 110,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer's own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g4-big-and-small-cats-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-big-and-small-cats"
+      ],
+      "skill": "Central idea",
+      "stem": "What is the passage mostly about?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Two cat breeds that are very different in size"
+        },
+        {
+          "id": "B",
+          "text": "How to brush a cat that has a thick, shaggy coat"
+        },
+        {
+          "id": "C",
+          "text": "Why cats like to follow people around a house"
+        },
+        {
+          "id": "D",
+          "text": "How a wild bobcat is different from a pet cat"
+        }
+      ],
+      "correct": "A",
+      "rationale": "The passage compares the large Maine Coon and the small Singapura."
+    },
+    {
+      "id": "g4-big-and-small-cats-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-big-and-small-cats"
+      ],
+      "skill": "Compare and contrast",
+      "stem": "How is the Singapura different from the Maine Coon?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is one of the smallest pet cats"
+        },
+        {
+          "id": "B",
+          "text": "It has a long, bushy, shaggy tail"
+        },
+        {
+          "id": "C",
+          "text": "It can grow more than three feet long"
+        },
+        {
+          "id": "D",
+          "text": "It looks like a small wild bobcat"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Paragraph 4 says the Singapura is one of the smallest pet cats."
+    },
+    {
+      "id": "g4-big-and-small-cats-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-big-and-small-cats"
+      ],
+      "skill": "Vocabulary in context",
+      "stem": "Why are Maine Coons called \"gentle giants\"?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They are large but kind and playful"
+        },
+        {
+          "id": "B",
+          "text": "They are small but very, very loud"
+        },
+        {
+          "id": "C",
+          "text": "They are wild and very hard to keep"
+        },
+        {
+          "id": "D",
+          "text": "They are quiet and like to hide away"
+        }
+      ],
+      "correct": "A",
+      "rationale": "Paragraph 3 says they are large yet gentle and playful."
+    },
+    {
+      "id": "g4-big-and-small-cats-msel",
+      "type": "multiple_select",
+      "passageIds": [
+        "g4-big-and-small-cats"
+      ],
+      "skill": "Key details (multi-select)",
+      "stem": "Select the TWO statements the passage supports about the Singapura.",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is one of the smallest pet cats."
+        },
+        {
+          "id": "B",
+          "text": "It has big ears and large eyes."
+        },
+        {
+          "id": "C",
+          "text": "It can grow more than three feet long."
+        },
+        {
+          "id": "D",
+          "text": "It has a thick, shaggy coat."
+        },
+        {
+          "id": "E",
+          "text": "It looks like a small bobcat."
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "rationale": "Paragraph 4 describes the small size, big ears, and large eyes."
+    },
+    {
+      "id": "g4-big-and-small-cats-short",
+      "type": "short_response",
+      "passageIds": [
+        "g4-big-and-small-cats"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Tell one way the Maine Coon and the Singapura are different. Use a detail and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "The Maine Coon can grow more than three feet long (paragraph 2), while the Singapura may weigh only about five pounds (paragraph 4)."
+    },
+    {
+      "id": "g4-big-and-small-cats-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g4-big-and-small-cats"
+      ],
+      "skill": "Written response",
+      "stem": "Which cat would you rather have as a pet, the Maine Coon or the Singapura? Use at least two details from the passage to explain your choice and name the paragraph for each.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 110,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer's own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g4-the-diamond-cave-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-diamond-cave"
+      ],
+      "skill": "Plot",
+      "stem": "What is the main problem in the story?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mateo and Jade cannot find any diamonds at all"
+        },
+        {
+          "id": "B",
+          "text": "A creeper threatens the diamonds they found"
+        },
+        {
+          "id": "C",
+          "text": "The two friends get lost on the way home"
+        },
+        {
+          "id": "D",
+          "text": "Jade's torch goes out in the dark cave"
+        }
+      ],
+      "correct": "B",
+      "rationale": "The main problem is the creeper that could blow up their diamonds."
+    },
+    {
+      "id": "g4-the-diamond-cave-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-diamond-cave"
+      ],
+      "skill": "Character",
+      "stem": "What does Jade do that shows she stays calm?",
+      "options": [
+        {
+          "id": "A",
+          "text": "She runs out of the cave all by herself"
+        },
+        {
+          "id": "B",
+          "text": "She tells Mateo to build a wall fast"
+        },
+        {
+          "id": "C",
+          "text": "She drops her torch on the ground"
+        },
+        {
+          "id": "D",
+          "text": "She digs deeper into the dark cave"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Paragraph 4 says Jade did not panic and told Mateo to build a wall."
+    },
+    {
+      "id": "g4-the-diamond-cave-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-the-diamond-cave"
+      ],
+      "skill": "Theme",
+      "stem": "What lesson does Mateo learn by the end of the story?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Diamonds are very easy to find in caves"
+        },
+        {
+          "id": "B",
+          "text": "It is always best to explore dark caves alone"
+        },
+        {
+          "id": "C",
+          "text": "Staying calm and working together matters"
+        },
+        {
+          "id": "D",
+          "text": "Creepers are not really dangerous at all"
+        }
+      ],
+      "correct": "C",
+      "rationale": "The last paragraph says the real treasure was staying calm and working together."
+    },
+    {
+      "id": "g4-the-diamond-cave-ebsr",
+      "type": "two_part_ebsr",
+      "passageIds": [
+        "g4-the-diamond-cave"
+      ],
+      "skill": "Cite the evidence (EBSR)",
+      "partA": {
+        "stem": "Part A: How do the friends keep their diamonds safe?",
+        "options": [
+          {
+            "id": "A",
+            "text": "They run out of the dark cave"
+          },
+          {
+            "id": "B",
+            "text": "They wall off the creeper"
+          },
+          {
+            "id": "C",
+            "text": "They wait for sunrise"
+          },
+          {
+            "id": "D",
+            "text": "They put out the torch"
+          }
+        ],
+        "correct": "B"
+      },
+      "partB": {
+        "stem": "Part B: Which sentence best supports your answer to Part A?",
+        "options": [
+          {
+            "id": "A",
+            "text": "The two friends slapped down blocks of cobblestone as fast as they could, sealing the creeper on the other side."
+          },
+          {
+            "id": "B",
+            "text": "Cool air drifted out of the dark opening."
+          },
+          {
+            "id": "C",
+            "text": "Mateo could hardly believe their luck."
+          },
+          {
+            "id": "D",
+            "text": "By the time they carried their treasure home, the sun was rising again."
+          }
+        ],
+        "correct": "A"
+      },
+      "rationale": "They sealed the creeper behind cobblestone to protect the diamonds."
+    },
+    {
+      "id": "g4-the-diamond-cave-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g4-the-diamond-cave"
+      ],
+      "skill": "Written response",
+      "stem": "Write about a time you stayed calm and solved a problem with a friend or with your family. What happened, and how did you feel afterward?",
+      "taskType": "narrative",
+      "requireCitation": false,
+      "wordCountHint": 110,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Develops the response with specific details and a clear sequence",
+        "Organized and easy to follow, in the writer's own words",
+        "Few errors in spelling, grammar, and punctuation"
+      ],
+      "sampleResponse": null
+    },
+    {
+      "id": "g4-firehouse-dalmatian-q1",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-firehouse-dalmatian"
+      ],
+      "skill": "Central idea",
+      "stem": "What is the passage mainly about?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Why fire stations keep Dalmatians"
+        },
+        {
+          "id": "B",
+          "text": "How horses learned to pull wagons"
+        },
+        {
+          "id": "C",
+          "text": "Where black-and-white dogs come from"
+        },
+        {
+          "id": "D",
+          "text": "How engines made fire trucks faster"
+        }
+      ],
+      "correct": "A",
+      "rationale": "The passage explains why Dalmatians became firehouse dogs."
+    },
+    {
+      "id": "g4-firehouse-dalmatian-q2",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-firehouse-dalmatian"
+      ],
+      "skill": "Cause and effect",
+      "stem": "Why was a Dalmatian helpful when wagons were pulled by horses?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It could pull the wagon by itself"
+        },
+        {
+          "id": "B",
+          "text": "It kept the nervous horses calm"
+        },
+        {
+          "id": "C",
+          "text": "It put out the fire with water"
+        },
+        {
+          "id": "D",
+          "text": "It carried the firefighters' tools"
+        }
+      ],
+      "correct": "B",
+      "rationale": "Paragraph 3 says Dalmatians are calm around horses and kept them steady."
+    },
+    {
+      "id": "g4-firehouse-dalmatian-q3",
+      "type": "multiple_choice",
+      "passageIds": [
+        "g4-firehouse-dalmatian"
+      ],
+      "skill": "Vocabulary in context",
+      "stem": "In paragraph 5, the word \"mascot\" most nearly means",
+      "options": [
+        {
+          "id": "A",
+          "text": "a tool that is used to fight fires"
+        },
+        {
+          "id": "B",
+          "text": "a friendly animal that brings team spirit"
+        },
+        {
+          "id": "C",
+          "text": "a kind of wagon that is pulled by horses"
+        },
+        {
+          "id": "D",
+          "text": "a loud alarm that rings at the fire station"
+        }
+      ],
+      "correct": "B",
+      "rationale": "A mascot is a friendly animal kept by a team."
+    },
+    {
+      "id": "g4-firehouse-dalmatian-order",
+      "type": "order",
+      "passageIds": [
+        "g4-firehouse-dalmatian"
+      ],
+      "skill": "Sequence",
+      "stem": "Put the events from the passage in the order they happened.",
+      "elements": [
+        {
+          "id": "s1",
+          "text": "An alarm rings at the firehouse."
+        },
+        {
+          "id": "s2",
+          "text": "The horses race through the busy streets."
+        },
+        {
+          "id": "s3",
+          "text": "A Dalmatian runs beside the horses to keep them calm."
+        },
+        {
+          "id": "s4",
+          "text": "The firefighters work while the dog guards the wagon."
+        }
+      ],
+      "correctOrder": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "rationale": "This follows the order described across the passage."
+    },
+    {
+      "id": "g4-firehouse-dalmatian-short",
+      "type": "short_response",
+      "passageIds": [
+        "g4-firehouse-dalmatian"
+      ],
+      "skill": "Cite the evidence",
+      "stem": "Why do many fire stations still keep a Dalmatian today? Use a detail and name the paragraph.",
+      "requireCitation": true,
+      "rubricMax": 2,
+      "sampleAnswer": "The horses are gone, but stations keep a Dalmatian as a mascot and friend that reminds everyone of the brave horses and dogs (paragraph 5)."
+    },
+    {
+      "id": "g4-firehouse-dalmatian-write",
+      "type": "prose_response",
+      "passageIds": [
+        "g4-firehouse-dalmatian"
+      ],
+      "skill": "Written response",
+      "stem": "Using the passage, explain why Dalmatians became firehouse dogs. Use at least two details and name the paragraph for each.",
+      "taskType": "research_simulation",
+      "requireCitation": true,
+      "wordCountHint": 110,
+      "rubricMax": 4,
+      "rubric": [
+        "Clearly addresses the prompt with a main idea or claim",
+        "Includes specific details from the passage, with the paragraph cited",
+        "Organized and easy to follow, in the writer's own words",
         "Few errors in spelling, grammar, and punctuation"
       ],
       "sampleResponse": null
