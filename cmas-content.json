@@ -586,15 +586,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Always pack a brownie"
+          "text": "Treats should always come from home, not from sharing"
         },
         {
           "id": "B",
-          "text": "Cousins should share lunchboxes"
+          "text": "Cousins should always swap their lunchboxes for fun"
         },
         {
           "id": "C",
-          "text": "Plain lunches are boring"
+          "text": "A plain lunch is boring and should always be traded"
         },
         {
           "id": "D",
@@ -619,15 +619,15 @@
         },
         {
           "id": "B",
-          "text": "It melted in the sun"
+          "text": "She left it sitting in the sun and it has melted"
         },
         {
           "id": "C",
-          "text": "She is not hungry anymore"
+          "text": "She is not very hungry after eating most of her lunch"
         },
         {
           "id": "D",
-          "text": "She does not like chocolate"
+          "text": "She has decided that she does not really like chocolate"
         }
       ],
       "correct": "A",
@@ -644,7 +644,7 @@
       "options": [
         {
           "id": "A",
-          "text": "The color of seabirds"
+          "text": "The bright colors and habits of common seabirds along the coast"
         },
         {
           "id": "B",
@@ -652,11 +652,11 @@
         },
         {
           "id": "C",
-          "text": "How cold Antarctica is"
+          "text": "How cold Antarctica gets in winter and what animals live there"
         },
         {
           "id": "D",
-          "text": "How birds build their nests"
+          "text": "How small birds build their nests in trees and bushes each spring"
         }
       ],
       "correct": "B",
@@ -992,7 +992,7 @@
       "options": [
         {
           "id": "A",
-          "text": "From fish in the sea"
+          "text": "From salts that fish naturally release into the seawater"
         },
         {
           "id": "B",
@@ -1000,11 +1000,11 @@
         },
         {
           "id": "C",
-          "text": "From the clouds"
+          "text": "From rain clouds that pick up salt while drifting over land"
         },
         {
           "id": "D",
-          "text": "From the wind"
+          "text": "From the wind blowing salty dust from deserts onto the ocean"
         }
       ],
       "correct": "B",
@@ -1083,15 +1083,15 @@
         },
         {
           "id": "B",
-          "text": "He prefers it hot"
+          "text": "He just prefers his lemonade hot instead of cold"
         },
         {
           "id": "C",
-          "text": "The lemonade had spoiled"
+          "text": "The lemonade had started to spoil in the sun"
         },
         {
           "id": "D",
-          "text": "The stove was already on"
+          "text": "The stove was already on, so he used it"
         }
       ],
       "correct": "A",
@@ -1137,11 +1137,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Germs are dangerous"
+          "text": "Germs are dangerous and the body has almost no way to fight them off"
         },
         {
           "id": "B",
-          "text": "Antibodies are tiny weapons"
+          "text": "Antibodies are tiny weapons that the body produces by accident and then keeps"
         },
         {
           "id": "C",
@@ -1149,7 +1149,7 @@
         },
         {
           "id": "D",
-          "text": "The body contains memory cells"
+          "text": "The body keeps memory cells in reserve so it can stop any disease it ever meets"
         }
       ],
       "correct": "C",
@@ -1166,15 +1166,15 @@
       "options": [
         {
           "id": "A",
-          "text": "harmful germs"
+          "text": "the harmful germs that cause diseases like the flu"
         },
         {
           "id": "B",
-          "text": "a type of memory cell"
+          "text": "a type of memory cell that records every infection"
         },
         {
           "id": "C",
-          "text": "a kind of vaccine"
+          "text": "a kind of vaccine made from weakened versions of germs"
         },
         {
           "id": "D",
@@ -1224,7 +1224,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Old photographs fade over time"
+          "text": "Old photographs slowly fade and lose the moments they were meant to keep"
         },
         {
           "id": "B",
@@ -1232,11 +1232,11 @@
         },
         {
           "id": "C",
-          "text": "Bicycles can be dangerous"
+          "text": "Riding a bicycle on a dirt road can be dangerous, even with a helmet on"
         },
         {
           "id": "D",
-          "text": "Grandfathers tell good stories"
+          "text": "Grandfathers tell good stories that no one else in the family remembers"
         }
       ],
       "correct": "B",
@@ -1282,15 +1282,15 @@
       "options": [
         {
           "id": "A",
-          "text": "She did not know she had a great-grandmother"
+          "text": "She had no idea her great-grandmother had grown up in the same small town"
         },
         {
           "id": "B",
-          "text": "The photo is in color"
+          "text": "The photo is in bright color rather than the black-and-white she expected"
         },
         {
           "id": "C",
-          "text": "Her grandfather is in the photo"
+          "text": "Her own grandfather is the boy standing right behind the girl in the photo"
         },
         {
           "id": "D",
@@ -1315,15 +1315,15 @@
         },
         {
           "id": "B",
-          "text": "Sunsets are orange"
+          "text": "Sunsets are orange because the sun moves closer to Earth in the evening"
         },
         {
           "id": "C",
-          "text": "Sunlight is white"
+          "text": "Sunlight is white because the sun gives off pure white energy and no other colors"
         },
         {
           "id": "D",
-          "text": "The atmosphere is made of gas"
+          "text": "The atmosphere is made of gas, and gas is naturally a light shade of blue"
         }
       ],
       "correct": "A",
@@ -1369,11 +1369,11 @@
       "options": [
         {
           "id": "A",
-          "text": "The sun changes color"
+          "text": "The sun itself slowly changes color from yellow to orange as it sets each day"
         },
         {
           "id": "B",
-          "text": "Clouds turn red at night"
+          "text": "Clouds in the evening sky absorb the red and orange light from the dust in the air"
         },
         {
           "id": "C",
@@ -1381,7 +1381,7 @@
         },
         {
           "id": "D",
-          "text": "The air gets colder in the evening"
+          "text": "The air gets colder in the evening, which makes the blue color fade out of the sky"
         }
       ],
       "correct": "C",
@@ -1398,15 +1398,15 @@
       "options": [
         {
           "id": "A",
-          "text": "You should never trade your belongings"
+          "text": "You should never trade something that another person has given you, no matter the offer"
         },
         {
           "id": "B",
-          "text": "Knives are better than fishing reels"
+          "text": "A bright new knife is almost always a better belonging than an old fishing reel"
         },
         {
           "id": "C",
-          "text": "Trades always end badly"
+          "text": "Trades almost always end badly when one side is too eager to make the swap"
         },
         {
           "id": "D",
@@ -1431,15 +1431,15 @@
         },
         {
           "id": "B",
-          "text": "He learns to enjoy camping"
+          "text": "He learns to enjoy camping out at the lake more than the fishing itself"
         },
         {
           "id": "C",
-          "text": "He decides to stop fishing"
+          "text": "He decides to give up fishing entirely and pick up a brand-new sport instead"
         },
         {
           "id": "D",
-          "text": "He becomes best friends with Marcus"
+          "text": "He becomes much closer friends with Marcus by the end of the camping trip"
         }
       ],
       "correct": "A",
@@ -1485,11 +1485,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Alexandria was a city in Egypt"
+          "text": "Alexandria was a busy port city in ancient Egypt where many languages could be heard"
         },
         {
           "id": "B",
-          "text": "Scrolls were the books of the ancient world"
+          "text": "Scrolls were the books of the ancient world, and they were hard to copy without a press"
         },
         {
           "id": "C",
@@ -1497,7 +1497,7 @@
         },
         {
           "id": "D",
-          "text": "Ships once carried books across the sea"
+          "text": "Ships once carried books across the sea from one ancient port city to another for trade"
         }
       ],
       "correct": "C",
@@ -1514,15 +1514,15 @@
       "options": [
         {
           "id": "A",
-          "text": "It bought books from stores"
+          "text": "It bought finished books from shops in other ancient cities"
         },
         {
           "id": "B",
-          "text": "It printed new books on a press"
+          "text": "It printed brand-new books on a fast printing press"
         },
         {
           "id": "C",
-          "text": "It traded scrolls for gold"
+          "text": "It traded its own scrolls for gold and silver"
         },
         {
           "id": "D",
@@ -1572,7 +1572,7 @@
       "options": [
         {
           "id": "A",
-          "text": "You should never take a test"
+          "text": "You should never take a test that you do not feel completely prepared for in advance"
         },
         {
           "id": "B",
@@ -1580,11 +1580,11 @@
         },
         {
           "id": "C",
-          "text": "Cheating is the fastest way to a good grade"
+          "text": "Cheating is the fastest way to a good grade, as long as no one catches you at it"
         },
         {
           "id": "D",
-          "text": "Friends should keep every secret"
+          "text": "Friends should keep every secret they share, even when the secret will hurt someone else"
         }
       ],
       "correct": "B",
@@ -1601,11 +1601,11 @@
       "options": [
         {
           "id": "A",
-          "text": "He is afraid of the teacher"
+          "text": "He is afraid the teacher will believe Liam over him and end up angry"
         },
         {
           "id": "B",
-          "text": "He wants to cheat too"
+          "text": "He wants Liam to share the answers with him during the next test"
         },
         {
           "id": "C",
@@ -1613,7 +1613,7 @@
         },
         {
           "id": "D",
-          "text": "He forgot what he saw"
+          "text": "He has forgotten most of what he actually saw on the desk"
         }
       ],
       "correct": "C",
@@ -1663,15 +1663,15 @@
         },
         {
           "id": "B",
-          "text": "The 1930s were a difficult decade"
+          "text": "The 1930s were a difficult decade because of poor harvests and droughts in the western United States"
         },
         {
           "id": "C",
-          "text": "Wheat grows well on the plains"
+          "text": "Wheat grows well on the plains because the soil is rich and the wind helps spread the seeds around"
         },
         {
           "id": "D",
-          "text": "Dust is dangerous to breathe"
+          "text": "Dust is dangerous to breathe and was the main reason the prairie grasses had to be plowed up"
         }
       ],
       "correct": "A",
@@ -1688,7 +1688,7 @@
       "options": [
         {
           "id": "A",
-          "text": "There was too much rain"
+          "text": "There was too much rain after the harvest, which loosened the soil and washed it away"
         },
         {
           "id": "B",
@@ -1696,11 +1696,11 @@
         },
         {
           "id": "C",
-          "text": "The wind was unusually weak"
+          "text": "The wind was unusually weak that year, which let the soil dry out and crack"
         },
         {
           "id": "D",
-          "text": "Farmers planted too many trees"
+          "text": "Farmers had planted too many trees, which crowded out the deep prairie grasses"
         }
       ],
       "correct": "B",
@@ -1746,15 +1746,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Moving is always easy"
+          "text": "Moving is always easy as long as you have your family helping you with the boxes"
         },
         {
           "id": "B",
-          "text": "New houses are better than old ones"
+          "text": "Brand new houses are better than older ones because they have not been lived in yet"
         },
         {
           "id": "C",
-          "text": "You should never move away"
+          "text": "You should never move away from the town where you spent your earliest years"
         },
         {
           "id": "D",
@@ -1779,15 +1779,15 @@
         },
         {
           "id": "B",
-          "text": "rooms are shaped like boxes"
+          "text": "rooms are usually shaped like boxes, with four corners and four walls"
         },
         {
           "id": "C",
-          "text": "Mia should pack more carefully"
+          "text": "Mia should pack her things more carefully so the boxes do not break apart"
         },
         {
           "id": "D",
-          "text": "the room is too small"
+          "text": "the new room is much too small for everything that Mia owns to fit inside"
         }
       ],
       "correct": "A",
@@ -1804,7 +1804,7 @@
       "options": [
         {
           "id": "A",
-          "text": "She decides she hates the new house"
+          "text": "She decides she hates the new house and asks her mother to move again"
         },
         {
           "id": "B",
@@ -1812,11 +1812,11 @@
         },
         {
           "id": "C",
-          "text": "She wants to move again right away"
+          "text": "She wants to move again right away to a totally different town in another state"
         },
         {
           "id": "D",
-          "text": "She stops missing her old town completely"
+          "text": "She forgets her old town completely and stops thinking about her friends"
         }
       ],
       "correct": "B",
@@ -2170,7 +2170,7 @@
         "options": [
           {
             "id": "A",
-            "text": "Too much rain on the plains"
+            "text": "Too much rain on the plains over a long stretch"
           },
           {
             "id": "B",
@@ -2178,11 +2178,11 @@
           },
           {
             "id": "C",
-            "text": "Planting too many trees"
+            "text": "Planting too many fast-growing trees on the plains"
           },
           {
             "id": "D",
-            "text": "A shortage of farmers"
+            "text": "A shortage of trained farmers in the western states"
           }
         ],
         "correct": "B"
@@ -2223,7 +2223,7 @@
         "options": [
           {
             "id": "A",
-            "text": "Liam stops being his friend"
+            "text": "Liam stops being his friend and refuses to talk to him"
           },
           {
             "id": "B",
@@ -2231,11 +2231,11 @@
           },
           {
             "id": "C",
-            "text": "Tomas gets in trouble"
+            "text": "Tomas gets in trouble for telling on a friend"
           },
           {
             "id": "D",
-            "text": "Nothing changes"
+            "text": "Nothing in their friendship changes after their talk"
           }
         ],
         "correct": "B"

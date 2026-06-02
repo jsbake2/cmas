@@ -64,15 +64,23 @@ export default function ResultDetail() {
 
   const finalScore = computeFinalScore(result, itemsById);
 
-  // Written items eligible for AI analysis (have a response).
-  const writtenItemIds = Object.keys(result.auto.byItem).filter((id) => {
-    const it = itemsById.get(id);
-    if (!it) return false;
-    if (it.type !== "short_response" && it.type !== "prose_response")
-      return false;
-    const r = result.responses[id];
-    return typeof r === "string" && r.trim().length > 0;
-  });
+  // Written items eligible for AI analysis (have a response). Build a
+  // labelled list so the progress UI can show "Analyzing item 2 of 2:
+  // Written response" instead of just an index.
+  const writtenItems = Object.keys(result.auto.byItem)
+    .map((id, position) => {
+      const it = itemsById.get(id);
+      if (!it) return null;
+      if (it.type !== "short_response" && it.type !== "prose_response")
+        return null;
+      const r = result.responses[id];
+      if (typeof r !== "string" || r.trim().length === 0) return null;
+      const label =
+        it.type === "short_response" ? "Short response" : "Written response";
+      return { id, position, label };
+    })
+    .filter((x): x is { id: string; position: number; label: string } => !!x);
+  const writtenItemIds = writtenItems.map((x) => x.id);
 
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6">
@@ -99,11 +107,11 @@ export default function ResultDetail() {
         </Link>
       </header>
 
-      {writtenItemIds.length > 0 && (
+      {writtenItems.length > 0 && (
         <AnalyzeAll
           profile={p}
           resultId={result.id}
-          writtenItemIds={writtenItemIds}
+          writtenItems={writtenItems}
           existingAnalyses={result.aiAnalyses ?? {}}
           onAnalysis={(itemId, a) => {
             setResult((prev) =>
@@ -397,42 +405,58 @@ function ItemReview({
 function AnalyzeAll({
   profile,
   resultId,
-  writtenItemIds,
+  writtenItems,
   existingAnalyses,
   onAnalysis,
 }: {
   profile: ProfileId;
   resultId: string;
-  writtenItemIds: string[];
+  writtenItems: Array<{ id: string; position: number; label: string }>;
   existingAnalyses: Record<string, WritingAnalysis>;
   onAnalysis: (itemId: string, a: WritingAnalysis) => void;
 }) {
   const [progress, setProgress] = useState<
     | { state: "idle" }
-    | { state: "running"; current: number; total: number; itemId: string }
-    | { state: "done"; ok: number; failed: number }
+    | { state: "running"; current: number; total: number; itemId: string; label: string }
+    | { state: "done"; ok: number; failed: number; completed: string[] }
   >({ state: "idle" });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const pending = writtenItemIds.filter((id) => !existingAnalyses[id]);
+  const pending = writtenItems.filter((x) => !existingAnalyses[x.id]);
+  const labelById = Object.fromEntries(
+    writtenItems.map((x) => [x.id, x.label]),
+  );
 
-  async function run(idsToRun: string[]) {
+  async function run(items: Array<{ id: string; label: string }>) {
+    console.log(
+      "[AnalyzeAll] start — items to process:",
+      items.map((x) => `${x.id} (${x.label})`),
+    );
     setErrors({});
+    const completed: string[] = [];
     let ok = 0;
     let failed = 0;
-    for (let i = 0; i < idsToRun.length; i++) {
-      const itemId = idsToRun[i];
+    for (let i = 0; i < items.length; i++) {
+      const { id: itemId, label } = items[i];
+      console.log(`[AnalyzeAll] ${i + 1}/${items.length} → ${itemId}`);
       setProgress({
         state: "running",
         current: i + 1,
-        total: idsToRun.length,
+        total: items.length,
         itemId,
+        label,
       });
       try {
         const { analysis } = await api.aiAnalyze(profile, resultId, itemId);
+        console.log(
+          `[AnalyzeAll] ${itemId} done, overall length:`,
+          (analysis.overall || "").length,
+        );
         onAnalysis(itemId, analysis);
+        completed.push(itemId);
         ok += 1;
       } catch (e) {
+        console.error(`[AnalyzeAll] ${itemId} FAILED`, e);
         failed += 1;
         setErrors((prev) => ({
           ...prev,
@@ -440,66 +464,122 @@ function AnalyzeAll({
         }));
       }
     }
-    setProgress({ state: "done", ok, failed });
+    console.log("[AnalyzeAll] loop complete", { ok, failed });
+    setProgress({ state: "done", ok, failed, completed });
   }
 
   const running = progress.state === "running";
   const hasPending = pending.length > 0;
+  const allItemsForRun = writtenItems.map(({ id, label }) => ({ id, label }));
+  const pendingItemsForRun = pending.map(({ id, label }) => ({ id, label }));
 
   return (
     <section
-      className="card flex flex-wrap items-center justify-between gap-3"
+      className="card flex flex-col gap-2"
       style={{
         background: "var(--color-accent-soft)",
         borderColor: "var(--color-accent)",
       }}
     >
-      <div>
-        <div className="font-ui font-semibold flex items-center gap-2">
-          <span aria-hidden="true">🤖</span>
-          <span>Quick AI feedback on writing</span>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <div className="font-ui font-semibold flex items-center gap-2">
+            <span aria-hidden="true">🤖</span>
+            <span>Quick AI feedback on writing</span>
+          </div>
+          <div className="text-sm text-muted">
+            {progress.state === "running" ? (
+              <>
+                Analyzing <strong>{progress.current} of {progress.total}</strong>:{" "}
+                {progress.label}… (about a minute per item — leave the page
+                open)
+              </>
+            ) : progress.state === "done" ? (
+              <>
+                Done — {progress.ok} analyzed
+                {progress.failed > 0 ? `, ${progress.failed} failed` : ""}.
+                Scroll down to read each one with{" "}
+                {profile === "olive" ? "Olive" : "Fox"}.
+              </>
+            ) : hasPending ? (
+              <>
+                {pending.length} written item{pending.length === 1 ? "" : "s"}{" "}
+                to analyze. Runs locally on Qwen — kick it off and come back.
+              </>
+            ) : (
+              <>
+                All {writtenItems.length} written items already have
+                feedback. Re-analyze if she edited and re-submitted.
+              </>
+            )}
+          </div>
         </div>
-        <div className="text-sm text-muted">
-          {progress.state === "running" ? (
-            <>
-              Analyzing {progress.current} of {progress.total}… (about a
-              minute per item)
-            </>
-          ) : progress.state === "done" ? (
-            <>
-              Done — {progress.ok} analyzed
-              {progress.failed > 0 ? `, ${progress.failed} failed` : ""}.
-              Scroll down to read each one with {profile === "olive" ? "Olive" : "Fox"}.
-            </>
-          ) : hasPending ? (
-            <>
-              {pending.length} written item{pending.length === 1 ? "" : "s"}{" "}
-              to analyze. Runs locally on Qwen — kick it off and come back.
-            </>
+        <div className="flex gap-2">
+          {hasPending ? (
+            <button
+              className="btn btn-primary whitespace-nowrap"
+              disabled={running}
+              onClick={() => run(pendingItemsForRun)}
+            >
+              {running
+                ? "Analyzing…"
+                : `Analyze ${pending.length} pending →`}
+            </button>
           ) : (
-            <>All written items already have feedback. Re-analyze if she edited and re-submitted.</>
+            <button
+              className="btn whitespace-nowrap"
+              disabled={running}
+              onClick={() => run(allItemsForRun)}
+            >
+              {running
+                ? "Re-analyzing…"
+                : `Re-analyze all ${writtenItems.length}`}
+            </button>
           )}
         </div>
       </div>
-      <div className="flex gap-2">
-        {hasPending ? (
-          <button
-            className="btn btn-primary whitespace-nowrap"
-            disabled={running}
-            onClick={() => run(pending)}
-          >
-            {running ? "Analyzing…" : `Analyze all (${pending.length})`}
-          </button>
-        ) : (
-          <button
-            className="btn whitespace-nowrap"
-            disabled={running}
-            onClick={() => run(writtenItemIds)}
-          >
-            {running ? "Re-analyzing…" : "Re-analyze all"}
-          </button>
-        )}
-      </div>
+
+      {/* Per-item progress checklist so the parent can see exactly which
+          item is currently being processed and which already finished. */}
+      {(running || progress.state === "done") && (
+        <ul className="text-sm">
+          {writtenItems.map((x) => {
+            const isCurrent =
+              progress.state === "running" && progress.itemId === x.id;
+            const hasAnalysis = !!existingAnalyses[x.id];
+            const failed = !!errors[x.id];
+            return (
+              <li key={x.id} className="flex items-center gap-2">
+                <span aria-hidden="true" style={{ width: "1.25rem" }}>
+                  {failed
+                    ? "❌"
+                    : hasAnalysis
+                      ? "✅"
+                      : isCurrent
+                        ? "⏳"
+                        : "○"}
+                </span>
+                <span
+                  className={isCurrent ? "font-semibold" : ""}
+                  style={{
+                    color: failed
+                      ? "#b91c1c"
+                      : hasAnalysis
+                        ? "#15803d"
+                        : isCurrent
+                          ? "var(--color-accent)"
+                          : "var(--color-muted)",
+                  }}
+                >
+                  {x.label}
+                  {isCurrent && " — analyzing now…"}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+
       {Object.entries(errors).length > 0 && (
         <div className="text-sm w-full" style={{ color: "#b91c1c" }}>
           Some items failed — see their AI panel below for details.

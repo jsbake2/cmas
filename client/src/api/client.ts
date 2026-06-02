@@ -121,4 +121,8 @@ export const api = {
       `/api/results/${p}/${resultId}/ai-analyze/${itemId}`,
       { method: "POST", headers: json },
     ),
+
+  /** Delete one quiz's result (and any in-progress session for that quiz). */
+  deleteResult: (p: ProfileId, resultId: string) =>
+    req<{ ok: true }>(`/api/results/${p}/${resultId}`, { method: "DELETE" }),
 };

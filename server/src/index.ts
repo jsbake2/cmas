@@ -257,6 +257,42 @@ app.get("/api/ai/info", (_req, res) => {
 });
 
 /**
+ * Reset a single quiz: delete its completed result and, if the in-progress
+ * session is for that same quiz, drop the session too. The student can then
+ * take that quiz again from scratch without affecting their other progress.
+ */
+app.delete("/api/results/:profile/:resultId", (req, res) => {
+  const p = requireProfile(req, res);
+  if (!p) return;
+  const { resultId } = req.params;
+  const row = stmts.getResult.get(p, String(resultId)) as
+    | { json: string }
+    | undefined;
+  if (!row) return res.status(404).json({ error: "Result not found" });
+  let quizId: string | undefined;
+  try {
+    quizId = (JSON.parse(row.json) as { quizId?: string }).quizId;
+  } catch {
+    quizId = undefined;
+  }
+  stmts.deleteResultById.run(p, String(resultId));
+
+  // If the in-progress session is for this same quiz, clear it too —
+  // otherwise leave it alone (the student may be mid-attempt on a different
+  // quiz).
+  if (quizId) {
+    const stRow = stmts.getState.get(p) as { json: string } | undefined;
+    if (stRow) {
+      try {
+        const st = JSON.parse(stRow.json) as { quizId?: string };
+        if (st.quizId === quizId) stmts.deleteState.run(p);
+      } catch {}
+    }
+  }
+  res.json({ ok: true });
+});
+
+/**
  * Wipe everything for a profile: in-progress session + all completed results.
  * The "reset progress" button in the UI calls this.
  */

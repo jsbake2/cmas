@@ -89,4 +89,7 @@ export const stmts = {
   deleteResultsForProfile: db.prepare<[string]>(
     `DELETE FROM results WHERE profile = ?`,
   ),
+  deleteResultById: db.prepare<[string, string]>(
+    `DELETE FROM results WHERE profile = ? AND id = ?`,
+  ),
 };

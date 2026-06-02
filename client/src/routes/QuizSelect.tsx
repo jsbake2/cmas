@@ -49,6 +49,20 @@ export default function QuizSelect() {
     return m;
   }, [past]);
 
+  async function resetSingleQuiz(r: CompletedResult, label: string) {
+    if (!confirm(`Reset ${label}? Olive can take it again from scratch.`.replace("Olive", meta.name))) return;
+    try {
+      await api.deleteResult(p, r.id);
+      // If our in-progress session is for this quiz, sync local state.
+      if (state?.quizId === r.quizId) {
+        useSessionStore.setState({ state: null });
+      }
+      refreshPast();
+    } catch (e) {
+      alert(`Failed to reset: ${e instanceof Error ? e.message : String(e)}`);
+    }
+  }
+
   if (status !== "ready" || !content || !form) {
     return <div className="p-6 text-muted">Loading…</div>;
   }
@@ -159,6 +173,15 @@ export default function QuizSelect() {
               done={done}
               finalScore={finalScore}
               isResume={isResume}
+              onReset={
+                done
+                  ? () =>
+                      resetSingleQuiz(
+                        done,
+                        `Quiz ${q.quizN}: ${q.passage.title}`,
+                      )
+                  : undefined
+              }
               onClick={() => {
                 if (done) {
                   nav(`/profile/${p}/results/${done.id}`);
@@ -197,6 +220,7 @@ function QuizButton({
   finalScore,
   isResume,
   onClick,
+  onReset,
 }: {
   quizN: number;
   title: string;
@@ -205,6 +229,7 @@ function QuizButton({
   finalScore: ReturnType<typeof computeFinalScore> | null;
   isResume: boolean;
   onClick: () => void;
+  onReset?: () => void;
 }) {
   const isDone = !!done;
   const hasPending = finalScore ? finalScore.unscored > 0 : false;
@@ -215,7 +240,7 @@ function QuizButton({
   return (
     <button
       onClick={onClick}
-      className="card text-left p-4 transition-colors flex flex-col gap-1 min-h-[7rem]"
+      className="card text-left p-4 transition-colors flex flex-col gap-1 min-h-[7rem] relative"
       style={{
         background: isDone
           ? "rgba(34, 197, 94, 0.15)"
@@ -237,6 +262,33 @@ function QuizButton({
           : `Quiz ${quizN}, ${title}, ${itemCount} items`
       }
     >
+      {onReset && (
+        <span
+          role="button"
+          tabIndex={0}
+          aria-label={`Reset quiz ${quizN} (${title})`}
+          title="Reset this quiz so it can be taken again"
+          onClick={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            onReset();
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.stopPropagation();
+              e.preventDefault();
+              onReset();
+            }
+          }}
+          className="absolute top-1.5 right-1.5 inline-flex items-center justify-center w-6 h-6 rounded text-xs font-ui font-semibold hover:bg-paper transition-colors"
+          style={{
+            color: "#15803d",
+            background: "rgba(255,255,255,0.5)",
+          }}
+        >
+          ↺
+        </span>
+      )}
       <div className="flex items-center justify-between gap-2">
         <span
           className="font-ui font-semibold text-base"
