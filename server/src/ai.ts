@@ -1,15 +1,32 @@
 /**
- * Quick-and-dirty AI feedback on written responses via a local Ollama
- * server (default qwen2.5:14b). Strictly a parent-and-kid preview; never
- * a substitute for the parent's rubric scoring.
+ * Quick AI feedback on written responses via the Claude API (Anthropic).
+ * Strictly a parent-and-kid preview; never a substitute for the parent's
+ * rubric scoring.
  *
  * Env:
- *   OLLAMA_URL    base URL of the Ollama server (default http://ollama:11434)
- *   OLLAMA_MODEL  model tag (default qwen2.5:14b)
+ *   ANTHROPIC_API_KEY  Anthropic API key (required). Read automatically by
+ *                      the SDK; never logged or echoed.
+ *   CLAUDE_MODEL       model id (default claude-haiku-4-5 — cheapest, and
+ *                      already far stronger than the old local qwen2.5:14b).
+ *                      Set claude-sonnet-4-6 or claude-opus-4-8 for more
+ *                      quality at higher cost.
  */
 
-const OLLAMA_URL = process.env.OLLAMA_URL ?? "http://ollama:11434";
-const OLLAMA_MODEL = process.env.OLLAMA_MODEL ?? "qwen2.5:14b";
+import Anthropic from "@anthropic-ai/sdk";
+
+const CLAUDE_MODEL = process.env.CLAUDE_MODEL ?? "claude-haiku-4-5";
+
+let _client: Anthropic | null = null;
+function client(): Anthropic {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    throw new Error(
+      "ANTHROPIC_API_KEY is not set — the AI feedback service is unconfigured",
+    );
+  }
+  // The SDK reads ANTHROPIC_API_KEY from the environment on construction.
+  _client ??= new Anthropic({ timeout: 60_000, maxRetries: 2 });
+  return _client;
+}
 
 export interface SpellingIssue {
   misspelled: string;
@@ -76,8 +93,6 @@ function userPrompt(i: AnalyzeInput): string {
     "",
     "STUDENT RESPONSE:",
     i.studentResponse,
-    "",
-    "Return the JSON object now.",
   ]
     .filter(Boolean)
     .join("\n");
@@ -86,41 +101,39 @@ function userPrompt(i: AnalyzeInput): string {
 export async function analyzeWriting(
   input: AnalyzeInput,
 ): Promise<WritingAnalysis> {
-  const body = {
-    model: OLLAMA_MODEL,
-    stream: false,
-    format: "json",
-    options: {
-      temperature: 0.2,
-      num_predict: 700,
-    },
-    messages: [
-      { role: "system", content: SYSTEM },
-      { role: "user", content: userPrompt(input) },
-    ],
-  };
-
-  const r = await fetch(`${OLLAMA_URL}/api/chat`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-    // Qwen2.5:14b on home-server hardware can take 30-90s for a fresh
-    // request, especially on a cold model load. Give it room.
-    signal: AbortSignal.timeout(240_000),
+  const response = await client().messages.create({
+    model: CLAUDE_MODEL,
+    max_tokens: 1500,
+    system: SYSTEM,
+    messages: [{ role: "user", content: userPrompt(input) }],
   });
-  if (!r.ok) {
-    throw new Error(`Ollama returned ${r.status}: ${await r.text()}`);
-  }
-  const payload = (await r.json()) as { message?: { content?: string } };
-  const content = payload.message?.content;
-  if (!content) throw new Error("Ollama returned no content");
-  let parsed: unknown;
+
+  const text = response.content
+    .filter((b): b is Anthropic.TextBlock => b.type === "text")
+    .map((b) => b.text)
+    .join("")
+    .trim();
+  if (!text) throw new Error("Claude returned no content");
+
+  return normalize(parseJson(text));
+}
+
+/** Parse the model's reply as JSON, tolerating any stray prose around it. */
+function parseJson(text: string): unknown {
   try {
-    parsed = JSON.parse(content);
-  } catch (e) {
-    throw new Error(`Ollama returned non-JSON content: ${content.slice(0, 200)}`);
+    return JSON.parse(text);
+  } catch {
+    const start = text.indexOf("{");
+    const end = text.lastIndexOf("}");
+    if (start !== -1 && end > start) {
+      try {
+        return JSON.parse(text.slice(start, end + 1));
+      } catch {
+        /* fall through */
+      }
+    }
+    throw new Error(`Claude returned non-JSON content: ${text.slice(0, 200)}`);
   }
-  return normalize(parsed);
 }
 
 function normalize(raw: unknown): WritingAnalysis {
@@ -158,8 +171,8 @@ function normalize(raw: unknown): WritingAnalysis {
 
 export function aiInfo() {
   return {
-    enabled: !!process.env.OLLAMA_URL || true,
-    url: OLLAMA_URL,
-    model: OLLAMA_MODEL,
+    enabled: !!process.env.ANTHROPIC_API_KEY,
+    provider: "anthropic",
+    model: CLAUDE_MODEL,
   };
 }
