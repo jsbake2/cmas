@@ -7,6 +7,7 @@ import { db, stmts } from "./db.js";
 import { getContent, getContentPath } from "./content.js";
 import { PROFILES, isProfileId } from "./profiles.js";
 import { aiInfo, analyzeWriting, type WritingAnalysis } from "./ai.js";
+import { rateLimit, singleFlight } from "./ratelimit.js";
 import {
   computeProgress,
   bumpStreak,
@@ -242,12 +243,27 @@ app.get("/api/progress/:profile", (req, res) => {
 });
 
 /**
- * Quick-and-dirty AI preview of a written response. Calls Ollama (qwen2.5
- * by default) and stores the result on the saved result row so subsequent
- * page loads don't re-call the model.
+ * Quick AI preview of a written response. Calls the Claude API and stores the
+ * result on the saved result row so subsequent page loads don't re-call it.
+ *
+ * Guarded against a spammed button: a per-profile sliding-window rate limit
+ * (each Claude call costs money) plus a single-flight lock so the same item
+ * can't be analyzed twice concurrently. Both return 429.
  */
 app.post(
   "/api/results/:profile/:resultId/ai-analyze/:itemId",
+  rateLimit({
+    windowMs: 60_000,
+    max: 40, // comfortably covers an "Analyze all" pass; blocks real spam
+    keyOf: (req) => `ai:${req.params.profile}`,
+    message:
+      "Too many AI feedback requests in a short time — please wait a bit and try again.",
+  }),
+  singleFlight({
+    keyOf: (req) =>
+      `ai:${req.params.profile}:${req.params.resultId}:${req.params.itemId}`,
+    message: "This response is already being analyzed — hold on a moment.",
+  }),
   async (req, res) => {
     const p = requireProfile(req, res);
     if (!p) return;
